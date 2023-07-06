@@ -5,6 +5,10 @@ export function IngredientsShow(props) {
     props.onUpdateIngredient(props.ingredient.id, params, () => event.target.reset());
   };
 
+  const handleClick = () => {
+    props.onDestroyIngredient(props.ingredient);
+  };
+
   return (
     <div>
       <h2>{props.ingredient.name}</h2>
@@ -47,6 +51,7 @@ export function IngredientsShow(props) {
         </div>
         <button type="submit">Update Ingredient</button>
       </form>
+      <button onClick={handleClick}>Delete Ingredient</button>
     </div>
   );
 }

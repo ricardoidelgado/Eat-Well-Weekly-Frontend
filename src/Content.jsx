@@ -44,6 +44,13 @@ export function Content() {
     });
   };
 
+  const handleDestroyIngredient = (ingredient) => {
+    axios.delete(`http://localhost:3000/ingredients/${ingredient.id}.json`).then(() => {
+      setIngredients(ingredients.filter((i) => i.id !== ingredient.id));
+      handleClose();
+    });
+  };
+
   const handleClose = () => {
     setIsIngredientsShowVisible(false);
   };
@@ -55,7 +62,11 @@ export function Content() {
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />
       <Modal show={isIngredientsShowVisible} onClose={handleClose}>
-        <IngredientsShow ingredient={currentIngredient} onUpdateIngredient={handleUpdateIngredient} />
+        <IngredientsShow
+          ingredient={currentIngredient}
+          onUpdateIngredient={handleUpdateIngredient}
+          onDestroyIngredient={handleDestroyIngredient}
+        />
       </Modal>
     </div>
   );
