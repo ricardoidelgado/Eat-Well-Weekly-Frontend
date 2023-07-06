@@ -4,6 +4,9 @@ import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsShow } from "./IngredientsShow";
 import { Modal } from "./Modal";
 import { IngredientsNew } from "./IngredientsNew";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { LogoutLink } from "./LogoutLink";
 
 export function Content() {
   const [ingredients, setIngredients] = useState([]);
@@ -59,6 +62,9 @@ export function Content() {
 
   return (
     <div>
+      <Signup />
+      <Login />
+      <LogoutLink />
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />
       <Modal show={isIngredientsShowVisible} onClose={handleClose}>
