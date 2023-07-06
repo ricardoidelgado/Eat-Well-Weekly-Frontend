@@ -1,9 +1,13 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { IngredientsIndex } from "./IngredientsIndex";
+import { IngredientsShow } from "./IngredientsShow";
+import { Modal } from "./Modal";
 
 export function Content() {
   const [ingredients, setIngredients] = useState([]);
+  const [isIngredientsShowVisible, setIsIngredientsShowVisible] = useState(false);
+  const [currentIngredient, setCurrentIngredient] = useState({});
 
   const handleIndexIngredients = () => {
     axios.get("http://localhost:3000/ingredients.json").then((response) => {
@@ -11,11 +15,23 @@ export function Content() {
     });
   };
 
+  const handleShowIngredient = (ingredient) => {
+    setIsIngredientsShowVisible(true);
+    setCurrentIngredient(ingredient);
+  };
+
+  const handleClose = () => {
+    setIsIngredientsShowVisible(false);
+  };
+
   useEffect(handleIndexIngredients, []);
 
   return (
     <div>
-      <IngredientsIndex ingredients={ingredients} />
+      <IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />
+      <Modal show={isIngredientsShowVisible} onClose={handleClose}>
+        <IngredientsShow ingredient={currentIngredient} />
+      </Modal>
     </div>
   );
 }

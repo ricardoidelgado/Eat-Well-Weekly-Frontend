@@ -14,6 +14,7 @@ export function IngredientsIndex(props) {
           <p>Protein: {ingredient.protein}</p>
           <p>Sugar: {ingredient.sugar}</p>
           <p>Cholesterol: {ingredient.cholesterol}</p>
+          <button onClick={() => props.onShowIngredient(ingredient)}>More Info</button>
         </div>
       ))}
     </div>
