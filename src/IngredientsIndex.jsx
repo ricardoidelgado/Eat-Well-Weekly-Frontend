@@ -6,14 +6,7 @@ export function IngredientsIndex(props) {
         <div key={ingredient.id}>
           <h2>{ingredient.name}</h2>
           <img src={ingredient.picture} />
-          <h3>Nutrition Facts</h3>
           <p>Calories: {ingredient.calories}</p>
-          <p>Fat: {ingredient.fat}</p>
-          <p>Sodium: {ingredient.sodium}</p>
-          <p>Carbs: {ingredient.carbs}</p>
-          <p>Protein: {ingredient.protein}</p>
-          <p>Sugar: {ingredient.sugar}</p>
-          <p>Cholesterol: {ingredient.cholesterol}</p>
           <button type="button" className="btn btn-primary" onClick={() => props.onShowIngredient(ingredient)}>
             More Info
           </button>
