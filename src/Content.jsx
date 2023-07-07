@@ -61,7 +61,7 @@ export function Content() {
   useEffect(handleIndexIngredients, []);
 
   return (
-    <div>
+    <div className="container">
       <Signup />
       <Login />
       <LogoutLink />

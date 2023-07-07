@@ -9,8 +9,8 @@ export function LogoutLink() {
   };
 
   return (
-    <a href="#" onClick={handleClick}>
+    <button type="button" className="btn btn-danger" onClick={handleClick}>
       Logout
-    </a>
+    </button>
   );
 }

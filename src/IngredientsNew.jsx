@@ -35,7 +35,9 @@ export function IngredientsNew(props) {
         <div>
           Cholesterol: <input name="cholesterol" type="integer" />
         </div>
-        <button type="submit">Create Ingredient</button>
+        <button className="btn btn-success" type="submit">
+          Create Ingredient
+        </button>
       </form>
     </div>
   );
