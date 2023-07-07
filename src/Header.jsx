@@ -65,7 +65,7 @@ export function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="/ingredients">
                     All Ingredients
                   </a>
                 </li>

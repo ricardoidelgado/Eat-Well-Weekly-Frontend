@@ -10,7 +10,7 @@ export function IngredientsShow(props) {
   };
 
   return (
-    <div>
+    <div id="ingredients-show">
       <h2>{props.ingredient.name}</h2>
       <img src={props.ingredient.picture} />
       <h3>Nutrition Facts</h3>

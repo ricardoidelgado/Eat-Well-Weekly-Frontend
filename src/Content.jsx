@@ -63,9 +63,12 @@ export function Content() {
     <div className="container">
       <Routes>
         <Route path="/login-signup" element={<LoginSignup />} />
+        <Route
+          path="/ingredients"
+          element={<IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />}
+        />
       </Routes>
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
-      <IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />
       <Modal show={isIngredientsShowVisible} onClose={handleClose}>
         <IngredientsShow
           ingredient={currentIngredient}
