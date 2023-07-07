@@ -1,4 +1,30 @@
+import { LogoutLink } from "./LogoutLink";
+
 export function Header() {
+  let authenticationLink;
+  if (localStorage.jwt === undefined) {
+    authenticationLink = (
+      <>
+        <li className="nav-item">
+          <a className="nav-link" href="#signup">
+            Sign Up
+          </a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="#login">
+            Log In
+          </a>
+        </li>
+      </>
+    );
+  } else {
+    authenticationLink = (
+      <li className="nav-item">
+        <LogoutLink />
+      </li>
+    );
+  }
+
   return (
     <nav className="navbar navbar-expand-lg bg-light">
       <div className="container-fluid">
@@ -23,16 +49,9 @@ export function Header() {
                 Home
               </a>
             </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#signup">
-                Sign Up
-              </a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#login">
-                Log In
-              </a>
-            </li>
+
+            {authenticationLink}
+
             <li className="nav-item dropdown">
               <a
                 className="nav-link dropdown-toggle"
