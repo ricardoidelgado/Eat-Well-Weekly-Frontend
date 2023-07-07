@@ -1,4 +1,5 @@
 import { LogoutLink } from "./LogoutLink";
+import { Link } from "react-router-dom";
 
 export function Header() {
   let authenticationLink;
@@ -6,14 +7,9 @@ export function Header() {
     authenticationLink = (
       <>
         <li className="nav-item">
-          <a className="nav-link" href="#signup">
-            Sign Up
-          </a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="#login">
-            Log In
-          </a>
+          <Link to="/login-signup" className="nav-link">
+            Sign Up & Log In
+          </Link>
         </li>
       </>
     );
@@ -45,7 +41,7 @@ export function Header() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
+              <a className="nav-link active" aria-current="page" href="/">
                 Home
               </a>
             </li>

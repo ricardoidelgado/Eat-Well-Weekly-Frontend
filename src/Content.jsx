@@ -4,8 +4,8 @@ import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsShow } from "./IngredientsShow";
 import { Modal } from "./Modal";
 import { IngredientsNew } from "./IngredientsNew";
-import { Signup } from "./Signup";
-import { Login } from "./Login";
+import { Routes, Route } from "react-router-dom";
+import LoginSignup from "./LoginSignup";
 
 export function Content() {
   const [ingredients, setIngredients] = useState([]);
@@ -61,8 +61,9 @@ export function Content() {
 
   return (
     <div className="container">
-      <Signup />
-      <Login />
+      <Routes>
+        <Route path="/login-signup" element={<LoginSignup />} />
+      </Routes>
       <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />
       <Modal show={isIngredientsShowVisible} onClose={handleClose}>
