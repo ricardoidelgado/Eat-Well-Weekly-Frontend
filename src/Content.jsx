@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsShow } from "./IngredientsShow";
+import { IngredientsNew } from "./IngredientsNew";
 import { Modal } from "./Modal";
 import { Routes, Route } from "react-router-dom";
 import LoginSignup from "./LoginSignup";
@@ -64,6 +65,23 @@ export function Content() {
 
   useEffect(handleIndexIngredients, []);
 
+  let modalOutput;
+  let visibility;
+
+  if (isIngredientsNewVisible) {
+    modalOutput = <IngredientsNew onCreateIngredient={handleCreateIngredient} />;
+    visibility = isIngredientsNewVisible;
+  } else if (isIngredientsShowVisible) {
+    modalOutput = (
+      <IngredientsShow
+        ingredient={currentIngredient}
+        onUpdateIngredient={handleUpdateIngredient}
+        onDestroyIngredient={handleDestroyIngredient}
+      />
+    );
+    visibility = isIngredientsShowVisible;
+  }
+
   return (
     <div className="container">
       <Routes>
@@ -75,19 +93,12 @@ export function Content() {
               ingredients={ingredients}
               onShowIngredient={handleShowIngredient}
               onNewIngredient={handleNewIngredient}
-              onCreateIngredient={handleCreateIngredient}
-              show={isIngredientsNewVisible}
-              onClose={handleClose}
             />
           }
         />
       </Routes>
-      <Modal show={isIngredientsShowVisible} onClose={handleClose}>
-        <IngredientsShow
-          ingredient={currentIngredient}
-          onUpdateIngredient={handleUpdateIngredient}
-          onDestroyIngredient={handleDestroyIngredient}
-        />
+      <Modal show={visibility} onClose={handleClose}>
+        {modalOutput}
       </Modal>
     </div>
   );

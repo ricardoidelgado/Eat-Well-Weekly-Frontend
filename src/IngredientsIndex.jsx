@@ -1,6 +1,3 @@
-import { Modal } from "./Modal";
-import { IngredientsNew } from "./IngredientsNew";
-
 export function IngredientsIndex(props) {
   return (
     <div id="ingredients-index">
@@ -18,9 +15,6 @@ export function IngredientsIndex(props) {
           </button>
         </div>
       ))}
-      <Modal show={props.show} onClose={props.onClose}>
-        <IngredientsNew onCreateIngredient={props.onCreateIngredient} />
-      </Modal>
     </div>
   );
 }
