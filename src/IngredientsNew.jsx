@@ -3,6 +3,7 @@ export function IngredientsNew(props) {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateIngredient(params, () => event.target.reset());
+    window.location.href = "/ingredients"; // Change this to hide a modal, redirect to a specific page, etc.
   };
   return (
     <div>

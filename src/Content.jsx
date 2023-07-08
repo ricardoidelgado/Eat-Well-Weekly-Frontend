@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsShow } from "./IngredientsShow";
 import { Modal } from "./Modal";
-import { IngredientsNew } from "./IngredientsNew";
 import { Routes, Route } from "react-router-dom";
 import LoginSignup from "./LoginSignup";
 
@@ -11,6 +10,7 @@ export function Content() {
   const [ingredients, setIngredients] = useState([]);
   const [isIngredientsShowVisible, setIsIngredientsShowVisible] = useState(false);
   const [currentIngredient, setCurrentIngredient] = useState({});
+  const [isIngredientsNewVisible, setIsIngredientsNewVisible] = useState(false);
 
   const handleIndexIngredients = () => {
     axios.get("http://localhost:3000/ingredients.json").then((response) => {
@@ -21,6 +21,10 @@ export function Content() {
   const handleShowIngredient = (ingredient) => {
     setIsIngredientsShowVisible(true);
     setCurrentIngredient(ingredient);
+  };
+
+  const handleNewIngredient = () => {
+    setIsIngredientsNewVisible(true);
   };
 
   const handleCreateIngredient = (params, successCallback) => {
@@ -55,6 +59,7 @@ export function Content() {
 
   const handleClose = () => {
     setIsIngredientsShowVisible(false);
+    setIsIngredientsNewVisible(false);
   };
 
   useEffect(handleIndexIngredients, []);
@@ -65,10 +70,18 @@ export function Content() {
         <Route path="/login-signup" element={<LoginSignup />} />
         <Route
           path="/ingredients"
-          element={<IngredientsIndex ingredients={ingredients} onShowIngredient={handleShowIngredient} />}
+          element={
+            <IngredientsIndex
+              ingredients={ingredients}
+              onShowIngredient={handleShowIngredient}
+              onNewIngredient={handleNewIngredient}
+              onCreateIngredient={handleCreateIngredient}
+              show={isIngredientsNewVisible}
+              onClose={handleClose}
+            />
+          }
         />
       </Routes>
-      <IngredientsNew onCreateIngredient={handleCreateIngredient} />
       <Modal show={isIngredientsShowVisible} onClose={handleClose}>
         <IngredientsShow
           ingredient={currentIngredient}
