@@ -1,13 +1,22 @@
+// Set Up
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { Modal } from "./Modal";
+import { Routes, Route } from "react-router-dom";
+
+// Ingredients
 import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsShow } from "./IngredientsShow";
 import { IngredientsNew } from "./IngredientsNew";
-import { Modal } from "./Modal";
-import { Routes, Route } from "react-router-dom";
+
+// Meals
+import { MealsIndex } from "./MealsIndex";
+
+// Login/Signup
 import LoginSignup from "./LoginSignup";
 
 export function Content() {
+  // Ingredients
   const [ingredients, setIngredients] = useState([]);
   const [isIngredientsShowVisible, setIsIngredientsShowVisible] = useState(false);
   const [currentIngredient, setCurrentIngredient] = useState({});
@@ -65,6 +74,18 @@ export function Content() {
 
   useEffect(handleIndexIngredients, []);
 
+  // Meals
+  const [meals, setMeals] = useState([]);
+
+  const handleIndexMeals = () => {
+    axios.get("http://localhost:3000/meals.json").then((response) => {
+      setMeals(response.data);
+    });
+  };
+
+  useEffect(handleIndexMeals, []);
+
+  // Ingredients Output Logic
   let modalOutput;
   let visibility;
 
@@ -97,6 +118,9 @@ export function Content() {
           }
         />
       </Routes>
+
+      <MealsIndex meals={meals} />
+
       <Modal show={visibility} onClose={handleClose}>
         {modalOutput}
       </Modal>
