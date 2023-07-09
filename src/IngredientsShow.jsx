@@ -49,9 +49,13 @@ export function IngredientsShow(props) {
         <div>
           Cholesterol: <input defaultValue={props.ingredient.cholesterol} name="cholesterol" type="integer" />
         </div>
-        <button type="submit">Update Ingredient</button>
+        <button className="btn btn-warning" type="submit">
+          Update Ingredient
+        </button>
       </form>
-      <button onClick={handleClick}>Delete Ingredient</button>
+      <button className="btn btn-danger" onClick={handleClick}>
+        Delete Ingredient
+      </button>
     </div>
   );
 }

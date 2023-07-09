@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { Modal } from "./Modal";
 import { Routes, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 // Ingredients
 import { IngredientsIndex } from "./IngredientsIndex";
@@ -11,6 +12,8 @@ import { IngredientsNew } from "./IngredientsNew";
 
 // Meals
 import { MealsIndex } from "./MealsIndex";
+import { MealsShowPage } from "./MealsShowPage";
+import { MealsNew } from "./MealsNew";
 
 // Login/Signup
 import LoginSignup from "./LoginSignup";
@@ -76,10 +79,41 @@ export function Content() {
 
   // Meals
   const [meals, setMeals] = useState([]);
+  const navigate = useNavigate();
 
   const handleIndexMeals = () => {
     axios.get("http://localhost:3000/meals.json").then((response) => {
       setMeals(response.data);
+    });
+  };
+
+  const handleCreateMeal = (params) => {
+    axios.post("http://localhost:3000/meals.json", params).then((response) => {
+      const newMeal = response.data;
+      setMeals([...meals, newMeal]);
+    });
+  };
+
+  const handleUpdateMeal = (id, params) => {
+    axios.patch(`http://localhost:3000/meals/${id}.json`, params).then((response) => {
+      const updatedMeal = response.data;
+      setMeals(
+        meals.map((meal) => {
+          if (meal.id === updatedMeal.id) {
+            return updatedMeal;
+          } else {
+            return meal;
+          }
+        })
+      );
+      navigate("/meals");
+    });
+  };
+
+  const handleDestroyMeal = (meal) => {
+    axios.delete(`http://localhost:3000/meals/${meal.id}.json`).then(() => {
+      setMeals(meals.filter((m) => m.id !== meal.id));
+      navigate("/meals");
     });
   };
 
@@ -117,9 +151,13 @@ export function Content() {
             />
           }
         />
+        <Route path="/meals" element={<MealsIndex meals={meals} />} />
+        <Route
+          path="/meals/:id"
+          element={<MealsShowPage onUpdateMeal={handleUpdateMeal} onDestroyMeal={handleDestroyMeal} />}
+        />
+        <Route path="/meals/new" element={<MealsNew onCreateMeal={handleCreateMeal} />} />
       </Routes>
-
-      <MealsIndex meals={meals} />
 
       <Modal show={visibility} onClose={handleClose}>
         {modalOutput}
