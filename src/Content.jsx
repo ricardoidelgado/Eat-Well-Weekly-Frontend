@@ -5,6 +5,9 @@ import { Modal } from "./Modal";
 import { Routes, Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+// Home
+import { Home } from "./Home";
+
 // Ingredients
 import { IngredientsIndex } from "./IngredientsIndex";
 import { IngredientsShow } from "./IngredientsShow";
@@ -140,6 +143,7 @@ export function Content() {
   return (
     <div className="container">
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/login-signup" element={<LoginSignup />} />
         <Route
           path="/ingredients"
