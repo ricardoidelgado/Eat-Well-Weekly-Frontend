@@ -3,10 +3,12 @@ export function MealIngredientsShow(props) {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onUpdateMealIngredient(props.mealIngredient.id, params, () => event.target.reset());
+    window.location.href = `/meals/${props.meal.id}`; // Change this to hide a modal, redirect to a specific page, etc.
   };
 
   const handleClick = () => {
     props.onDestroyMealIngredient(props.mealIngredient);
+    window.location.href = `/meals/${props.meal.id}`; // Change this to hide a modal, redirect to a specific page, etc.
   };
   return (
     <div>
