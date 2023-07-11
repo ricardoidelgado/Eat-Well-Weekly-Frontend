@@ -221,6 +221,7 @@ export function Content() {
               onDestroyMeal={handleDestroyMeal}
               onShowMealIngredient={handleShowMealIngredient}
               onCreateMealIngredient={handleCreateMealIngredient}
+              ingredients={ingredients}
             />
           }
         />

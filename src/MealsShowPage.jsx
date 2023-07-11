@@ -43,7 +43,11 @@ export function MealsShowPage(props) {
       </ul>
       <button onClick={() => setNewMealIngredientVisibility(true)}>Add New Ingredient</button>
       {newMealIngredientVisibility ? (
-        <MealIngredientsNew onCreateMealIngredient={props.onCreateMealIngredient} meal={meal} />
+        <MealIngredientsNew
+          onCreateMealIngredient={props.onCreateMealIngredient}
+          meal={meal}
+          ingredients={props.ingredients}
+        />
       ) : (
         <></>
       )}
