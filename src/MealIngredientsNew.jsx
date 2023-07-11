@@ -25,7 +25,8 @@ export function MealIngredientsNew(props) {
         <div>
           Quantity: <input name="ingredient_quantity" type="text" />
         </div>
-        <button type="submit">Create Meal Ingredient</button>
+        <button type="submit">Add Ingredient to {props.meal.name}</button>
+        <h3>All Ingredients</h3>
         <div>
           Search
           <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />

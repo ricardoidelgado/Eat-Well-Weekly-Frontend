@@ -7,6 +7,7 @@ export function MealsShowPage(props) {
   const [meal, setMeal] = useState({});
   const params = useParams();
   const [newMealIngredientVisibility, setNewMealIngredientVisibility] = useState(false);
+  const [editMealVisibility, setEditMealVisibility] = useState(false);
 
   const handleShowMeal = () => {
     axios.get(`http://localhost:3000/meals/${params.id}.json`).then((response) => {
@@ -52,21 +53,28 @@ export function MealsShowPage(props) {
         <></>
       )}
 
-      <h1>Edit Meal</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" defaultValue={meal.name} type="text" />
-        </div>
-        <div>
-          Picture: <input name="picture" defaultValue={meal.picture} type="text" />
-        </div>
-        <button className="btn btn-warning" type="submit">
-          Update Meal
-        </button>
-      </form>
-      <button className="btn btn-danger" onClick={handleClick}>
-        Destroy Meal
-      </button>
+      <button onClick={() => setEditMealVisibility(true)}>Edit Meal</button>
+      {editMealVisibility ? (
+        <>
+          <h1>Edit Meal</h1>
+          <form onSubmit={handleSubmit}>
+            <div>
+              Name: <input name="name" defaultValue={meal.name} type="text" />
+            </div>
+            <div>
+              Picture: <input name="picture" defaultValue={meal.picture} type="text" />
+            </div>
+            <button className="btn btn-warning" type="submit">
+              Update Meal
+            </button>
+          </form>
+          <button className="btn btn-danger" onClick={handleClick}>
+            Destroy Meal
+          </button>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
