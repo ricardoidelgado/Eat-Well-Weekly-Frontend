@@ -30,10 +30,11 @@ export function MealsShowPage(props) {
       <img src={meal.picture} alt="" />
       <p>Ingredients: </p>
       <ul>
-        {meal.meal_ingredients?.map((meal_ingredient) => (
-          <div key={meal_ingredient.id}>
+        {meal.meal_ingredients?.map((mealIngredient) => (
+          <div key={mealIngredient.id}>
             <li>
-              {meal_ingredient.ingredient.name} - Quantity: {meal_ingredient.ingredient_quantity}
+              {mealIngredient.ingredient.name} - Quantity: {mealIngredient.ingredient_quantity}
+              <button onClick={() => props.onShowMealIngredient(mealIngredient, meal)}>Update Ingredient</button>
             </li>
           </div>
         ))}
@@ -51,7 +52,6 @@ export function MealsShowPage(props) {
           Update Meal
         </button>
       </form>
-
       <button className="btn btn-danger" onClick={handleClick}>
         Destroy Meal
       </button>

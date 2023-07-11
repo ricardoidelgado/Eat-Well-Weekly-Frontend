@@ -18,6 +18,10 @@ import { MealsIndex } from "./MealsIndex";
 import { MealsShowPage } from "./MealsShowPage";
 import { MealsNew } from "./MealsNew";
 
+// Meal Ingredients
+import { MealIngredientsNew } from "./MealIngredientsNew";
+import { MealIngredientsShow } from "./MealIngredientsShow";
+
 // Login/Signup
 import LoginSignup from "./LoginSignup";
 
@@ -73,15 +77,11 @@ export function Content() {
     });
   };
 
-  const handleClose = () => {
-    setIsIngredientsShowVisible(false);
-    setIsIngredientsNewVisible(false);
-  };
-
   useEffect(handleIndexIngredients, []);
 
   // Meals
   const [meals, setMeals] = useState([]);
+  const [currentMeal, setCurrentMeal] = useState({});
   const navigate = useNavigate();
 
   const handleIndexMeals = () => {
@@ -122,6 +122,54 @@ export function Content() {
 
   useEffect(handleIndexMeals, []);
 
+  // MealIngredients
+  const [mealIngredients, setMealIngredients] = useState([]);
+  const [isMealIngredientsModalVisible, setIsMealIngredientsModalVisible] = useState(false);
+  const [currentMealIngredient, setCurrentMealIngredient] = useState({});
+
+  const handleCreateMealIngredient = (params, successCallback) => {
+    axios.post("http://localhost:3000/meal_ingredients.json", params).then((response) => {
+      setMealIngredients(...mealIngredients, response.data);
+      successCallback;
+    });
+  };
+
+  const handleUpdateMealIngredient = (id, params, successCallback) => {
+    axios.patch(`http://localhost:3000/meal_ingredients/${id}.json`, params).then((response) => {
+      setMealIngredients(
+        mealIngredients.map((mealIngredient) => {
+          if (mealIngredient.id === response.data.id) {
+            return response.data;
+          } else {
+            return mealIngredient;
+          }
+        })
+      );
+      successCallback();
+      handleClose();
+    });
+  };
+
+  const handleDestroyMealIngredient = (mealIngredient) => {
+    axios.delete(`http://localhost:3000/meal_ingredients/${mealIngredient.id}.json`).then(() => {
+      setMealIngredients(mealIngredients.filter((mI) => mI.id !== mealIngredient.id));
+      handleClose();
+    });
+  };
+
+  const handleShowMealIngredient = (mealIngredient, meal) => {
+    setIsMealIngredientsModalVisible(true);
+    setCurrentMealIngredient(mealIngredient);
+    setCurrentMeal(meal);
+  };
+
+  // Shared
+  const handleClose = () => {
+    setIsIngredientsShowVisible(false);
+    setIsIngredientsNewVisible(false);
+    setIsMealIngredientsModalVisible(false);
+  };
+
   // Ingredients Output Logic
   let modalOutput;
   let visibility;
@@ -138,6 +186,16 @@ export function Content() {
       />
     );
     visibility = isIngredientsShowVisible;
+  } else if (isMealIngredientsModalVisible) {
+    modalOutput = (
+      <MealIngredientsShow
+        mealIngredient={currentMealIngredient}
+        onUpdateMealIngredient={handleUpdateMealIngredient}
+        onDestroyMealIngredient={handleDestroyMealIngredient}
+        meal={currentMeal}
+      />
+    );
+    visibility = isMealIngredientsModalVisible;
   }
 
   return (
@@ -158,11 +216,17 @@ export function Content() {
         <Route path="/meals" element={<MealsIndex meals={meals} />} />
         <Route
           path="/meals/:id"
-          element={<MealsShowPage onUpdateMeal={handleUpdateMeal} onDestroyMeal={handleDestroyMeal} />}
+          element={
+            <MealsShowPage
+              onUpdateMeal={handleUpdateMeal}
+              onDestroyMeal={handleDestroyMeal}
+              onShowMealIngredient={handleShowMealIngredient}
+            />
+          }
         />
         <Route path="/meals/new" element={<MealsNew onCreateMeal={handleCreateMeal} />} />
       </Routes>
-
+      <MealIngredientsNew onCreateMealIngredient={handleCreateMealIngredient} />
       <Modal show={visibility} onClose={handleClose}>
         {modalOutput}
       </Modal>
