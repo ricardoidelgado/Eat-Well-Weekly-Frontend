@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { MealIngredientsNew } from "./MealIngredientsNew";
 
 export function MealsShowPage(props) {
   const [meal, setMeal] = useState({});
   const params = useParams();
+  const [newMealIngredientVisibility, setNewMealIngredientVisibility] = useState(false);
 
   const handleShowMeal = () => {
     axios.get(`http://localhost:3000/meals/${params.id}.json`).then((response) => {
@@ -39,6 +41,12 @@ export function MealsShowPage(props) {
           </div>
         ))}
       </ul>
+      <button onClick={() => setNewMealIngredientVisibility(true)}>Add New Ingredient</button>
+      {newMealIngredientVisibility ? (
+        <MealIngredientsNew onCreateMealIngredient={props.onCreateMealIngredient} meal={meal} />
+      ) : (
+        <></>
+      )}
 
       <h1>Edit Meal</h1>
       <form onSubmit={handleSubmit}>

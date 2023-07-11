@@ -3,6 +3,7 @@ export function MealIngredientsNew(props) {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateMealIngredient(params, () => event.target.reset());
+    window.location.href = `/meals/${props.meal.id}`;
   };
 
   return (

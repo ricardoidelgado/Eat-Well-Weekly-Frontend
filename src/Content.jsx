@@ -19,7 +19,6 @@ import { MealsShowPage } from "./MealsShowPage";
 import { MealsNew } from "./MealsNew";
 
 // Meal Ingredients
-import { MealIngredientsNew } from "./MealIngredientsNew";
 import { MealIngredientsShow } from "./MealIngredientsShow";
 
 // Login/Signup
@@ -170,7 +169,7 @@ export function Content() {
     setIsMealIngredientsModalVisible(false);
   };
 
-  // Ingredients Output Logic
+  // Modal Output Logic
   let modalOutput;
   let visibility;
 
@@ -221,12 +220,12 @@ export function Content() {
               onUpdateMeal={handleUpdateMeal}
               onDestroyMeal={handleDestroyMeal}
               onShowMealIngredient={handleShowMealIngredient}
+              onCreateMealIngredient={handleCreateMealIngredient}
             />
           }
         />
         <Route path="/meals/new" element={<MealsNew onCreateMeal={handleCreateMeal} />} />
       </Routes>
-      <MealIngredientsNew onCreateMealIngredient={handleCreateMealIngredient} />
       <Modal show={visibility} onClose={handleClose}>
         {modalOutput}
       </Modal>

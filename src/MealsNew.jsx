@@ -20,10 +20,7 @@ export function MealsNew(props) {
         <div>
           Picture: <input name="picture" type="text" />
         </div>
-        {/* <div>
-          Ingredients: <input name="ingredients" type="text" />
-        </div> */}
-        <button type="submit">Create recipe</button>
+        <button type="submit">Create Meal</button>
       </form>
     </div>
   );
