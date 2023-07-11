@@ -8,10 +8,10 @@ export function MealIngredientsNew(props) {
 
   return (
     <div>
-      <h1>New Meal Ingredient</h1>
+      <h1>New Ingredient for {props.meal.name}</h1>
       <form onSubmit={handleSubmit}>
         <div>
-          Meal Id: <input name="meal_id" type="text" />
+          <input name="meal_id" type="text" defaultValue={props.meal.id} hidden />
         </div>
         <div>
           Ingredient Id: <input name="ingredient_id" type="text" />
