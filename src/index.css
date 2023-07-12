@@ -24,6 +24,16 @@ html {
   height: 100px;
 }
 
+#dmp-index img {
+  width: 100px;
+  height: 100px;
+}
+
+#dmp-show img {
+  width: 100px;
+  height: 100px;
+}
+
 /* END  */
 
 #root {

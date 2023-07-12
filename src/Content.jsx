@@ -21,10 +21,17 @@ import { MealsNew } from "./MealsNew";
 // Meal Ingredients
 import { MealIngredientsShow } from "./MealIngredientsShow";
 
+// Daily Meal Plans
+import { DailyMealPlansIndex } from "./DailyMealPlansIndex";
+import { DailyMealPlansShowPage } from "./DailyMealPlansShowPage";
+import { DailyMealPlansNew } from "./DailyMealPlansNew";
+
 // Login/Signup
 import LoginSignup from "./LoginSignup";
 
 export function Content() {
+  const navigate = useNavigate();
+
   // Ingredients
   const [ingredients, setIngredients] = useState([]);
   const [isIngredientsShowVisible, setIsIngredientsShowVisible] = useState(false);
@@ -81,7 +88,6 @@ export function Content() {
   // Meals
   const [meals, setMeals] = useState([]);
   const [currentMeal, setCurrentMeal] = useState({});
-  const navigate = useNavigate();
 
   const handleIndexMeals = () => {
     axios.get("http://localhost:3000/meals.json").then((response) => {
@@ -162,6 +168,47 @@ export function Content() {
     setCurrentMeal(meal);
   };
 
+  // Daily Meal Plans
+  const [dailyMealPlans, setDailyMealPlans] = useState([]);
+
+  const handleIndexDailyMealPlans = () => {
+    axios.get("http://localhost:3000/daily_meal_plans.json").then((response) => {
+      setDailyMealPlans(response.data);
+    });
+  };
+
+  const handleCreateDailyMealPlan = (params) => {
+    axios.post("http://localhost:3000/daily_meal_plans.json", params).then((response) => {
+      const newDailyMealPlan = response.data;
+      setDailyMealPlans([...dailyMealPlans, newDailyMealPlan]);
+    });
+  };
+
+  const handleUpdateDailyMealPlan = (id, params) => {
+    axios.patch(`http://localhost:3000/daily_meal_plans/${id}.json`, params).then((response) => {
+      const updatedDailyMealPlan = response.data;
+      setDailyMealPlans(
+        dailyMealPlans.map((dailyMealPlan) => {
+          if (dailyMealPlan.id === updatedDailyMealPlan.id) {
+            return updatedDailyMealPlan;
+          } else {
+            return dailyMealPlan;
+          }
+        })
+      );
+      navigate("/daily_meal_plans");
+    });
+  };
+
+  const handleDestroyDailyMealPlan = (dailyMealPlan) => {
+    axios.delete(`http://localhost:3000/daily_meal_plans/${dailyMealPlan.id}.json`).then(() => {
+      setDailyMealPlans(dailyMealPlans.filter((dmp) => dmp.id !== dailyMealPlan.id));
+      navigate("/daily_meal_plans");
+    });
+  };
+
+  useEffect(handleIndexDailyMealPlans, []);
+
   // Shared
   const handleClose = () => {
     setIsIngredientsShowVisible(false);
@@ -226,7 +273,18 @@ export function Content() {
           }
         />
         <Route path="/meals/new" element={<MealsNew onCreateMeal={handleCreateMeal} />} />
+        <Route path="/daily_meal_plans" element={<DailyMealPlansIndex dailyMealPlans={dailyMealPlans} />} />
+        <Route
+          path="/daily_meal_plans/:id"
+          element={
+            <DailyMealPlansShowPage
+              onUpdateDailyMealPlan={handleUpdateDailyMealPlan}
+              onDestroyDailyMealPlan={handleDestroyDailyMealPlan}
+            />
+          }
+        />
       </Routes>
+      <DailyMealPlansNew onCreateDailyMealPlan={handleCreateDailyMealPlan} />
       <Modal show={visibility} onClose={handleClose}>
         {modalOutput}
       </Modal>

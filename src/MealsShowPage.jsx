@@ -69,7 +69,7 @@ export function MealsShowPage(props) {
             </button>
           </form>
           <button className="btn btn-danger" onClick={handleClick}>
-            Destroy Meal
+            Delete Meal
           </button>
         </>
       ) : (
