@@ -1,8 +1,13 @@
+import { useNavigate } from "react-router-dom";
+
 export function DailyMealPlansNew(props) {
+  const navigate = useNavigate();
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     props.onCreateDailyMealPlan(params, () => event.target.reset());
+    navigate("/daily_meal_plans");
   };
   return (
     <div>

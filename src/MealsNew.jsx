@@ -8,7 +8,7 @@ export function MealsNew(props) {
     const params = new FormData(event.target);
     props.onCreateMeal(params);
     event.target.reset();
-    navigate("/");
+    navigate("/meals");
   };
   return (
     <div id="meals-new">

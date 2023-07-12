@@ -283,8 +283,11 @@ export function Content() {
             />
           }
         />
+        <Route
+          path="/daily_meal_plans/new"
+          element={<DailyMealPlansNew onCreateDailyMealPlan={handleCreateDailyMealPlan} />}
+        />
       </Routes>
-      <DailyMealPlansNew onCreateDailyMealPlan={handleCreateDailyMealPlan} />
       <Modal show={visibility} onClose={handleClose}>
         {modalOutput}
       </Modal>

@@ -46,6 +46,15 @@ export function DailyMealPlansShowPage(props) {
           <div>
             Name: <input name="name" type="text" defaultValue={dailyMealPlan.name} />
           </div>
+          <div>
+            Breakfast: <input name="breakfast" type="number" defaultValue={dailyMealPlan.breakfast} />
+          </div>
+          <div>
+            Lunch: <input name="lunch" type="number" defaultValue={dailyMealPlan.lunch} />
+          </div>
+          <div>
+            Dinner: <input name="dinner" type="number" defaultValue={dailyMealPlan.dinner} />
+          </div>
           <button type="submit">Update Daily Meal Plan</button>
         </form>
 
