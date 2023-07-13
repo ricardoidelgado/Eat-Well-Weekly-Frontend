@@ -42,31 +42,31 @@ export function WeeklyMealPlansShowPage(props) {
     <div id="wmp-show">
       <h2>{weeklyMealPlan.name}</h2>
       <ul>
-        <li>Sunday: {weeklyMealPlan.sunday}</li>
+        <li>Sunday: {weeklyMealPlan.sunday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.sunday}`}>
           See Sunday Meal Plan
         </Link>
-        <li>Monday: {weeklyMealPlan.monday}</li>
+        <li>Monday: {weeklyMealPlan.monday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.monday}`}>
           See Monday Meal Plan
         </Link>
-        <li>Tuesday: {weeklyMealPlan.tuesday}</li>
+        <li>Tuesday: {weeklyMealPlan.tuesday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.tuesday}`}>
           See Tuesday Meal Plan
         </Link>
-        <li>Wednesday: {weeklyMealPlan.wednesday}</li>
+        <li>Wednesday: {weeklyMealPlan.wednesday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.wednesday}`}>
           See Wednesday Meal Plan
         </Link>
-        <li>Thursday: {weeklyMealPlan.thursday}</li>
+        <li>Thursday: {weeklyMealPlan.thursday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.thursday}`}>
           See Thursday Meal Plan
         </Link>
-        <li>Friday: {weeklyMealPlan.friday}</li>
+        <li>Friday: {weeklyMealPlan.friday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.friday}`}>
           See Friday Meal Plan
         </Link>
-        <li>Saturday: {weeklyMealPlan.saturday}</li>
+        <li>Saturday: {weeklyMealPlan.saturday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.saturday}`}>
           See Saturday Meal Plan
         </Link>
