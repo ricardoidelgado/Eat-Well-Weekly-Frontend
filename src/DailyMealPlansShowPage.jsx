@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 
 export function DailyMealPlansShowPage(props) {
@@ -44,14 +44,23 @@ export function DailyMealPlansShowPage(props) {
         <ul>
           <li>Breakfast: {dailyMealPlan.breakfast_meal?.name}</li>
           <img src={dailyMealPlan.breakfast_meal?.picture} alt="" />
+          <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.breakfast}`}>
+            See Breakfast Meal
+          </Link>
         </ul>
         <ul>
           <li>Lunch: {dailyMealPlan.lunch_meal?.name}</li>
           <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
+          <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.lunch}`}>
+            See Lunch Meal
+          </Link>
         </ul>
         <ul>
           <li>Dinner: {dailyMealPlan.dinner_meal?.name}</li>
           <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
+          <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.dinner}`}>
+            See Dinner Meal
+          </Link>
         </ul>
 
         {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
