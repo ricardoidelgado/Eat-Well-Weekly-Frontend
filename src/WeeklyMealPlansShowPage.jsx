@@ -31,12 +31,12 @@ export function WeeklyMealPlansShowPage(props) {
   //   });
   // };
 
-  // const handleEmailGroceryList = (event) => {
-  //   event.preventDefault();
-  //   axios.get(`http://localhost:3000/email_weekly_meal_plans/${params.id}.json`).then(() => {
-  //     console.log("Email Sent Successfully");
-  //   });
-  // };
+  const handleEmailGroceryList = (event) => {
+    event.preventDefault();
+    axios.get(`http://localhost:3000/email_weekly_meal_plans/${params.id}.json`).then(() => {
+      console.log("Email Sent Successfully");
+    });
+  };
 
   return (
     <div id="wmp-show">
@@ -73,7 +73,7 @@ export function WeeklyMealPlansShowPage(props) {
       </ul>
 
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
-      {/* <button onClick={handleEmailGroceryList}>Email Grocery List</button> */}
+      <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
       <h1>Edit Weekly Meal Plan</h1>
       <form onSubmit={handleSubmit}>
