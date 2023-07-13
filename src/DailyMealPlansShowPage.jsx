@@ -6,7 +6,7 @@ export function DailyMealPlansShowPage(props) {
   const [dailyMealPlan, setDailyMealPlan] = useState({});
   const params = useParams();
 
-  let handleShowDailyMealPlan = () => {
+  const handleShowDailyMealPlan = () => {
     axios.get(`http://localhost:3000/daily_meal_plans/${params.id}.json`).then((response) => {
       setDailyMealPlan(response.data);
     });
@@ -24,6 +24,19 @@ export function DailyMealPlansShowPage(props) {
     props.onDestroyDailyMealPlan(dailyMealPlan);
   };
 
+  // const handleTextGroceryList = (event) => {
+  //   event.preventDefault();
+  //   axios.get(`http://localhost:3000/twilio_daily_meal_plans/${params.id}.json`).then(() => {
+  //     console.log("Text Message Sent Successfully");
+  //   });
+  // };
+
+  const handleEmailGroceryList = (event) => {
+    event.preventDefault();
+    axios.get(`http://localhost:3000/email_daily_meal_plans/${params.id}.json`).then(() => {
+      console.log("Email Sent Successfully");
+    });
+  };
   if (dailyMealPlan) {
     return (
       <div id="dmp-show">
@@ -40,6 +53,9 @@ export function DailyMealPlansShowPage(props) {
           <li>Dinner: {dailyMealPlan.dinner_meal?.name}</li>
           <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
         </ul>
+
+        {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
+        <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
         <h1>Edit Daily Meal Plan</h1>
         <form onSubmit={handleSubmit}>
