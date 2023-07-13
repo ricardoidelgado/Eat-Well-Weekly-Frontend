@@ -26,6 +26,11 @@ import { DailyMealPlansIndex } from "./DailyMealPlansIndex";
 import { DailyMealPlansShowPage } from "./DailyMealPlansShowPage";
 import { DailyMealPlansNew } from "./DailyMealPlansNew";
 
+// Weekly Meal Plans
+import { WeeklyMealPlansIndex } from "./WeeklyMealPlansIndex";
+import { WeeklyMealPlansShowPage } from "./WeeklyMealPlansShowPage";
+import { WeeklyMealPlansNew } from "./WeeklyMealPlansNew";
+
 // Login/Signup
 import LoginSignup from "./LoginSignup";
 
@@ -209,6 +214,47 @@ export function Content() {
 
   useEffect(handleIndexDailyMealPlans, []);
 
+  // Weekly Meal Plans
+  const [weeklyMealPlans, setWeeklyMealPlans] = useState([]);
+
+  const handleIndexWeeklyMealPlans = () => {
+    axios.get("http://localhost:3000/weekly_meal_plans.json").then((response) => {
+      setWeeklyMealPlans(response.data);
+    });
+  };
+
+  const handleCreateWeeklyMealPlan = (params) => {
+    axios.post("http://localhost:3000/weekly_meal_plans.json", params).then((response) => {
+      const newWeeklyMealPlan = response.data;
+      setWeeklyMealPlans([...weeklyMealPlans, newWeeklyMealPlan]);
+    });
+  };
+
+  const handleUpdateWeeklyMealPlan = (id, params) => {
+    axios.patch(`http://localhost:3000/weekly_meal_plans/${id}.json`, params).then((response) => {
+      const updatedWeeklyMealPlan = response.data;
+      setWeeklyMealPlans(
+        weeklyMealPlans.map((weeklyMealPlan) => {
+          if (weeklyMealPlan.id === updatedWeeklyMealPlan.id) {
+            return updatedWeeklyMealPlan;
+          } else {
+            return weeklyMealPlan;
+          }
+        })
+      );
+      navigate("/weekly_meal_plans");
+    });
+  };
+
+  const handleDestroyWeeklyMealPlan = (weeklyMealPlan) => {
+    axios.delete(`http://localhost:3000/weekly_meal_plans/${weeklyMealPlan.id}.json`).then(() => {
+      setWeeklyMealPlans(weeklyMealPlans.filter((wmp) => wmp.id !== weeklyMealPlan.id));
+      navigate("/weekly_meal_plans");
+    });
+  };
+
+  useEffect(handleIndexWeeklyMealPlans, []);
+
   // Shared
   const handleClose = () => {
     setIsIngredientsShowVisible(false);
@@ -286,6 +332,20 @@ export function Content() {
         <Route
           path="/daily_meal_plans/new"
           element={<DailyMealPlansNew onCreateDailyMealPlan={handleCreateDailyMealPlan} />}
+        />
+        <Route path="/weekly_meal_plans" element={<WeeklyMealPlansIndex weeklyMealPlans={weeklyMealPlans} />} />
+        <Route
+          path="/weekly_meal_plans/:id"
+          element={
+            <WeeklyMealPlansShowPage
+              onUpdateWeeklyMealPlan={handleUpdateWeeklyMealPlan}
+              onDestroyWeeklyMealPlan={handleDestroyWeeklyMealPlan}
+            />
+          }
+        />
+        <Route
+          path="/weekly_meal_plans/new"
+          element={<WeeklyMealPlansNew onCreateWeeklyMealPlan={handleCreateWeeklyMealPlan} />}
         />
       </Routes>
       <Modal show={visibility} onClose={handleClose}>

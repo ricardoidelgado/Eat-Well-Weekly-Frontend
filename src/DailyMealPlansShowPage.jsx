@@ -37,54 +37,52 @@ export function DailyMealPlansShowPage(props) {
       console.log("Email Sent Successfully");
     });
   };
-  if (dailyMealPlan) {
-    return (
-      <div id="dmp-show">
-        <h2>{dailyMealPlan.name}</h2>
-        <ul>
-          <li>Breakfast: {dailyMealPlan.breakfast_meal?.name}</li>
-          <img src={dailyMealPlan.breakfast_meal?.picture} alt="" />
-          <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.breakfast}`}>
-            See Breakfast Meal
-          </Link>
-        </ul>
-        <ul>
-          <li>Lunch: {dailyMealPlan.lunch_meal?.name}</li>
-          <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
-          <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.lunch}`}>
-            See Lunch Meal
-          </Link>
-        </ul>
-        <ul>
-          <li>Dinner: {dailyMealPlan.dinner_meal?.name}</li>
-          <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
-          <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.dinner}`}>
-            See Dinner Meal
-          </Link>
-        </ul>
+  return (
+    <div id="dmp-show">
+      <h2>{dailyMealPlan.name}</h2>
+      <ul>
+        <li>Breakfast: {dailyMealPlan.breakfast_meal?.name}</li>
+        <img src={dailyMealPlan.breakfast_meal?.picture} alt="" />
+        <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.breakfast}`}>
+          See Breakfast Meal
+        </Link>
+      </ul>
+      <ul>
+        <li>Lunch: {dailyMealPlan.lunch_meal?.name}</li>
+        <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
+        <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.lunch}`}>
+          See Lunch Meal
+        </Link>
+      </ul>
+      <ul>
+        <li>Dinner: {dailyMealPlan.dinner_meal?.name}</li>
+        <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
+        <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.dinner}`}>
+          See Dinner Meal
+        </Link>
+      </ul>
 
-        {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
-        <button onClick={handleEmailGroceryList}>Email Grocery List</button>
+      {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
+      <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
-        <h1>Edit Daily Meal Plan</h1>
-        <form onSubmit={handleSubmit}>
-          <div>
-            Name: <input name="name" type="text" defaultValue={dailyMealPlan.name} />
-          </div>
-          <div>
-            Breakfast: <input name="breakfast" type="number" defaultValue={dailyMealPlan.breakfast} />
-          </div>
-          <div>
-            Lunch: <input name="lunch" type="number" defaultValue={dailyMealPlan.lunch} />
-          </div>
-          <div>
-            Dinner: <input name="dinner" type="number" defaultValue={dailyMealPlan.dinner} />
-          </div>
-          <button type="submit">Update Daily Meal Plan</button>
-        </form>
+      <h1>Edit Daily Meal Plan</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          Name: <input name="name" type="text" defaultValue={dailyMealPlan.name} />
+        </div>
+        <div>
+          Breakfast: <input name="breakfast" type="number" defaultValue={dailyMealPlan.breakfast} />
+        </div>
+        <div>
+          Lunch: <input name="lunch" type="number" defaultValue={dailyMealPlan.lunch} />
+        </div>
+        <div>
+          Dinner: <input name="dinner" type="number" defaultValue={dailyMealPlan.dinner} />
+        </div>
+        <button type="submit">Update Daily Meal Plan</button>
+      </form>
 
-        <button onClick={handleClick}>Delete Daily Meal Plan</button>
-      </div>
-    );
-  }
+      <button onClick={handleClick}>Delete Daily Meal Plan</button>
+    </div>
+  );
 }

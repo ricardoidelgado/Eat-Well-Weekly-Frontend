@@ -60,8 +60,13 @@ export function Header() {
               </a>
               <ul className="dropdown-menu">
                 <li>
+                  <a className="dropdown-item" href="/weekly_meal_plans">
+                    All Weakly Meal Plans
+                  </a>
+                </li>
+                <li>
                   <a className="dropdown-item" href="/daily_meal_plans">
-                    All Meal Plans
+                    All Daily Meal Plans
                   </a>
                 </li>
                 <li>

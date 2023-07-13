@@ -6,7 +6,7 @@ export function DailyMealPlansNew(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onCreateDailyMealPlan(params, () => event.target.reset());
+    props.onCreateDailyMealPlan(params);
     navigate("/daily_meal_plans");
   };
   return (

@@ -7,7 +7,7 @@ export function DailyMealPlansIndex(props) {
       <Link className="btn btn-success" to="/daily_meal_plans/new">
         Create New Daily Meal Plan
       </Link>
-      {props.dailyMealPlans.map((dailyMealPlan) => (
+      {props.dailyMealPlans?.map((dailyMealPlan) => (
         <div key={dailyMealPlan.id}>
           <h2>{dailyMealPlan.name}</h2>
           <ul>
