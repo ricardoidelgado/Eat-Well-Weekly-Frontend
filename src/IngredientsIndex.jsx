@@ -4,14 +4,26 @@ export function IngredientsIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
   return (
     <div id="ingredients-index">
-      <h1>All Ingredients</h1>
-      <button type="button" className="btn btn-success" onClick={() => props.onNewIngredient()}>
+      <div className="row">
+        <h1 className="col-6 pt-3">All Ingredients</h1>
+        <div className="col-6 d-flex justify-content-end">
+          <div className="row pt-3">
+            <label htmlFor="searchBox">
+              <b>Search Ingredients</b>
+            </label>
+            <input
+              id="searchBox"
+              className="align-self-end"
+              type="text"
+              value={searchFilter}
+              onChange={(event) => setSearchFilter(event.target.value)}
+            />
+          </div>
+        </div>
+      </div>
+      <button type="button" className="btn btn-success col" onClick={() => props.onNewIngredient()}>
         Create Ingredient
       </button>
-      <div>
-        Search
-        <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
-      </div>
       <div className="row pt-3">
         {props.ingredients
           .filter((ingredient) => ingredient.name.toLowerCase().includes(searchFilter.toLowerCase()))
