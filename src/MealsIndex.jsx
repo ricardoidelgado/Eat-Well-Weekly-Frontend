@@ -7,7 +7,7 @@ export function MealsIndex(props) {
     <div id="meals-index">
       <h1>All Meals</h1>
       <Link className="btn btn-success" to="/meals/new">
-        Create New Meal
+        Create Meal
       </Link>
       <div>
         Search

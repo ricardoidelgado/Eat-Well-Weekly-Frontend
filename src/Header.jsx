@@ -5,17 +5,15 @@ export function Header() {
   let authenticationLink;
   if (localStorage.jwt === undefined) {
     authenticationLink = (
-      <>
-        <li className="nav-item">
-          <Link to="/login-signup" className="nav-link">
-            Sign Up & Log In
-          </Link>
-        </li>
-      </>
+      <li className="nav-item">
+        <Link to="/login-signup" className="nav-link active">
+          Sign Up & Log In
+        </Link>
+      </li>
     );
   } else {
     authenticationLink = (
-      <li className="nav-item">
+      <li className="nav-item active">
         <LogoutLink />
       </li>
     );
@@ -45,42 +43,61 @@ export function Header() {
                 Home
               </a>
             </li>
-
-            {authenticationLink}
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/weekly_meal_plans">
+                Weekly Plans
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/daily_meal_plans">
+                Daily Plans
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/meals">
+                Meals
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/ingredients">
+                Ingredients
+              </a>
+            </li>
 
             <li className="nav-item dropdown">
               <a
-                className="nav-link dropdown-toggle"
+                className="nav-link active dropdown-toggle"
                 href="#"
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
               >
-                Meal Plans
+                Create
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/weekly_meal_plans">
-                    All Weakly Meal Plans
+                  <a className="dropdown-item" href="/weekly_meal_plans/new">
+                    New Weekly Plan
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/daily_meal_plans">
-                    All Daily Meal Plans
+                  <a className="dropdown-item" href="/daily_meal_plans/new">
+                    New Daily Plan
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/meals">
-                    All Meals
+                  <a className="dropdown-item" href="/meals/new">
+                    New Meal
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/ingredients">
-                    All Ingredients
+                  <a className="dropdown-item" href="/ingredients/new">
+                    New Ingredient
                   </a>
                 </li>
               </ul>
             </li>
+            {authenticationLink}
           </ul>
         </div>
       </div>

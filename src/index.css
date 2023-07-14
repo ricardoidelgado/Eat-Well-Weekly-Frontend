@@ -39,3 +39,8 @@ html {
 #root {
   background-color: #9d9f9f;
 }
+
+#test {
+  text-align: right;
+  float: right;
+}

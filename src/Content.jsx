@@ -305,6 +305,7 @@ export function Content() {
             />
           }
         />
+        <Route path="/ingredients/new" element={<IngredientsNew onCreateIngredient={handleCreateIngredient} />} />
         <Route path="/meals" element={<MealsIndex meals={meals} />} />
         <Route
           path="/meals/:id"

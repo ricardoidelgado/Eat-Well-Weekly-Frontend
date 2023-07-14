@@ -7,7 +7,7 @@ export function DailyMealPlansIndex(props) {
     <div id="dmp-index">
       <h1>All Daily Meal Plans</h1>
       <Link className="btn btn-success" to="/daily_meal_plans/new">
-        Create New Daily Meal Plan
+        Create Daily Meal Plan
       </Link>
       <div>
         Search

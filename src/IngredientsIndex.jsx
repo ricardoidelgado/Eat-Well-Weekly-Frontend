@@ -6,7 +6,7 @@ export function IngredientsIndex(props) {
     <div id="ingredients-index">
       <h1>All Ingredients</h1>
       <button type="button" className="btn btn-success" onClick={() => props.onNewIngredient()}>
-        Create New Ingredient
+        Create Ingredient
       </button>
       <div>
         Search
