@@ -62,6 +62,15 @@ export function DailyMealPlansShowPage(props) {
         </Link>
       </ul>
 
+      <h3>Grocery List</h3>
+      {dailyMealPlan.grocery_list?.map((hash) => (
+        <div key={hash.item}>
+          <p>
+            {hash.item}: {hash.quantity}
+          </p>
+        </div>
+      ))}
+
       <h3>Nutritional Summary - Daily Total</h3>
       <p>Calories: {dailyMealPlan.nutritional_summary?.calories}</p>
       <p>Fat: {dailyMealPlan.nutritional_summary?.fat}</p>
@@ -90,7 +99,6 @@ export function DailyMealPlansShowPage(props) {
         </div>
         <button type="submit">Update Daily Meal Plan</button>
       </form>
-
       <button onClick={handleClick}>Delete Daily Meal Plan</button>
     </div>
   );

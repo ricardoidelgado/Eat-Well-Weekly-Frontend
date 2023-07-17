@@ -72,6 +72,15 @@ export function WeeklyMealPlansShowPage(props) {
         </Link>
       </ul>
 
+      <h3>Grocery List</h3>
+      {weeklyMealPlan.grocery_list?.map((hash) => (
+        <div key={hash.item}>
+          <p>
+            {hash.item}: {hash.quantity}
+          </p>
+        </div>
+      ))}
+
       <h3>Nutritional Summary - Weekly Total</h3>
       <p>Calories: {weeklyMealPlan.nutritional_summary?.calories}</p>
       <p>Fat: {weeklyMealPlan.nutritional_summary?.fat}</p>
