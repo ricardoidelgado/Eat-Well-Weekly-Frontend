@@ -53,6 +53,15 @@ export function MealsShowPage(props) {
         <></>
       )}
 
+      <h3>Nutritional Summary</h3>
+      <p>Calories: {meal.nutritional_summary?.calories}</p>
+      <p>Fat: {meal.nutritional_summary?.fat}</p>
+      <p>Sodium: {meal.nutritional_summary?.sodium}</p>
+      <p>Carbs: {meal.nutritional_summary?.carbs}</p>
+      <p>Protein: {meal.nutritional_summary?.protein}</p>
+      <p>Sugar: {meal.nutritional_summary?.sugar}</p>
+      <p>Cholesterol: {meal.nutritional_summary?.cholesterol}</p>
+
       <button onClick={() => setEditMealVisibility(true)}>Edit Meal</button>
       {editMealVisibility ? (
         <>
