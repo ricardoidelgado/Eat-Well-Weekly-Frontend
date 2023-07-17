@@ -62,6 +62,15 @@ export function DailyMealPlansShowPage(props) {
         </Link>
       </ul>
 
+      <h3>Nutritional Summary - Daily Total</h3>
+      <p>Calories: {dailyMealPlan.nutritional_summary?.calories}</p>
+      <p>Fat: {dailyMealPlan.nutritional_summary?.fat}</p>
+      <p>Sodium: {dailyMealPlan.nutritional_summary?.sodium}</p>
+      <p>Carbs: {dailyMealPlan.nutritional_summary?.carbs}</p>
+      <p>Protein: {dailyMealPlan.nutritional_summary?.protein}</p>
+      <p>Sugar: {dailyMealPlan.nutritional_summary?.sugar}</p>
+      <p>Cholesterol: {dailyMealPlan.nutritional_summary?.cholesterol}</p>
+
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 

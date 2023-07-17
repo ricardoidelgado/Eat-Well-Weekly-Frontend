@@ -72,6 +72,24 @@ export function WeeklyMealPlansShowPage(props) {
         </Link>
       </ul>
 
+      <h3>Nutritional Summary - Weekly Total</h3>
+      <p>Calories: {weeklyMealPlan.nutritional_summary?.calories}</p>
+      <p>Fat: {weeklyMealPlan.nutritional_summary?.fat}</p>
+      <p>Sodium: {weeklyMealPlan.nutritional_summary?.sodium}</p>
+      <p>Carbs: {weeklyMealPlan.nutritional_summary?.carbs}</p>
+      <p>Protein: {weeklyMealPlan.nutritional_summary?.protein}</p>
+      <p>Sugar: {weeklyMealPlan.nutritional_summary?.sugar}</p>
+      <p>Cholesterol: {weeklyMealPlan.nutritional_summary?.cholesterol}</p>
+
+      <h3>Nutritional Summary - Daily Average</h3>
+      <p>Calories: {weeklyMealPlan.nutritional_summary?.calories / 7}</p>
+      <p>Fat: {weeklyMealPlan.nutritional_summary?.fat / 7}</p>
+      <p>Sodium: {weeklyMealPlan.nutritional_summary?.sodium / 7}</p>
+      <p>Carbs: {weeklyMealPlan.nutritional_summary?.carbs / 7}</p>
+      <p>Protein: {weeklyMealPlan.nutritional_summary?.protein / 7}</p>
+      <p>Sugar: {weeklyMealPlan.nutritional_summary?.sugar / 7}</p>
+      <p>Cholesterol: {weeklyMealPlan.nutritional_summary?.cholesterol / 7}</p>
+
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
