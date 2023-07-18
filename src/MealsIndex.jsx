@@ -22,9 +22,9 @@ export function MealsIndex(props) {
           </div>
         </div>
       </div>
-      <button type="button" className="btn btn-success col" onClick={() => props.onNewMeal()}>
+      <Link className="btn btn-success col" to="/meals/new">
         Create Meal
-      </button>
+      </Link>
       <div className="row pt-3">
         {props.meals
           .filter((meal) => meal.name.toLowerCase().includes(searchFilter.toLowerCase()))
