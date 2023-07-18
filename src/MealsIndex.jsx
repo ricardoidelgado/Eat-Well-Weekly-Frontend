@@ -5,27 +5,44 @@ export function MealsIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
   return (
     <div id="meals-index">
-      <h1>All Meals</h1>
-      <Link className="btn btn-success" to="/meals/new">
-        Create Meal
-      </Link>
-      <div>
-        Search
-        <input type="text" value={searchFilter} onChange={(event) => setSearchFilter(event.target.value)} />
-      </div>
-      {props.meals
-        .filter((meal) => meal.name.toLowerCase().includes(searchFilter.toLowerCase()))
-        .map((meal) => (
-          <div key={meal.id}>
-            <h2>{meal.name}</h2>
-            <img src={meal.picture} />
-            <div>
-              <Link className="btn btn-primary" to={`/meals/${meal.id}`}>
-                More Details
-              </Link>
-            </div>
+      <div className="row">
+        <h1 className="col-6 pt-3">All Meal</h1>
+        <div className="col-6 d-flex justify-content-end">
+          <div className="row pt-3">
+            <label htmlFor="searchBox">
+              <b>Search Meals</b>
+            </label>
+            <input
+              id="searchBox"
+              className="align-self-end"
+              type="text"
+              value={searchFilter}
+              onChange={(event) => setSearchFilter(event.target.value)}
+            />
           </div>
-        ))}
+        </div>
+      </div>
+      <button type="button" className="btn btn-success col" onClick={() => props.onNewMeal()}>
+        Create Meal
+      </button>
+      <div className="row pt-3">
+        {props.meals
+          .filter((meal) => meal.name.toLowerCase().includes(searchFilter.toLowerCase()))
+          .map((meal) => (
+            <div className="col-3 g-0 d-flex" key={meal.id}>
+              <div className="card w-100">
+                <img src={meal.picture} className="card-img-top h-50 img-fluid" />
+                <div className="card-body d-flex flex-column">
+                  <h5 className="card-title">{meal.name}</h5>
+                  <p className="card-text">Calories: {meal.nutritional_summary?.calories}</p>
+                  <Link className="btn btn-primary mt-auto" to={`/meals/${meal.id}`}>
+                    More Details
+                  </Link>
+                </div>
+              </div>
+            </div>
+          ))}
+      </div>
     </div>
   );
 }
