@@ -40,27 +40,44 @@ export function DailyMealPlansShowPage(props) {
   return (
     <div id="dmp-show">
       <h2>{dailyMealPlan.name}</h2>
-      <ul>
-        <li>Breakfast: {dailyMealPlan.breakfast_meal?.name}</li>
-        <img src={dailyMealPlan.breakfast_meal?.picture} alt="" />
-        <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.breakfast}`}>
-          See Breakfast Meal
-        </Link>
-      </ul>
-      <ul>
-        <li>Lunch: {dailyMealPlan.lunch_meal?.name}</li>
-        <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
-        <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.lunch}`}>
-          See Lunch Meal
-        </Link>
-      </ul>
-      <ul>
-        <li>Dinner: {dailyMealPlan.dinner_meal?.name}</li>
-        <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
-        <Link className="btn btn-primary" to={`/meals/${dailyMealPlan.dinner}`}>
-          See Dinner Meal
-        </Link>
-      </ul>
+      <div className="row pt-3">
+        <div className="col-4 g-0 d-flex align-items-stretch">
+          <div className="card w-100">
+            <img src={dailyMealPlan.breakfast_meal?.picture} className="card-img-top h-50 img-fluid" />
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title">Breakfast</h5>
+              <p className="card-text">{dailyMealPlan.breakfast_meal?.name}</p>
+              <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.breakfast}`}>
+                See Breakfast Meal
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="col-4 g-0 d-flex align-items-stretch">
+          <div className="card w-100">
+            <img src={dailyMealPlan.lunch_meal?.picture} className="card-img-top h-50 img-fluid" />
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title">Lunch</h5>
+              <p className="card-text">{dailyMealPlan.lunch_meal?.name}</p>
+              <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.lunch}`}>
+                See Lunch Meal
+              </Link>
+            </div>
+          </div>
+        </div>
+        <div className="col-4 g-0 d-flex align-items-stretch">
+          <div className="card w-100">
+            <img src={dailyMealPlan.dinner_meal?.picture} className="card-img-top h-50 img-fluid" />
+            <div className="card-body d-flex flex-column">
+              <h5 className="card-title">Dinner</h5>
+              <p className="card-text">{dailyMealPlan.dinner_meal?.name}</p>
+              <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.dinner}`}>
+                See Dinner Meal
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <h3>Grocery List</h3>
       {dailyMealPlan.grocery_list?.map((hash) => (
