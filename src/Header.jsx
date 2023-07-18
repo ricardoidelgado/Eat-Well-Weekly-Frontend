@@ -20,7 +20,7 @@ export function Header() {
   }
 
   return (
-    <nav className="navbar navbar-expand-lg bg-light">
+    <nav id="header" className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           Meal Planner

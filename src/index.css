@@ -32,10 +32,13 @@ html {
 /* END  */
 
 #root {
-  background-color: #9d9f9f;
+  background-color: #C1ECE4;
 }
 
-#test {
-  text-align: right;
-  float: right;
+#header {
+  background-color: #3AA6B9;
+}
+
+#footer {
+  background-color: #FF9EAA;
 }
