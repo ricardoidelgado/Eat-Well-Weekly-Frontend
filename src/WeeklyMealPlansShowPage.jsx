@@ -73,34 +73,73 @@ export function WeeklyMealPlansShowPage(props) {
       </ul>
 
       <h3>Grocery List</h3>
-      {weeklyMealPlan.grocery_list?.map((hash) => (
-        <div key={hash.item}>
-          <p>
-            {hash.item}: {hash.quantity}
-          </p>
-        </div>
-      ))}
-
-      <h3>Nutritional Summary - Weekly Total</h3>
-      <p>Calories: {weeklyMealPlan.nutritional_summary?.calories}</p>
-      <p>Fat: {weeklyMealPlan.nutritional_summary?.fat}</p>
-      <p>Sodium: {weeklyMealPlan.nutritional_summary?.sodium}</p>
-      <p>Carbs: {weeklyMealPlan.nutritional_summary?.carbs}</p>
-      <p>Protein: {weeklyMealPlan.nutritional_summary?.protein}</p>
-      <p>Sugar: {weeklyMealPlan.nutritional_summary?.sugar}</p>
-      <p>Cholesterol: {weeklyMealPlan.nutritional_summary?.cholesterol}</p>
-
-      <h3>Nutritional Summary - Daily Average</h3>
-      <p>Calories: {weeklyMealPlan.nutritional_summary?.calories / 7}</p>
-      <p>Fat: {weeklyMealPlan.nutritional_summary?.fat / 7}</p>
-      <p>Sodium: {weeklyMealPlan.nutritional_summary?.sodium / 7}</p>
-      <p>Carbs: {weeklyMealPlan.nutritional_summary?.carbs / 7}</p>
-      <p>Protein: {weeklyMealPlan.nutritional_summary?.protein / 7}</p>
-      <p>Sugar: {weeklyMealPlan.nutritional_summary?.sugar / 7}</p>
-      <p>Cholesterol: {weeklyMealPlan.nutritional_summary?.cholesterol / 7}</p>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Food Item</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          {weeklyMealPlan.grocery_list?.map((hash) => (
+            <tr key={hash.item}>
+              <td>{hash.item}</td>
+              <td>{hash.quantity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
+
+      <h3>Nutritional Summary</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Weekly Total</th>
+            <th scope="col">Daily Average</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          <tr>
+            <td>Calories</td>
+            <td>{weeklyMealPlan.nutritional_summary?.calories}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.calories / 7}</td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>{weeklyMealPlan.nutritional_summary?.fat}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.fat / 7}</td>
+          </tr>
+          <tr>
+            <td>Sodium</td>
+            <td>{weeklyMealPlan.nutritional_summary?.sodium}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.sodium / 7}</td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td>{weeklyMealPlan.nutritional_summary?.carbs}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.carbs / 7}</td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>{weeklyMealPlan.nutritional_summary?.protein}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.protein / 7}</td>
+          </tr>
+          <tr>
+            <td>Sugar</td>
+            <td>{weeklyMealPlan.nutritional_summary?.sugar}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.sugar / 7}</td>
+          </tr>
+          <tr>
+            <td>Cholesterol</td>
+            <td>{weeklyMealPlan.nutritional_summary?.cholesterol}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.cholesterol / 7}</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h1>Edit Weekly Meal Plan</h1>
       <form onSubmit={handleSubmit}>

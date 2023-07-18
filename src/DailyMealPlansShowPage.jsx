@@ -100,12 +100,12 @@ export function DailyMealPlansShowPage(props) {
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
-      <h3>Nutritional Summary - Daily Total</h3>
+      <h3>Nutritional Summary</h3>
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Food Item</th>
-            <th scope="col">Quantity</th>
+            <th scope="col">Category</th>
+            <th scope="col">Daily Total</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
