@@ -80,25 +80,65 @@ export function DailyMealPlansShowPage(props) {
       </div>
 
       <h3>Grocery List</h3>
-      {dailyMealPlan.grocery_list?.map((hash) => (
-        <div key={hash.item}>
-          <p>
-            {hash.item}: {hash.quantity}
-          </p>
-        </div>
-      ))}
-
-      <h3>Nutritional Summary - Daily Total</h3>
-      <p>Calories: {dailyMealPlan.nutritional_summary?.calories}</p>
-      <p>Fat: {dailyMealPlan.nutritional_summary?.fat}</p>
-      <p>Sodium: {dailyMealPlan.nutritional_summary?.sodium}</p>
-      <p>Carbs: {dailyMealPlan.nutritional_summary?.carbs}</p>
-      <p>Protein: {dailyMealPlan.nutritional_summary?.protein}</p>
-      <p>Sugar: {dailyMealPlan.nutritional_summary?.sugar}</p>
-      <p>Cholesterol: {dailyMealPlan.nutritional_summary?.cholesterol}</p>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Food Item</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          {dailyMealPlan.grocery_list?.map((hash) => (
+            <tr key={hash.item}>
+              <td>{hash.item}</td>
+              <td>{hash.quantity}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
+
+      <h3>Nutritional Summary - Daily Total</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Food Item</th>
+            <th scope="col">Quantity</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          <tr>
+            <td>Calories</td>
+            <td>{dailyMealPlan.nutritional_summary?.calories}</td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>{dailyMealPlan.nutritional_summary?.fat}</td>
+          </tr>
+          <tr>
+            <td>Sodium</td>
+            <td>{dailyMealPlan.nutritional_summary?.sodium}</td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td>{dailyMealPlan.nutritional_summary?.carbs}</td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>{dailyMealPlan.nutritional_summary?.protein}</td>
+          </tr>
+          <tr>
+            <td>Sugar</td>
+            <td>{dailyMealPlan.nutritional_summary?.sugar}</td>
+          </tr>
+          <tr>
+            <td>Cholesterol</td>
+            <td>{dailyMealPlan.nutritional_summary?.cholesterol}</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h1>Edit Daily Meal Plan</h1>
       <form onSubmit={handleSubmit}>
