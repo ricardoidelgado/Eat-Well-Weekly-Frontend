@@ -9,9 +9,9 @@ html {
   height: 100px;
 }
 
-#meals-show img {
-  width: 100px;
-  height: 100px;
+#meals-show-image {
+  width: 200px;
+  height: 200px;
 }
 
 #dmp-index img {
