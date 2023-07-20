@@ -22,7 +22,7 @@ export function DailyMealPlansIndex(props) {
           </div>
         </div>
       </div>
-      <Link className="btn btn-success" to="/daily_meal_plans/new">
+      <Link className="btn btn-success mb-3" to="/daily_meal_plans/new">
         Create Daily Meal Plan
       </Link>
       <div className="accordion" id="accordionExample">

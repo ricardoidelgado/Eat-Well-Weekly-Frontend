@@ -6,7 +6,7 @@ export function WeeklyMealPlansIndex(props) {
   return (
     <div>
       <h1>All Weekly Meal Plans</h1>
-      <Link className="btn btn-success" to="/weekly_meal_plans/new">
+      <Link className="btn btn-success mb-3" to="/weekly_meal_plans/new">
         Create Weekly Meal Plan
       </Link>
       <div>
