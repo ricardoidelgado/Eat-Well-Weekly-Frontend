@@ -43,11 +43,7 @@ export function DailyMealPlansIndex(props) {
                     {dailyMealPlan.name}
                   </button>
                 </h2>
-                <div
-                  id={dailyMealPlan.id}
-                  className="accordion-collapse collapse show"
-                  data-bs-parent="#accordionExample"
-                >
+                <div id={dailyMealPlan.id} className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
                     <div className="row">
                       <div className="col-4">
