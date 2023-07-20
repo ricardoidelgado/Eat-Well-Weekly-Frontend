@@ -30,7 +30,7 @@ export function DailyMealPlansIndex(props) {
           ?.filter((dailyMealPlan) => dailyMealPlan.name.toLowerCase().includes(searchFilter.toLowerCase()))
           .map((dailyMealPlan) => (
             <div key={dailyMealPlan.id}>
-              <div className="accordion-item">
+              <div className="accordion-item mb-3">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button"
