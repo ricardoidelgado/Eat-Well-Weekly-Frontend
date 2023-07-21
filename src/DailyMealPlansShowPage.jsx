@@ -47,6 +47,7 @@ export function DailyMealPlansShowPage(props) {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title">Breakfast</h5>
               <p className="card-text">{dailyMealPlan.breakfast_meal?.name}</p>
+              <p className="card-text">Calories: {dailyMealPlan.breakfast_nutrition?.calories}</p>
               <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.breakfast}`}>
                 See Breakfast Meal
               </Link>
@@ -59,6 +60,7 @@ export function DailyMealPlansShowPage(props) {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title">Lunch</h5>
               <p className="card-text">{dailyMealPlan.lunch_meal?.name}</p>
+              <p className="card-text">Calories: {dailyMealPlan.lunch_nutrition?.calories}</p>
               <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.lunch}`}>
                 See Lunch Meal
               </Link>
@@ -71,6 +73,7 @@ export function DailyMealPlansShowPage(props) {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title">Dinner</h5>
               <p className="card-text">{dailyMealPlan.dinner_meal?.name}</p>
+              <p className="card-text">Calories: {dailyMealPlan.dinner_nutrition?.calories}</p>
               <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.dinner}`}>
                 See Dinner Meal
               </Link>
@@ -79,7 +82,7 @@ export function DailyMealPlansShowPage(props) {
         </div>
       </div>
 
-      <h3>Grocery List</h3>
+      <h3 className="mt-3">Grocery List</h3>
       <table className="table">
         <thead>
           <tr>
@@ -100,7 +103,7 @@ export function DailyMealPlansShowPage(props) {
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
-      <h3>Nutritional Summary</h3>
+      <h3 className="mt-3">Nutritional Summary</h3>
       <table className="table">
         <thead>
           <tr>

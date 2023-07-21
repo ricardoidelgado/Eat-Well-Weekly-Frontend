@@ -156,7 +156,7 @@ export function WeeklyMealPlansShowPage(props) {
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
       <button onClick={handleEmailGroceryList}>Email Grocery List</button>
 
-      <h3>Nutritional Summary</h3>
+      <h3 className="mt-3">Nutritional Summary</h3>
       <table className="table">
         <thead>
           <tr>
