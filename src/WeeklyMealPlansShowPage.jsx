@@ -154,7 +154,9 @@ export function WeeklyMealPlansShowPage(props) {
       </table>
 
       {/* <button onClick={handleTextGroceryList}>Text Grocery List</button> */}
-      <button onClick={handleEmailGroceryList}>Email Grocery List</button>
+      <button className="btn btn-secondary" onClick={handleEmailGroceryList}>
+        Email Grocery List
+      </button>
 
       <h3 className="mt-3">Nutritional Summary</h3>
       <table className="table">
