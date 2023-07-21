@@ -47,19 +47,22 @@ export function DailyMealPlansIndex(props) {
                   <div className="accordion-body">
                     <div className="row">
                       <div className="col-4">
-                        Breakfast: {dailyMealPlan.breakfast_meal?.name}
+                        <b>Breakfast:</b> {dailyMealPlan.breakfast_meal?.name}
                         <br />
                         <img src={dailyMealPlan.breakfast_meal?.picture} alt="" />
                       </div>
                       <div className="col-4">
-                        Lunch: {dailyMealPlan.lunch_meal?.name}
+                        <b>Lunch:</b> {dailyMealPlan.lunch_meal?.name}
                         <br />
                         <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
                       </div>
                       <div className="col-4">
-                        Dinner: {dailyMealPlan.dinner_meal?.name}
+                        <b>Dinner:</b> {dailyMealPlan.dinner_meal?.name}
                         <br />
                         <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
+                      </div>
+                      <div className="col-4 mx-auto mt-3">
+                        <b>Total Calories:</b> {dailyMealPlan.nutritional_summary?.calories}
                       </div>
                     </div>
                     <br />

@@ -41,7 +41,7 @@ export function WeeklyMealPlansShowPage(props) {
   return (
     <div id="wmp-show">
       <h2>{weeklyMealPlan.name}</h2>
-      <ul>
+      {/* <ul>
         <li>Sunday: {weeklyMealPlan.sunday_plan?.name}</li>
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.sunday}`}>
           See Sunday Meal Plan
@@ -70,7 +70,100 @@ export function WeeklyMealPlansShowPage(props) {
         <Link className="btn btn-primary" to={`/daily_meal_plans/${weeklyMealPlan.saturday}`}>
           See Saturday Meal Plan
         </Link>
-      </ul>
+      </ul> */}
+      <div className="row">
+        <div className="card col-4">
+          <div className="card-header">Sunday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.sunday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.sunday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.sunday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.sunday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.sunday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.sunday}`}>
+              See Sunday Meal Plan
+            </Link>
+          </div>
+        </div>
+        <div className="card col-4">
+          <div className="card-header">Monday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.monday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.monday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.monday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.monday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.monday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.monday}`}>
+              See Monday Meal Plan
+            </Link>
+          </div>
+        </div>
+        <div className="card col-4">
+          <div className="card-header">Tuesday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.tuesday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.tuesday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.tuesday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.tuesday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.tuesday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.tuesday}`}>
+              See Tuesday Meal Plan
+            </Link>
+          </div>
+        </div>
+        <div className="card col-4">
+          <div className="card-header">Wednesday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.wednesday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.wednesday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.wednesday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.wednesday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.wednesday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.wednesday}`}>
+              See Wednesday Meal Plan
+            </Link>
+          </div>
+        </div>
+        <div className="card col-4">
+          <div className="card-header">Thursday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.thursday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.thursday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.thursday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.thursday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.thursday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.thursday}`}>
+              See Thursday Meal Plan
+            </Link>
+          </div>
+        </div>
+        <div className="card col-4">
+          <div className="card-header">Friday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.friday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.friday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.friday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.friday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.friday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.friday}`}>
+              See Friday Meal Plan
+            </Link>
+          </div>
+        </div>
+        <div className="card col-4 mx-auto">
+          <div className="card-header">Saturday</div>
+          <div className="card-body">
+            <h5 className="card-title">{weeklyMealPlan.saturday_plan?.name}</h5>
+            <p className="card-text">Breakfast: {weeklyMealPlan.saturday_meals?.breakfast.name}</p>
+            <p className="card-text">Lunch: {weeklyMealPlan.saturday_meals?.lunch.name}</p>
+            <p className="card-text">Dinner: {weeklyMealPlan.saturday_meals?.dinner.name}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.saturday_nutrition?.calories}</p>
+            <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.saturday}`}>
+              See Saturday Meal Plan
+            </Link>
+          </div>
+        </div>
+      </div>
 
       <h3>Grocery List</h3>
       <table className="table">

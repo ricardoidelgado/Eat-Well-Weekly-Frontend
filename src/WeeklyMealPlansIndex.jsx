@@ -46,28 +46,14 @@ export function WeeklyMealPlansIndex(props) {
                 <div id={weeklyMealPlan.id} className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                   <div className="accordion-body">
                     <div className="row">
-                      <div className="col-4">
-                        <h3>Sunday</h3> {weeklyMealPlan.sunday_plan?.name}
+                      <div className="col-6">
+                        <b>Total Calories:</b> {weeklyMealPlan.nutritional_summary?.calories}
                       </div>
-                      <div className="col-4">
-                        <h3>Monday</h3> {weeklyMealPlan.monday_plan?.name}
-                      </div>
-                      <div className="col-4">
-                        <h3>Tuesday</h3> {weeklyMealPlan.tuesday_plan?.name}
-                      </div>
-                      <div className="col-4">
-                        <h3>Wednesday</h3> {weeklyMealPlan.wednesday_plan?.name}
-                      </div>
-                      <div className="col-4">
-                        <h3>Thursday</h3> {weeklyMealPlan.thursday_plan?.name}
-                      </div>
-                      <div className="col-4">
-                        <h3>Friday</h3> {weeklyMealPlan.friday_plan?.name}
-                      </div>
-                      <div className="col-4 mx-auto">
-                        <h3>Saturday</h3> {weeklyMealPlan.saturday_plan?.name}
+                      <div className="col-6">
+                        <b>Daily Average Calories:</b> {weeklyMealPlan.nutritional_summary?.calories / 7}
                       </div>
                     </div>
+
                     <br />
                     <Link className="btn btn-primary col-12" to={`/weekly_meal_plans/${weeklyMealPlan.id}`}>
                       More Details
