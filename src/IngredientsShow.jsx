@@ -13,14 +13,45 @@ export function IngredientsShow(props) {
     <div id="ingredients-show">
       <h2>{props.ingredient.name}</h2>
       <img src={props.ingredient.picture} />
-      <h3>Nutrition Facts</h3>
-      <p>Calories: {props.ingredient.calories}</p>
-      <p>Fat: {props.ingredient.fat}</p>
-      <p>Sodium: {props.ingredient.sodium}</p>
-      <p>Carbs: {props.ingredient.carbs}</p>
-      <p>Protein: {props.ingredient.protein}</p>
-      <p>Sugar: {props.ingredient.sugar}</p>
-      <p>Cholesterol: {props.ingredient.cholesterol}</p>
+      <h3 className="mt-3">Nutritional Summary</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Ingredient Total</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          <tr>
+            <td>Calories</td>
+            <td>{props.ingredient?.calories}</td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>{props.ingredient?.fat}</td>
+          </tr>
+          <tr>
+            <td>Sodium</td>
+            <td>{props.ingredient?.sodium}</td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td>{props.ingredient?.carbs}</td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>{props.ingredient?.protein}</td>
+          </tr>
+          <tr>
+            <td>Sugar</td>
+            <td>{props.ingredient?.sugar}</td>
+          </tr>
+          <tr>
+            <td>Cholesterol</td>
+            <td>{props.ingredient?.cholesterol}</td>
+          </tr>
+        </tbody>
+      </table>
       <form onSubmit={handleSubmit}>
         <div>
           Name: <input defaultValue={props.ingredient.name} name="name" type="text" />
