@@ -31,18 +31,23 @@ export function MealsShowPage(props) {
     <div id="meals-show">
       <h2>{meal.name}</h2>
       <img id="meals-show-image" src={meal.picture} alt="" />
-      <p>Ingredients: </p>
-      <ul>
-        {meal.meal_ingredients?.map((mealIngredient) => (
-          <div key={mealIngredient.id}>
-            <li>
-              {mealIngredient.ingredient.name} - Quantity: {mealIngredient.ingredient_quantity}
-              <button onClick={() => props.onShowMealIngredient(mealIngredient, meal)}>Update Ingredient</button>
-            </li>
-          </div>
-        ))}
-      </ul>
-      <button onClick={() => setNewMealIngredientVisibility(true)}>Add New Ingredient</button>
+      <h3 className="mt-3">Ingredients: </h3>
+
+      {meal.meal_ingredients?.map((mealIngredient) => (
+        <ul className="list-group list-group-horizontal row" key={mealIngredient.id}>
+          <li className="list-group-item col-2">{mealIngredient.ingredient.name} </li>
+          <li className="list-group-item col-2">Quantity: {mealIngredient.ingredient_quantity} </li>
+          <li className="list-group-item col-2">
+            <button className="btn btn-warning" onClick={() => props.onShowMealIngredient(mealIngredient, meal)}>
+              Update Ingredient
+            </button>
+          </li>
+        </ul>
+      ))}
+
+      <button className="btn btn-success mt-3" onClick={() => setNewMealIngredientVisibility(true)}>
+        Add New Ingredient
+      </button>
       {newMealIngredientVisibility ? (
         <MealIngredientsNew
           onCreateMealIngredient={props.onCreateMealIngredient}
@@ -53,19 +58,52 @@ export function MealsShowPage(props) {
         <></>
       )}
 
-      <h3>Nutritional Summary</h3>
-      <p>Calories: {meal.nutritional_summary?.calories}</p>
-      <p>Fat: {meal.nutritional_summary?.fat}</p>
-      <p>Sodium: {meal.nutritional_summary?.sodium}</p>
-      <p>Carbs: {meal.nutritional_summary?.carbs}</p>
-      <p>Protein: {meal.nutritional_summary?.protein}</p>
-      <p>Sugar: {meal.nutritional_summary?.sugar}</p>
-      <p>Cholesterol: {meal.nutritional_summary?.cholesterol}</p>
+      <h3 className="mt-3">Nutritional Summary</h3>
+      <table className="table">
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th scope="col">Meal Total</th>
+          </tr>
+        </thead>
+        <tbody className="table-group-divider">
+          <tr>
+            <td>Calories</td>
+            <td>{meal.nutritional_summary?.calories}</td>
+          </tr>
+          <tr>
+            <td>Fat</td>
+            <td>{meal.nutritional_summary?.fat}</td>
+          </tr>
+          <tr>
+            <td>Sodium</td>
+            <td>{meal.nutritional_summary?.sodium}</td>
+          </tr>
+          <tr>
+            <td>Carbs</td>
+            <td>{meal.nutritional_summary?.carbs}</td>
+          </tr>
+          <tr>
+            <td>Protein</td>
+            <td>{meal.nutritional_summary?.protein}</td>
+          </tr>
+          <tr>
+            <td>Sugar</td>
+            <td>{meal.nutritional_summary?.sugar}</td>
+          </tr>
+          <tr>
+            <td>Cholesterol</td>
+            <td>{meal.nutritional_summary?.cholesterol}</td>
+          </tr>
+        </tbody>
+      </table>
 
-      <button onClick={() => setEditMealVisibility(true)}>Edit Meal</button>
+      <button className="btn btn-warning mt-3" onClick={() => setEditMealVisibility(true)}>
+        Edit Meal
+      </button>
       {editMealVisibility ? (
         <>
-          <h1>Edit Meal</h1>
+          <h1 className="mt-3">Edit Meal</h1>
           <form onSubmit={handleSubmit}>
             <div>
               Name: <input name="name" defaultValue={meal.name} type="text" />
@@ -73,11 +111,11 @@ export function MealsShowPage(props) {
             <div>
               Picture: <input name="picture" defaultValue={meal.picture} type="text" />
             </div>
-            <button className="btn btn-warning" type="submit">
+            <button className="btn btn-warning mt-3" type="submit">
               Update Meal
             </button>
           </form>
-          <button className="btn btn-danger" onClick={handleClick}>
+          <button className="btn btn-danger mt-3" onClick={handleClick}>
             Delete Meal
           </button>
         </>

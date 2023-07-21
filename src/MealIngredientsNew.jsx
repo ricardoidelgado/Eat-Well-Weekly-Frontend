@@ -43,7 +43,9 @@ export function MealIngredientsNew(props) {
             <input name="ingredient_quantity" type="number" className="form-control" id="quantity" />
           </div>
 
-          <button type="submit">Add Ingredient to {props.meal.name}</button>
+          <button className="btn btn-success" type="submit">
+            Add Ingredient to {props.meal.name}
+          </button>
           <h1 className="col-6 pt-3">All Ingredients</h1>
           <div className="col-6 d-flex justify-content-end">
             <div className="row pt-3">
