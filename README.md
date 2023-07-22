@@ -6,7 +6,7 @@ Since you receive a grocery list of all ingredients in your meal plan as the out
 
 Taking it one step further in meal planning, nutritional information is available for each meal, daily meal plan and weekly meal plan. This way you can see the nutritional value of a meal, the total for a day and the total and daily average for a week.
 
-Technologies include Ruby on Rails backend, PostgreSQL database, React.js frontend. Bootstrap is used for styling on the front-end and the Pony gem is used to allow you to email yourself the grocery list for your meal plans. (Texting functionality using Twilio gem is included but commented out in the code).
+Technologies include Ruby on Rails backend and React.js frontend. Bootstrap is used for styling on the front-end and the Pony gem is used to allow you to email yourself the grocery list for your meal plans. (Texting functionality using Twilio gem is included but commented out in the code).
 
 The back-end for this application can be found here: https://github.com/ricardoidelgado/meal-planner-api
 
