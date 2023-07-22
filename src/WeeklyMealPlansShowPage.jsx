@@ -49,7 +49,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.sunday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.sunday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.sunday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.sunday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.sunday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.sunday}`}>
               See Sunday Meal Plan
             </Link>
@@ -62,7 +62,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.monday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.monday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.monday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.monday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.monday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.monday}`}>
               See Monday Meal Plan
             </Link>
@@ -75,7 +75,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.tuesday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.tuesday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.tuesday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.tuesday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.tuesday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.tuesday}`}>
               See Tuesday Meal Plan
             </Link>
@@ -88,7 +88,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.wednesday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.wednesday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.wednesday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.wednesday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.wednesday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.wednesday}`}>
               See Wednesday Meal Plan
             </Link>
@@ -101,7 +101,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.thursday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.thursday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.thursday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.thursday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.thursday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.thursday}`}>
               See Thursday Meal Plan
             </Link>
@@ -114,7 +114,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.friday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.friday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.friday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.friday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.friday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.friday}`}>
               See Friday Meal Plan
             </Link>
@@ -127,7 +127,7 @@ export function WeeklyMealPlansShowPage(props) {
             <p className="card-text">Breakfast: {weeklyMealPlan.saturday_meals?.breakfast.name}</p>
             <p className="card-text">Lunch: {weeklyMealPlan.saturday_meals?.lunch.name}</p>
             <p className="card-text">Dinner: {weeklyMealPlan.saturday_meals?.dinner.name}</p>
-            <p className="card-text">Calories: {weeklyMealPlan.saturday_nutrition?.calories}</p>
+            <p className="card-text">Calories: {weeklyMealPlan.saturday_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
             <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${weeklyMealPlan.saturday}`}>
               See Saturday Meal Plan
             </Link>
@@ -147,7 +147,7 @@ export function WeeklyMealPlansShowPage(props) {
           {weeklyMealPlan.grocery_list?.map((hash) => (
             <tr key={hash.item}>
               <td>{hash.item}</td>
-              <td>{hash.quantity}</td>
+              <td>{hash.quantity.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
             </tr>
           ))}
         </tbody>
@@ -170,38 +170,38 @@ export function WeeklyMealPlansShowPage(props) {
         <tbody className="table-group-divider">
           <tr>
             <td>Calories</td>
-            <td>{weeklyMealPlan.nutritional_summary?.calories}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.calories / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.calories / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Fat</td>
-            <td>{weeklyMealPlan.nutritional_summary?.fat}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.fat / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.fat.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.fat / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sodium</td>
-            <td>{weeklyMealPlan.nutritional_summary?.sodium}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.sodium / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.sodium.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.sodium / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Carbs</td>
-            <td>{weeklyMealPlan.nutritional_summary?.carbs}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.carbs / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.carbs.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.carbs / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Protein</td>
-            <td>{weeklyMealPlan.nutritional_summary?.protein}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.protein / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.protein.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.protein / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sugar</td>
-            <td>{weeklyMealPlan.nutritional_summary?.sugar}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.sugar / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.sugar.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.sugar / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Cholesterol</td>
-            <td>{weeklyMealPlan.nutritional_summary?.cholesterol}</td>
-            <td>{weeklyMealPlan.nutritional_summary?.cholesterol / 7}</td>
+            <td>{weeklyMealPlan.nutritional_summary?.cholesterol.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>{(weeklyMealPlan.nutritional_summary?.cholesterol / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
         </tbody>
       </table>

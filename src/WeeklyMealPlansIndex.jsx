@@ -47,10 +47,10 @@ export function WeeklyMealPlansIndex(props) {
                   <div className="accordion-body">
                     <div className="row">
                       <div className="col-6">
-                        <b>Total Calories:</b> {weeklyMealPlan.nutritional_summary?.calories}
+                        <b>Total Calories:</b> {weeklyMealPlan.nutritional_summary?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}
                       </div>
                       <div className="col-6">
-                        <b>Daily Average Calories:</b> {weeklyMealPlan.nutritional_summary?.calories / 7}
+                        <b>Daily Average Calories:</b> {(weeklyMealPlan.nutritional_summary?.calories / 7).toLocaleString("en-US", {maximumFractionDigits: 0})}
                       </div>
                     </div>
 

@@ -34,7 +34,7 @@ export function MealsIndex(props) {
                 <img src={meal.picture} className="card-img-top h-50 img-fluid" />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{meal.name}</h5>
-                  <p className="card-text">Calories: {meal.nutritional_summary?.calories}</p>
+                  <p className="card-text">Calories: {meal.nutritional_summary?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
                   <Link className="btn btn-primary mt-auto" to={`/meals/${meal.id}`}>
                     More Details
                   </Link>

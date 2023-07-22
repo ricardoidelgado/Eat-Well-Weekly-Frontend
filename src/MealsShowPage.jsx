@@ -36,7 +36,7 @@ export function MealsShowPage(props) {
       {meal.meal_ingredients?.map((mealIngredient) => (
         <ul className="list-group list-group-horizontal row" key={mealIngredient.id}>
           <li className="list-group-item col-2">{mealIngredient.ingredient.name} </li>
-          <li className="list-group-item col-2">Quantity: {mealIngredient.ingredient_quantity} </li>
+          <li className="list-group-item col-2">Quantity: {mealIngredient.ingredient_quantity.toLocaleString("en-US", {maximumFractionDigits: 0})} </li>
           <li className="list-group-item col-2">
             <button className="btn btn-warning" onClick={() => props.onShowMealIngredient(mealIngredient, meal)}>
               Update Ingredient
@@ -69,31 +69,31 @@ export function MealsShowPage(props) {
         <tbody className="table-group-divider">
           <tr>
             <td>Calories</td>
-            <td>{meal.nutritional_summary?.calories}</td>
+            <td>{meal.nutritional_summary?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Fat</td>
-            <td>{meal.nutritional_summary?.fat}</td>
+            <td>{meal.nutritional_summary?.fat.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sodium</td>
-            <td>{meal.nutritional_summary?.sodium}</td>
+            <td>{meal.nutritional_summary?.sodium.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Carbs</td>
-            <td>{meal.nutritional_summary?.carbs}</td>
+            <td>{meal.nutritional_summary?.carbs.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Protein</td>
-            <td>{meal.nutritional_summary?.protein}</td>
+            <td>{meal.nutritional_summary?.protein.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sugar</td>
-            <td>{meal.nutritional_summary?.sugar}</td>
+            <td>{meal.nutritional_summary?.sugar.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Cholesterol</td>
-            <td>{meal.nutritional_summary?.cholesterol}</td>
+            <td>{meal.nutritional_summary?.cholesterol.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
         </tbody>
       </table>

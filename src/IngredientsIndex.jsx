@@ -33,7 +33,7 @@ export function IngredientsIndex(props) {
                 <img src={ingredient.picture} className="card-img-top h-50 img-fluid" />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{ingredient.name}</h5>
-                  <p className="card-text">Calories: {ingredient.calories}</p>
+                  <p className="card-text">Calories: {ingredient.calories?.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
                   <button
                     type="button"
                     className="btn btn-primary mt-auto"

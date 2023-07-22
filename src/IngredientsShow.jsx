@@ -24,31 +24,31 @@ export function IngredientsShow(props) {
         <tbody className="table-group-divider">
           <tr>
             <td>Calories</td>
-            <td>{props.ingredient?.calories}</td>
+            <td>{props.ingredient?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Fat</td>
-            <td>{props.ingredient?.fat}</td>
+            <td>{props.ingredient?.fat.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sodium</td>
-            <td>{props.ingredient?.sodium}</td>
+            <td>{props.ingredient?.sodium.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Carbs</td>
-            <td>{props.ingredient?.carbs}</td>
+            <td>{props.ingredient?.carbs.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Protein</td>
-            <td>{props.ingredient?.protein}</td>
+            <td>{props.ingredient?.protein.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sugar</td>
-            <td>{props.ingredient?.sugar}</td>
+            <td>{props.ingredient?.sugar.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Cholesterol</td>
-            <td>{props.ingredient?.cholesterol}</td>
+            <td>{props.ingredient?.cholesterol.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
         </tbody>
       </table>

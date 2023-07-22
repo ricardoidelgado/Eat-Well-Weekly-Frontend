@@ -47,7 +47,7 @@ export function DailyMealPlansShowPage(props) {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title">Breakfast</h5>
               <p className="card-text">{dailyMealPlan.breakfast_meal?.name}</p>
-              <p className="card-text">Calories: {dailyMealPlan.breakfast_nutrition?.calories}</p>
+              <p className="card-text">Calories: {dailyMealPlan.breakfast_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
               <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.breakfast}`}>
                 See Breakfast Meal
               </Link>
@@ -60,7 +60,7 @@ export function DailyMealPlansShowPage(props) {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title">Lunch</h5>
               <p className="card-text">{dailyMealPlan.lunch_meal?.name}</p>
-              <p className="card-text">Calories: {dailyMealPlan.lunch_nutrition?.calories}</p>
+              <p className="card-text">Calories: {dailyMealPlan.lunch_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
               <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.lunch}`}>
                 See Lunch Meal
               </Link>
@@ -73,7 +73,7 @@ export function DailyMealPlansShowPage(props) {
             <div className="card-body d-flex flex-column">
               <h5 className="card-title">Dinner</h5>
               <p className="card-text">{dailyMealPlan.dinner_meal?.name}</p>
-              <p className="card-text">Calories: {dailyMealPlan.dinner_nutrition?.calories}</p>
+              <p className="card-text">Calories: {dailyMealPlan.dinner_nutrition?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
               <Link className="btn btn-primary mt-auto" to={`/meals/${dailyMealPlan.dinner}`}>
                 See Dinner Meal
               </Link>
@@ -94,7 +94,7 @@ export function DailyMealPlansShowPage(props) {
           {dailyMealPlan.grocery_list?.map((hash) => (
             <tr key={hash.item}>
               <td>{hash.item}</td>
-              <td>{hash.quantity}</td>
+              <td>{hash.quantity?.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
             </tr>
           ))}
         </tbody>
@@ -116,31 +116,31 @@ export function DailyMealPlansShowPage(props) {
         <tbody className="table-group-divider">
           <tr>
             <td>Calories</td>
-            <td>{dailyMealPlan.nutritional_summary?.calories}</td>
+            <td>{dailyMealPlan.nutritional_summary?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Fat</td>
-            <td>{dailyMealPlan.nutritional_summary?.fat}</td>
+            <td>{dailyMealPlan.nutritional_summary?.fat.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sodium</td>
-            <td>{dailyMealPlan.nutritional_summary?.sodium}</td>
+            <td>{dailyMealPlan.nutritional_summary?.sodium.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Carbs</td>
-            <td>{dailyMealPlan.nutritional_summary?.carbs}</td>
+            <td>{dailyMealPlan.nutritional_summary?.carbs.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Protein</td>
-            <td>{dailyMealPlan.nutritional_summary?.protein}</td>
+            <td>{dailyMealPlan.nutritional_summary?.protein.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Sugar</td>
-            <td>{dailyMealPlan.nutritional_summary?.sugar}</td>
+            <td>{dailyMealPlan.nutritional_summary?.sugar.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
           <tr>
             <td>Cholesterol</td>
-            <td>{dailyMealPlan.nutritional_summary?.cholesterol}</td>
+            <td>{dailyMealPlan.nutritional_summary?.cholesterol.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
           </tr>
         </tbody>
       </table>
