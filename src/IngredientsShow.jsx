@@ -1,8 +1,15 @@
+import { useState } from "react";
+
 export function IngredientsShow(props) {
+  const [editIngredientVisibility, setEditIngredientVisibility] =
+    useState(false);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdateIngredient(props.ingredient.id, params, () => event.target.reset());
+    props.onUpdateIngredient(props.ingredient.id, params, () =>
+      event.target.reset()
+    );
   };
 
   const handleClick = () => {
@@ -13,7 +20,7 @@ export function IngredientsShow(props) {
     <div id="ingredients-show">
       <h2>{props.ingredient.name}</h2>
       <img src={props.ingredient.picture} />
-      <h3 className="mt-3">Nutritional Summary</h3>
+      <h3 className="mt-2">Nutritional Summary</h3>
       <table className="table">
         <thead>
           <tr>
@@ -24,69 +31,205 @@ export function IngredientsShow(props) {
         <tbody className="table-group-divider">
           <tr>
             <td>Calories</td>
-            <td>{props.ingredient?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.calories.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
           <tr>
             <td>Fat</td>
-            <td>{props.ingredient?.fat.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.fat.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
           <tr>
             <td>Sodium</td>
-            <td>{props.ingredient?.sodium.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.sodium.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
           <tr>
             <td>Carbs</td>
-            <td>{props.ingredient?.carbs.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.carbs.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
           <tr>
             <td>Protein</td>
-            <td>{props.ingredient?.protein.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.protein.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
           <tr>
             <td>Sugar</td>
-            <td>{props.ingredient?.sugar.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.sugar.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
           <tr>
             <td>Cholesterol</td>
-            <td>{props.ingredient?.cholesterol.toLocaleString("en-US", {maximumFractionDigits: 0})}</td>
+            <td>
+              {props.ingredient?.cholesterol.toLocaleString("en-US", {
+                maximumFractionDigits: 0,
+              })}
+            </td>
           </tr>
         </tbody>
       </table>
-      <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input defaultValue={props.ingredient.name} name="name" type="text" />
-        </div>
-        <div>
-          Picture: <input defaultValue={props.ingredient.picture} name="picture" type="text" />
-        </div>
-        <div>
-          Calories: <input defaultValue={props.ingredient.calories} name="calories" type="integer" />
-        </div>
-        <div>
-          Fat: <input defaultValue={props.ingredient.fat} name="fat" type="integer" />
-        </div>
-        <div>
-          Sodium: <input defaultValue={props.ingredient.sodium} name="sodium" type="integer" />
-        </div>
-        <div>
-          Carbs: <input defaultValue={props.ingredient.carbs} name="carbs" type="integer" />
-        </div>
-        <div>
-          Protein: <input defaultValue={props.ingredient.protein} name="protein" type="integer" />
-        </div>
-        <div>
-          Sugar: <input defaultValue={props.ingredient.sugar} name="sugar" type="integer" />
-        </div>
-        <div>
-          Cholesterol: <input defaultValue={props.ingredient.cholesterol} name="cholesterol" type="integer" />
-        </div>
-        <button className="btn btn-warning" type="submit">
-          Update Ingredient
+
+      {!editIngredientVisibility ? (
+        <button
+          className="btn btn-warning mt-2"
+          onClick={() => setEditIngredientVisibility(true)}
+        >
+          Edit Ingredient
         </button>
-      </form>
-      <button className="btn btn-danger" onClick={handleClick}>
-        Delete Ingredient
-      </button>
+      ) : (
+        <></>
+      )}
+
+      {editIngredientVisibility ? (
+        <>
+          <button
+            className="btn btn-secondary mt-2"
+            onClick={() => setEditIngredientVisibility(false)}
+          >
+            Cancel Edit
+          </button>
+
+          <form className="mt-2" onSubmit={handleSubmit}>
+            <div className="row">
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientName" className="form-label">
+                  Name
+                </label>
+                <input
+                  name="name"
+                  type="text"
+                  className="form-control"
+                  id="ingredientName"
+                  defaultValue={props.ingredient.name}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientPicture" className="form-label">
+                  Picture
+                </label>
+                <input
+                  name="picture"
+                  type="text"
+                  className="form-control"
+                  id="ingredientPicture"
+                  defaultValue={props.ingredient.picture}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientCalories" className="form-label">
+                  Calories
+                </label>
+                <input
+                  name="calories"
+                  type="text"
+                  className="form-control"
+                  id="ingredientCalories"
+                  defaultValue={props.ingredient.calories}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientFat" className="form-label">
+                  Fat
+                </label>
+                <input
+                  name="fat"
+                  type="text"
+                  className="form-control"
+                  id="ingredientFat"
+                  defaultValue={props.ingredient.fat}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientSodium" className="form-label">
+                  Sodium
+                </label>
+                <input
+                  name="sodium"
+                  type="text"
+                  className="form-control"
+                  id="ingredientSodium"
+                  defaultValue={props.ingredient.sodium}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientCarbs" className="form-label">
+                  Carbs
+                </label>
+                <input
+                  name="carbs"
+                  type="text"
+                  className="form-control"
+                  id="ingredientCarbs"
+                  defaultValue={props.ingredient.carbs}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientProtein" className="form-label">
+                  Protein
+                </label>
+                <input
+                  name="protein"
+                  type="text"
+                  className="form-control"
+                  id="ingredientProtein"
+                  defaultValue={props.ingredient.protein}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientSugar" className="form-label">
+                  Sugar
+                </label>
+                <input
+                  name="sugar"
+                  type="text"
+                  className="form-control"
+                  id="ingredientSugar"
+                  defaultValue={props.ingredient.sugar}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientCholesterol" className="form-label">
+                  Cholesterol
+                </label>
+                <input
+                  name="cholesterol"
+                  type="text"
+                  className="form-control"
+                  id="ingredientCholesterol"
+                  defaultValue={props.ingredient.cholesterol}
+                />
+              </div>
+              <button className="btn btn-warning col-6" type="submit">
+                Update Ingredient
+              </button>
+              <button className="btn btn-danger col-6" onClick={handleClick}>
+                Delete Ingredient
+              </button>
+            </div>
+          </form>
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
