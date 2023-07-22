@@ -1,6 +1,6 @@
 # Meal-Planner-App (Front-End)
 
-A web application for creating and organzing daily or weekly meal plans with nutritional summary and grocery list outputs. You can create an ingredient, assemble those ingredients into a meal and then select meals for daily meal plans which can be organized into a weekly meal plan. 
+A web application for creating and organzing daily or weekly meal plans with nutritional summary and grocery list outputs. You can create an ingredient, assemble those ingredients into a meal and then select meals for daily meal plans which can be organized into a weekly meal plan.
 
 Since you receive a grocery list of all ingredients in your meal plan as the output, you are encouraged to make an ingredient any item that can be purchased at a grocery store. The overall goal is for you to plan/organize your meals and make it easier to purchase all necessary ingredients for the week.
 
