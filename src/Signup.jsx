@@ -21,7 +21,7 @@ export function Signup() {
   };
 
   return (
-    <div id="signup">
+    <div id="signup" className="mt-3">
       <h1>Signup</h1>
       <ul>
         {errors.map((error) => (
@@ -29,7 +29,79 @@ export function Signup() {
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <div>
+        <div className="row">
+          <div className="mb-3 col-6">
+            <label htmlFor="firstName" className="form-label">
+              First Name
+            </label>
+            <input
+              name="first_name"
+              type="text"
+              className="form-control"
+              id="firstName"
+              aria-describedby="emailHelp"
+            />
+          </div>
+          <div className="mb-3 col-6">
+            <label htmlFor="lastName" className="form-label">
+              Last Name
+            </label>
+            <input
+              name="last_name"
+              type="text"
+              className="form-control"
+              id="lastName"
+            />
+          </div>
+          <div className="mb-3 col-6">
+            <label htmlFor="email" className="form-label">
+              Email
+            </label>
+            <input
+              name="email"
+              type="email"
+              className="form-control"
+              id="email"
+            />
+          </div>
+          <div className="mb-3 col-6">
+            <label htmlFor="profilePicture" className="form-label">
+              Profile Picture
+            </label>
+            <input
+              name="profile_picture"
+              type="text"
+              className="form-control"
+              id="profilePicture"
+            />
+          </div>
+          <div className="mb-3 col-6">
+            <label htmlFor="password" className="form-label">
+              Password
+            </label>
+            <input
+              name="password"
+              type="password"
+              className="form-control"
+              id="password"
+            />
+          </div>
+          <div className="mb-3 col-6">
+            <label htmlFor="passwordConfirmation" className="form-label">
+              Password Confirmation
+            </label>
+            <input
+              name="password_confirmation"
+              type="password"
+              className="form-control"
+              id="passwordConfirmation"
+            />
+          </div>
+          <button className="btn btn-success" type="submit">
+            Signup
+          </button>
+        </div>
+        {/* <div>
           First Name: <input name="first_name" type="text" />
         </div>
         <div>
@@ -45,11 +117,9 @@ export function Signup() {
           Password: <input name="password" type="password" />
         </div>
         <div>
-          Password confirmation: <input name="password_confirmation" type="password" />
-        </div>
-        <button className="btn btn-success" type="submit">
-          Signup
-        </button>
+          Password confirmation:{" "}
+          <input name="password_confirmation" type="password" />
+        </div> */}
       </form>
     </div>
   );
