@@ -14,13 +14,33 @@ export function MealsNew(props) {
     <div id="meals-new">
       <h1>New Meal</h1>
       <form onSubmit={handleSubmit}>
-        <div>
-          Name: <input name="name" type="text" />
+        <div className="row">
+          <div className="mb-2 col-6">
+            <label htmlFor="mealName" className="form-label">
+              Name
+            </label>
+            <input
+              name="name"
+              type="text"
+              className="form-control"
+              id="mealName"
+            />
+          </div>
+          <div className="mb-2 col-6">
+            <label htmlFor="mealPicture" className="form-label">
+              Picture
+            </label>
+            <input
+              name="picture"
+              type="text"
+              className="form-control"
+              id="mealPicture"
+            />
+          </div>
+          <button className="btn btn-success" type="submit">
+            Create Meal
+          </button>
         </div>
-        <div>
-          Picture: <input name="picture" type="text" />
-        </div>
-        <button type="submit">Create Meal</button>
       </form>
     </div>
   );
