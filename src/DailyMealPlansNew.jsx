@@ -3,10 +3,11 @@ import { MealsSelect } from "./MealsSelect";
 import { useState } from "react";
 
 export function DailyMealPlansNew(props) {
-  const [selectBreakfastVisibility, setSelectBreakfastVisibility] =
+  const [isSelectBreakfastVisibility, setIsSelectBreakfastVisibility] =
     useState(false);
-  const [selectLunchVisibility, setSelectLunchVisibility] = useState(false);
-  const [selectDinnerVisibility, setSelectDinnerVisibility] = useState(false);
+  const [isSelectLunchVisibility, setIsSelectLunchVisibility] = useState(false);
+  const [isSelectDinnerVisibility, setIsSelectDinnerVisibility] =
+    useState(false);
   const [breakfast, setBreakfast] = useState("");
   const [lunch, setLunch] = useState("");
   const [dinner, setDinner] = useState("");
@@ -21,17 +22,17 @@ export function DailyMealPlansNew(props) {
 
   const showBreakfastMeals = (event) => {
     event.preventDefault();
-    setSelectBreakfastVisibility(true);
+    setIsSelectBreakfastVisibility(true);
   };
 
   const showLunchMeals = (event) => {
     event.preventDefault();
-    setSelectLunchVisibility(true);
+    setIsSelectLunchVisibility(true);
   };
 
   const showDinnerMeals = (event) => {
     event.preventDefault();
-    setSelectDinnerVisibility(true);
+    setIsSelectDinnerVisibility(true);
   };
 
   return (
@@ -58,45 +59,51 @@ export function DailyMealPlansNew(props) {
               defaultValue={breakfast.id}
               hidden
             />
-            <b>Breakfast</b>
+            Breakfast
             <input
               type="text"
               className="form-control"
               defaultValue={breakfast.name}
+              placeholder="Please select a meal"
               disabled
             />
           </div>
 
-          <button onClick={showBreakfastMeals}>Select Breakfast Meal</button>
+          <button className="btn btn-primary mb-3" onClick={showBreakfastMeals}>
+            Select Breakfast Meal
+          </button>
 
-          {selectBreakfastVisibility ? (
+          {isSelectBreakfastVisibility ? (
             <MealsSelect
               meals={props.meals}
               meal="Breakfast"
               setMeal={setBreakfast}
-              setMealVisibility={setSelectBreakfastVisibility}
+              setMealVisibility={setIsSelectBreakfastVisibility}
             />
           ) : null}
 
           <div className="mb-2">
             <input name="lunch" type="number" defaultValue={lunch.id} hidden />
-            <b>Lunch</b>
+            Lunch
             <input
               type="text"
               className="form-control"
               defaultValue={lunch.name}
+              placeholder="Please select a meal"
               disabled
             />
           </div>
 
-          <button onClick={showLunchMeals}>Select Lunch Meal</button>
+          <button className="btn btn-primary mb-3" onClick={showLunchMeals}>
+            Select Lunch Meal
+          </button>
 
-          {selectLunchVisibility ? (
+          {isSelectLunchVisibility ? (
             <MealsSelect
               meals={props.meals}
               meal="Lunch"
               setMeal={setLunch}
-              setMealVisibility={setSelectLunchVisibility}
+              setMealVisibility={setIsSelectLunchVisibility}
             />
           ) : null}
 
@@ -107,27 +114,30 @@ export function DailyMealPlansNew(props) {
               defaultValue={dinner.id}
               hidden
             />
-            <b>Dinner</b>
+            Dinner
             <input
               type="text"
               className="form-control"
               defaultValue={dinner.name}
+              placeholder="Please select a meal"
               disabled
             />
           </div>
 
-          <button onClick={showDinnerMeals}>Dinner</button>
+          <button className="btn btn-primary mb-3" onClick={showDinnerMeals}>
+            Dinner
+          </button>
 
-          {selectDinnerVisibility ? (
+          {isSelectDinnerVisibility ? (
             <MealsSelect
               meals={props.meals}
               meal="Dinner"
               setMeal={setDinner}
-              setMealVisibility={setSelectDinnerVisibility}
+              setMealVisibility={setIsSelectDinnerVisibility}
             />
           ) : null}
 
-          <button className="btn btn-success" type="submit">
+          <button className="btn btn-success mt-3" type="submit">
             Create Daily Meal Plan
           </button>
         </div>
