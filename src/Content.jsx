@@ -39,7 +39,8 @@ export function Content() {
 
   // Ingredients
   const [ingredients, setIngredients] = useState([]);
-  const [isIngredientsShowVisible, setIsIngredientsShowVisible] = useState(false);
+  const [isIngredientsShowVisible, setIsIngredientsShowVisible] =
+    useState(false);
   const [currentIngredient, setCurrentIngredient] = useState({});
   const [isIngredientsNewVisible, setIsIngredientsNewVisible] = useState(false);
 
@@ -59,33 +60,39 @@ export function Content() {
   };
 
   const handleCreateIngredient = (params, successCallback) => {
-    axios.post("http://localhost:3000/ingredients.json", params).then((response) => {
-      setIngredients([...ingredients, response.data]);
-      successCallback();
-    });
+    axios
+      .post("http://localhost:3000/ingredients.json", params)
+      .then((response) => {
+        setIngredients([...ingredients, response.data]);
+        successCallback();
+      });
   };
 
   const handleUpdateIngredient = (id, params, successCallback) => {
-    axios.patch(`http://localhost:3000/ingredients/${id}.json`, params).then((response) => {
-      setIngredients(
-        ingredients.map((ingredient) => {
-          if (ingredient.id === response.data.id) {
-            return response.data;
-          } else {
-            return ingredient;
-          }
-        })
-      );
-      successCallback();
-      handleClose();
-    });
+    axios
+      .patch(`http://localhost:3000/ingredients/${id}.json`, params)
+      .then((response) => {
+        setIngredients(
+          ingredients.map((ingredient) => {
+            if (ingredient.id === response.data.id) {
+              return response.data;
+            } else {
+              return ingredient;
+            }
+          })
+        );
+        successCallback();
+        handleClose();
+      });
   };
 
   const handleDestroyIngredient = (ingredient) => {
-    axios.delete(`http://localhost:3000/ingredients/${ingredient.id}.json`).then(() => {
-      setIngredients(ingredients.filter((i) => i.id !== ingredient.id));
-      handleClose();
-    });
+    axios
+      .delete(`http://localhost:3000/ingredients/${ingredient.id}.json`)
+      .then(() => {
+        setIngredients(ingredients.filter((i) => i.id !== ingredient.id));
+        handleClose();
+      });
   };
 
   useEffect(handleIndexIngredients, []);
@@ -108,19 +115,21 @@ export function Content() {
   };
 
   const handleUpdateMeal = (id, params) => {
-    axios.patch(`http://localhost:3000/meals/${id}.json`, params).then((response) => {
-      const updatedMeal = response.data;
-      setMeals(
-        meals.map((meal) => {
-          if (meal.id === updatedMeal.id) {
-            return updatedMeal;
-          } else {
-            return meal;
-          }
-        })
-      );
-      navigate("/meals");
-    });
+    axios
+      .patch(`http://localhost:3000/meals/${id}.json`, params)
+      .then((response) => {
+        const updatedMeal = response.data;
+        setMeals(
+          meals.map((meal) => {
+            if (meal.id === updatedMeal.id) {
+              return updatedMeal;
+            } else {
+              return meal;
+            }
+          })
+        );
+        navigate("/meals");
+      });
   };
 
   const handleDestroyMeal = (meal) => {
@@ -134,37 +143,48 @@ export function Content() {
 
   // MealIngredients
   const [mealIngredients, setMealIngredients] = useState([]);
-  const [isMealIngredientsModalVisible, setIsMealIngredientsModalVisible] = useState(false);
+  const [isMealIngredientsModalVisible, setIsMealIngredientsModalVisible] =
+    useState(false);
   const [currentMealIngredient, setCurrentMealIngredient] = useState({});
 
   const handleCreateMealIngredient = (params, successCallback) => {
-    axios.post("http://localhost:3000/meal_ingredients.json", params).then((response) => {
-      setMealIngredients(...mealIngredients, response.data);
-      successCallback;
-    });
+    axios
+      .post("http://localhost:3000/meal_ingredients.json", params)
+      .then((response) => {
+        setMealIngredients(...mealIngredients, response.data);
+        successCallback;
+      });
   };
 
   const handleUpdateMealIngredient = (id, params, successCallback) => {
-    axios.patch(`http://localhost:3000/meal_ingredients/${id}.json`, params).then((response) => {
-      setMealIngredients(
-        mealIngredients.map((mealIngredient) => {
-          if (mealIngredient.id === response.data.id) {
-            return response.data;
-          } else {
-            return mealIngredient;
-          }
-        })
-      );
-      successCallback();
-      handleClose();
-    });
+    axios
+      .patch(`http://localhost:3000/meal_ingredients/${id}.json`, params)
+      .then((response) => {
+        setMealIngredients(
+          mealIngredients.map((mealIngredient) => {
+            if (mealIngredient.id === response.data.id) {
+              return response.data;
+            } else {
+              return mealIngredient;
+            }
+          })
+        );
+        successCallback();
+        handleClose();
+      });
   };
 
   const handleDestroyMealIngredient = (mealIngredient) => {
-    axios.delete(`http://localhost:3000/meal_ingredients/${mealIngredient.id}.json`).then(() => {
-      setMealIngredients(mealIngredients.filter((mI) => mI.id !== mealIngredient.id));
-      handleClose();
-    });
+    axios
+      .delete(
+        `http://localhost:3000/meal_ingredients/${mealIngredient.id}.json`
+      )
+      .then(() => {
+        setMealIngredients(
+          mealIngredients.filter((mI) => mI.id !== mealIngredient.id)
+        );
+        handleClose();
+      });
   };
 
   const handleShowMealIngredient = (mealIngredient, meal) => {
@@ -177,39 +197,49 @@ export function Content() {
   const [dailyMealPlans, setDailyMealPlans] = useState([]);
 
   const handleIndexDailyMealPlans = () => {
-    axios.get("http://localhost:3000/daily_meal_plans.json").then((response) => {
-      setDailyMealPlans(response.data);
-    });
+    axios
+      .get("http://localhost:3000/daily_meal_plans.json")
+      .then((response) => {
+        setDailyMealPlans(response.data);
+      });
   };
 
   const handleCreateDailyMealPlan = (params) => {
-    axios.post("http://localhost:3000/daily_meal_plans.json", params).then((response) => {
-      const newDailyMealPlan = response.data;
-      setDailyMealPlans([...dailyMealPlans, newDailyMealPlan]);
-    });
+    axios
+      .post("http://localhost:3000/daily_meal_plans.json", params)
+      .then((response) => {
+        const newDailyMealPlan = response.data;
+        setDailyMealPlans([...dailyMealPlans, newDailyMealPlan]);
+      });
   };
 
   const handleUpdateDailyMealPlan = (id, params) => {
-    axios.patch(`http://localhost:3000/daily_meal_plans/${id}.json`, params).then((response) => {
-      const updatedDailyMealPlan = response.data;
-      setDailyMealPlans(
-        dailyMealPlans.map((dailyMealPlan) => {
-          if (dailyMealPlan.id === updatedDailyMealPlan.id) {
-            return updatedDailyMealPlan;
-          } else {
-            return dailyMealPlan;
-          }
-        })
-      );
-      navigate("/daily_meal_plans");
-    });
+    axios
+      .patch(`http://localhost:3000/daily_meal_plans/${id}.json`, params)
+      .then((response) => {
+        const updatedDailyMealPlan = response.data;
+        setDailyMealPlans(
+          dailyMealPlans.map((dailyMealPlan) => {
+            if (dailyMealPlan.id === updatedDailyMealPlan.id) {
+              return updatedDailyMealPlan;
+            } else {
+              return dailyMealPlan;
+            }
+          })
+        );
+        navigate("/daily_meal_plans");
+      });
   };
 
   const handleDestroyDailyMealPlan = (dailyMealPlan) => {
-    axios.delete(`http://localhost:3000/daily_meal_plans/${dailyMealPlan.id}.json`).then(() => {
-      setDailyMealPlans(dailyMealPlans.filter((dmp) => dmp.id !== dailyMealPlan.id));
-      navigate("/daily_meal_plans");
-    });
+    axios
+      .delete(`http://localhost:3000/daily_meal_plans/${dailyMealPlan.id}.json`)
+      .then(() => {
+        setDailyMealPlans(
+          dailyMealPlans.filter((dmp) => dmp.id !== dailyMealPlan.id)
+        );
+        navigate("/daily_meal_plans");
+      });
   };
 
   useEffect(handleIndexDailyMealPlans, []);
@@ -218,39 +248,51 @@ export function Content() {
   const [weeklyMealPlans, setWeeklyMealPlans] = useState([]);
 
   const handleIndexWeeklyMealPlans = () => {
-    axios.get("http://localhost:3000/weekly_meal_plans.json").then((response) => {
-      setWeeklyMealPlans(response.data);
-    });
+    axios
+      .get("http://localhost:3000/weekly_meal_plans.json")
+      .then((response) => {
+        setWeeklyMealPlans(response.data);
+      });
   };
 
   const handleCreateWeeklyMealPlan = (params) => {
-    axios.post("http://localhost:3000/weekly_meal_plans.json", params).then((response) => {
-      const newWeeklyMealPlan = response.data;
-      setWeeklyMealPlans([...weeklyMealPlans, newWeeklyMealPlan]);
-    });
+    axios
+      .post("http://localhost:3000/weekly_meal_plans.json", params)
+      .then((response) => {
+        const newWeeklyMealPlan = response.data;
+        setWeeklyMealPlans([...weeklyMealPlans, newWeeklyMealPlan]);
+      });
   };
 
   const handleUpdateWeeklyMealPlan = (id, params) => {
-    axios.patch(`http://localhost:3000/weekly_meal_plans/${id}.json`, params).then((response) => {
-      const updatedWeeklyMealPlan = response.data;
-      setWeeklyMealPlans(
-        weeklyMealPlans.map((weeklyMealPlan) => {
-          if (weeklyMealPlan.id === updatedWeeklyMealPlan.id) {
-            return updatedWeeklyMealPlan;
-          } else {
-            return weeklyMealPlan;
-          }
-        })
-      );
-      navigate("/weekly_meal_plans");
-    });
+    axios
+      .patch(`http://localhost:3000/weekly_meal_plans/${id}.json`, params)
+      .then((response) => {
+        const updatedWeeklyMealPlan = response.data;
+        setWeeklyMealPlans(
+          weeklyMealPlans.map((weeklyMealPlan) => {
+            if (weeklyMealPlan.id === updatedWeeklyMealPlan.id) {
+              return updatedWeeklyMealPlan;
+            } else {
+              return weeklyMealPlan;
+            }
+          })
+        );
+        navigate("/weekly_meal_plans");
+      });
   };
 
   const handleDestroyWeeklyMealPlan = (weeklyMealPlan) => {
-    axios.delete(`http://localhost:3000/weekly_meal_plans/${weeklyMealPlan.id}.json`).then(() => {
-      setWeeklyMealPlans(weeklyMealPlans.filter((wmp) => wmp.id !== weeklyMealPlan.id));
-      navigate("/weekly_meal_plans");
-    });
+    axios
+      .delete(
+        `http://localhost:3000/weekly_meal_plans/${weeklyMealPlan.id}.json`
+      )
+      .then(() => {
+        setWeeklyMealPlans(
+          weeklyMealPlans.filter((wmp) => wmp.id !== weeklyMealPlan.id)
+        );
+        navigate("/weekly_meal_plans");
+      });
   };
 
   useEffect(handleIndexWeeklyMealPlans, []);
@@ -267,7 +309,9 @@ export function Content() {
   let visibility;
 
   if (isIngredientsNewVisible) {
-    modalOutput = <IngredientsNew onCreateIngredient={handleCreateIngredient} />;
+    modalOutput = (
+      <IngredientsNew onCreateIngredient={handleCreateIngredient} />
+    );
     visibility = isIngredientsNewVisible;
   } else if (isIngredientsShowVisible) {
     modalOutput = (
@@ -305,7 +349,12 @@ export function Content() {
             />
           }
         />
-        <Route path="/ingredients/new" element={<IngredientsNew onCreateIngredient={handleCreateIngredient} />} />
+        <Route
+          path="/ingredients/new"
+          element={
+            <IngredientsNew onCreateIngredient={handleCreateIngredient} />
+          }
+        />
         <Route path="/meals" element={<MealsIndex meals={meals} />} />
         <Route
           path="/meals/:id"
@@ -319,8 +368,14 @@ export function Content() {
             />
           }
         />
-        <Route path="/meals/new" element={<MealsNew onCreateMeal={handleCreateMeal} />} />
-        <Route path="/daily_meal_plans" element={<DailyMealPlansIndex dailyMealPlans={dailyMealPlans} />} />
+        <Route
+          path="/meals/new"
+          element={<MealsNew onCreateMeal={handleCreateMeal} />}
+        />
+        <Route
+          path="/daily_meal_plans"
+          element={<DailyMealPlansIndex dailyMealPlans={dailyMealPlans} />}
+        />
         <Route
           path="/daily_meal_plans/:id"
           element={
@@ -332,9 +387,17 @@ export function Content() {
         />
         <Route
           path="/daily_meal_plans/new"
-          element={<DailyMealPlansNew onCreateDailyMealPlan={handleCreateDailyMealPlan} />}
+          element={
+            <DailyMealPlansNew
+              onCreateDailyMealPlan={handleCreateDailyMealPlan}
+              meals={meals}
+            />
+          }
         />
-        <Route path="/weekly_meal_plans" element={<WeeklyMealPlansIndex weeklyMealPlans={weeklyMealPlans} />} />
+        <Route
+          path="/weekly_meal_plans"
+          element={<WeeklyMealPlansIndex weeklyMealPlans={weeklyMealPlans} />}
+        />
         <Route
           path="/weekly_meal_plans/:id"
           element={
@@ -346,7 +409,11 @@ export function Content() {
         />
         <Route
           path="/weekly_meal_plans/new"
-          element={<WeeklyMealPlansNew onCreateWeeklyMealPlan={handleCreateWeeklyMealPlan} />}
+          element={
+            <WeeklyMealPlansNew
+              onCreateWeeklyMealPlan={handleCreateWeeklyMealPlan}
+            />
+          }
         />
       </Routes>
       <Modal show={visibility} onClose={handleClose}>

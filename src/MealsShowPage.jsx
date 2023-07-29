@@ -55,7 +55,7 @@ export function MealsShowPage(props) {
               className="btn btn-warning"
               onClick={() => props.onShowMealIngredient(mealIngredient, meal)}
             >
-              Update Ingredient
+              Edit Ingredient
             </button>
           </li>
         </ul>

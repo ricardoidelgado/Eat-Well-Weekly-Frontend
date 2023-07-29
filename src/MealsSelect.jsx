@@ -1,12 +1,12 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 
-export function MealsIndex(props) {
+export function MealsSelect(props) {
   const [searchFilter, setSearchFilter] = useState("");
+
   return (
     <div id="meals-index">
       <div className="row">
-        <h1 className="col-6 pt-3">All Meals</h1>
+        <h1 className="col-6 pt-3">Select {props.meal} Meal</h1>
         <div className="col-6 d-flex justify-content-end">
           <div className="row pt-3">
             <label htmlFor="searchBox">
@@ -22,9 +22,6 @@ export function MealsIndex(props) {
           </div>
         </div>
       </div>
-      <Link className="btn btn-success col" to="/meals/new">
-        Create Meal
-      </Link>
       <div className="row pt-3">
         {props.meals
           .filter((meal) =>
@@ -46,12 +43,16 @@ export function MealsIndex(props) {
                       { maximumFractionDigits: 0 }
                     )}
                   </p>
-                  <Link
+                  <button
                     className="btn btn-primary mt-auto"
-                    to={`/meals/${meal.id}`}
+                    onClick={(event) => {
+                      event.preventDefault();
+                      props.setMeal(meal);
+                      props.setMealVisibility(false);
+                    }}
                   >
-                    More Details
-                  </Link>
+                    Select Meal
+                  </button>
                 </div>
               </div>
             </div>
