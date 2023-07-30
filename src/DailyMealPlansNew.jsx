@@ -125,7 +125,7 @@ export function DailyMealPlansNew(props) {
           </div>
 
           <button className="btn btn-primary mb-3" onClick={showDinnerMeals}>
-            Dinner
+            Select Dinner Meal
           </button>
 
           {isSelectDinnerVisibility ? (

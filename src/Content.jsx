@@ -382,6 +382,7 @@ export function Content() {
             <DailyMealPlansShowPage
               onUpdateDailyMealPlan={handleUpdateDailyMealPlan}
               onDestroyDailyMealPlan={handleDestroyDailyMealPlan}
+              meals={meals}
             />
           }
         />

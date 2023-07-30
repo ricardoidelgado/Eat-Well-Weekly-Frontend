@@ -95,9 +95,7 @@ export function IngredientsShow(props) {
         >
           Edit Ingredient
         </button>
-      ) : (
-        <></>
-      )}
+      ) : null}
 
       {editIngredientVisibility ? (
         <>
@@ -227,9 +225,7 @@ export function IngredientsShow(props) {
             </div>
           </form>
         </>
-      ) : (
-        <></>
-      )}
+      ) : null}
     </div>
   );
 }

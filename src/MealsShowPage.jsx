@@ -73,9 +73,7 @@ export function MealsShowPage(props) {
           meal={meal}
           ingredients={props.ingredients}
         />
-      ) : (
-        <></>
-      )}
+      ) : null}
 
       <h3 className="mt-3">Nutritional Summary</h3>
       <table className="table">
@@ -152,9 +150,7 @@ export function MealsShowPage(props) {
         >
           Edit Meal
         </button>
-      ) : (
-        <></>
-      )}
+      ) : null}
 
       {editMealVisibility ? (
         <>
@@ -203,9 +199,7 @@ export function MealsShowPage(props) {
             </div>
           </form>
         </>
-      ) : (
-        <></>
-      )}
+      ) : null}
     </div>
   );
 }
