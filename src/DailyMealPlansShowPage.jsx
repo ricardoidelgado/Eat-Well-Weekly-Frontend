@@ -272,6 +272,7 @@ export function DailyMealPlansShowPage(props) {
             Cancel Edit
           </button>
           <h1>Edit Daily Meal Plan</h1>
+          <h5>Please select an updated Breakfast, Lunch and Dinner</h5>
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="mb-2 col-12">
@@ -293,6 +294,7 @@ export function DailyMealPlansShowPage(props) {
                   type="number"
                   defaultValue={breakfast.id}
                   hidden
+                  required
                 />
                 Breakfast
                 <input
@@ -326,6 +328,7 @@ export function DailyMealPlansShowPage(props) {
                   type="number"
                   defaultValue={lunch.id}
                   hidden
+                  required
                 />
                 Lunch
                 <input
@@ -356,6 +359,7 @@ export function DailyMealPlansShowPage(props) {
                   type="number"
                   defaultValue={dinner.id}
                   hidden
+                  required
                 />
                 Dinner
                 <input

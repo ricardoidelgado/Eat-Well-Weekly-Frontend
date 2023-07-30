@@ -48,7 +48,6 @@ export function MealsSelect(props) {
                     onClick={(event) => {
                       event.preventDefault();
                       props.setMeal(meal);
-                      console.log(meal);
                       props.setMealVisibility(false);
                     }}
                   >
