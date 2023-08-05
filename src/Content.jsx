@@ -413,6 +413,7 @@ export function Content() {
           element={
             <WeeklyMealPlansNew
               onCreateWeeklyMealPlan={handleCreateWeeklyMealPlan}
+              dailyMealPlans={dailyMealPlans}
             />
           }
         />
