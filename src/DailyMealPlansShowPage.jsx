@@ -265,9 +265,7 @@ export function DailyMealPlansShowPage(props) {
         <>
           <button
             className="btn btn-secondary mt-3"
-            onClick={() => {
-              setEditDailyMealPlanVisibility(false);
-            }}
+            onClick={() => setEditDailyMealPlanVisibility(false)}
           >
             Cancel Edit
           </button>

@@ -405,6 +405,7 @@ export function Content() {
             <WeeklyMealPlansShowPage
               onUpdateWeeklyMealPlan={handleUpdateWeeklyMealPlan}
               onDestroyWeeklyMealPlan={handleDestroyWeeklyMealPlan}
+              dailyMealPlans={dailyMealPlans}
             />
           }
         />
