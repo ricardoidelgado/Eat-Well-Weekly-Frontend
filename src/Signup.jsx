@@ -101,25 +101,6 @@ export function Signup() {
             Signup
           </button>
         </div>
-        {/* <div>
-          First Name: <input name="first_name" type="text" />
-        </div>
-        <div>
-          Last Name: <input name="last_name" type="text" />
-        </div>
-        <div>
-          Email: <input name="email" type="email" />
-        </div>
-        <div>
-          Profile Picture: <input name="profile_picture" type="string" />
-        </div>
-        <div>
-          Password: <input name="password" type="password" />
-        </div>
-        <div>
-          Password confirmation:{" "}
-          <input name="password_confirmation" type="password" />
-        </div> */}
       </form>
     </div>
   );
