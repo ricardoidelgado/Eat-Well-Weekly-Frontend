@@ -17,11 +17,11 @@ export function IngredientsShow(props) {
   };
 
   return (
-    <div id="ingredients-show">
-      <img className="mx-3" src={props.ingredient.picture} />
-      <h2>{props.ingredient.name}</h2>
-      <h3 className="mt-2">Nutritional Summary</h3>
-      <div id="ingredientsTable">
+    <div id="ingredients-show" className="row">
+      <img className="mx-3 col-6" src={props.ingredient.picture} />
+      <div className="col-6">
+        <h2>{props.ingredient.name}</h2>
+        <h3 className="mt-2">Nutritional Summary</h3>
         <table className="table">
           <thead>
             <tr>
