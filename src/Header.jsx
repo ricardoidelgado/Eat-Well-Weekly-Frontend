@@ -1,8 +1,23 @@
 import { LogoutLink } from "./LogoutLink";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 export function Header() {
   let authenticationLink;
+  const [user, setUser] = useState({});
+  const params = useParams();
+
+  const handleShowUser = () => {
+    axios
+      .get(`http://localhost:3000/users/${params.id}.json`)
+      .then((response) => {
+        setUser(response.data);
+      });
+  };
+
+  useEffect(handleShowUser, []);
+
   if (localStorage.jwt === undefined) {
     authenticationLink = (
       <li className="nav-item">
@@ -23,7 +38,7 @@ export function Header() {
     <nav id="header" className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Meal Planner
+          Meal Planner {user.first_name}
         </a>
         <button
           className="navbar-toggler"
@@ -44,12 +59,20 @@ export function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/weekly_meal_plans">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/weekly_meal_plans"
+              >
                 Weekly Plans
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/daily_meal_plans">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/daily_meal_plans"
+              >
                 Daily Plans
               </a>
             </li>
@@ -59,7 +82,11 @@ export function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/ingredients">
+              <a
+                className="nav-link active"
+                aria-current="page"
+                href="/ingredients"
+              >
                 Ingredients
               </a>
             </li>
