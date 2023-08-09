@@ -5,14 +5,17 @@ html {
 /* START: These should be updated later*/
 
 #ingredients-show img {
-  width: 100px;
-  height: 100px;
+  width: 500px;
+  height: 500px;
+  float: left;
+  border-radius: 10%;
 }
 
 #meals-show-image {
   width: 300px;
   height: 300px;
   float: right;
+  border-radius: 10%;
 }
 
 #dmp-index img {
@@ -21,6 +24,11 @@ html {
 }
 
 /* END  */
+
+#ingredientsTable {
+  width: 50%;
+  float: right;
+}
 
 #root {
   background-color: #C1ECE4;
