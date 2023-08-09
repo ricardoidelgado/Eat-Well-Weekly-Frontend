@@ -28,9 +28,14 @@ export function Header() {
     );
   } else {
     authenticationLink = (
-      <li className="nav-item active">
-        <LogoutLink />
-      </li>
+      <>
+        <li className="nav-item active">
+          <a className="nav-link active">Hi {user.first_name}!</a>
+        </li>
+        <li className="nav-item active">
+          <LogoutLink />
+        </li>
+      </>
     );
   }
 
@@ -38,7 +43,7 @@ export function Header() {
     <nav id="header" className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Meal Planner {user.first_name}
+          Meal Planner
         </a>
         <button
           className="navbar-toggler"
