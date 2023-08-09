@@ -61,18 +61,29 @@ export function MealsShowPage(props) {
         </ul>
       ))}
 
-      <button
-        className="btn btn-success mt-3"
-        onClick={() => setNewMealIngredientVisibility(true)}
-      >
-        Add New Ingredient
-      </button>
+      {!newMealIngredientVisibility ? (
+        <button
+          className="btn btn-success mt-3"
+          onClick={() => setNewMealIngredientVisibility(true)}
+        >
+          Add New Ingredient
+        </button>
+      ) : null}
+
       {newMealIngredientVisibility ? (
-        <MealIngredientsNew
-          onCreateMealIngredient={props.onCreateMealIngredient}
-          meal={meal}
-          ingredients={props.ingredients}
-        />
+        <>
+          <button
+            className="btn btn-secondary mt-3"
+            onClick={() => setNewMealIngredientVisibility(false)}
+          >
+            Cancel Add New Ingredient
+          </button>
+          <MealIngredientsNew
+            onCreateMealIngredient={props.onCreateMealIngredient}
+            meal={meal}
+            ingredients={props.ingredients}
+          />
+        </>
       ) : null}
 
       <h3 className="mt-3">Nutritional Summary</h3>
