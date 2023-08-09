@@ -27,7 +27,11 @@ export function DailyMealPlansIndex(props) {
       </Link>
       <div className="accordion" id="accordionExample">
         {props.dailyMealPlans
-          ?.filter((dailyMealPlan) => dailyMealPlan.name.toLowerCase().includes(searchFilter.toLowerCase()))
+          ?.filter((dailyMealPlan) =>
+            dailyMealPlan.name
+              .toLowerCase()
+              .includes(searchFilter.toLowerCase())
+          )
           .map((dailyMealPlan) => (
             <div key={dailyMealPlan.id}>
               <div className="accordion-item mb-3">
@@ -43,30 +47,50 @@ export function DailyMealPlansIndex(props) {
                     {dailyMealPlan.name}
                   </button>
                 </h2>
-                <div id={dailyMealPlan.id} className="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div
+                  id={dailyMealPlan.id}
+                  className="accordion-collapse collapse"
+                  data-bs-parent="#accordionExample"
+                >
                   <div className="accordion-body">
                     <div className="row">
                       <div className="col-4">
                         <b>Breakfast:</b> {dailyMealPlan.breakfast_meal?.name}
                         <br />
-                        <img src={dailyMealPlan.breakfast_meal?.picture} alt="" />
+                        <img
+                          className="mx-3"
+                          src={dailyMealPlan.breakfast_meal?.picture}
+                        />
                       </div>
                       <div className="col-4">
                         <b>Lunch:</b> {dailyMealPlan.lunch_meal?.name}
                         <br />
-                        <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
+                        <img
+                          className="mx-3"
+                          src={dailyMealPlan.lunch_meal?.picture}
+                        />
                       </div>
                       <div className="col-4">
                         <b>Dinner:</b> {dailyMealPlan.dinner_meal?.name}
                         <br />
-                        <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
+                        <img
+                          className="mx-3"
+                          src={dailyMealPlan.dinner_meal?.picture}
+                        />
                       </div>
                       <div className="col-4 mx-auto mt-3">
-                        <b>Total Calories:</b> {dailyMealPlan.nutritional_summary?.calories.toLocaleString("en-US", {maximumFractionDigits: 0})}
+                        <b>Total Calories:</b>{" "}
+                        {dailyMealPlan.nutritional_summary?.calories.toLocaleString(
+                          "en-US",
+                          { maximumFractionDigits: 0 }
+                        )}
                       </div>
                     </div>
                     <br />
-                    <Link className="btn btn-primary col-12" to={`/daily_meal_plans/${dailyMealPlan.id}`}>
+                    <Link
+                      className="btn btn-primary col-12"
+                      to={`/daily_meal_plans/${dailyMealPlan.id}`}
+                    >
                       More Details
                     </Link>
                   </div>

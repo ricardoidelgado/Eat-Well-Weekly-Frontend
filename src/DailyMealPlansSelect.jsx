@@ -54,20 +54,17 @@ export function DailyMealPlansSelect(props) {
                       <div className="col-4">
                         <b>Breakfast:</b> {dailyMealPlan.breakfast_meal?.name}
                         <br />
-                        <img
-                          src={dailyMealPlan.breakfast_meal?.picture}
-                          alt=""
-                        />
+                        <img src={dailyMealPlan.breakfast_meal?.picture} />
                       </div>
                       <div className="col-4">
                         <b>Lunch:</b> {dailyMealPlan.lunch_meal?.name}
                         <br />
-                        <img src={dailyMealPlan.lunch_meal?.picture} alt="" />
+                        <img src={dailyMealPlan.lunch_meal?.picture} />
                       </div>
                       <div className="col-4">
                         <b>Dinner:</b> {dailyMealPlan.dinner_meal?.name}
                         <br />
-                        <img src={dailyMealPlan.dinner_meal?.picture} alt="" />
+                        <img src={dailyMealPlan.dinner_meal?.picture} />
                       </div>
                       <div className="col-4 mx-auto mt-3">
                         <b>Total Calories:</b>{" "}

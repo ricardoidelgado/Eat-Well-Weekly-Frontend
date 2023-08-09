@@ -33,7 +33,7 @@ export function MealsShowPage(props) {
   return (
     <div id="meals-show">
       <h2>{meal.name}</h2>
-      <img id="meals-show-image" className="mb-3" src={meal.picture} alt="" />
+      <img id="meals-show-image" className="mb-3" src={meal.picture} />
       <h3 className="mt-3">Ingredients: </h3>
 
       {meal.meal_ingredients?.map((mealIngredient) => (
