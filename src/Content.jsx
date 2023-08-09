@@ -335,7 +335,7 @@ export function Content() {
   }
 
   return (
-    <div className="container">
+    <div className="container" id="body">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login-signup" element={<LoginSignup />} />
