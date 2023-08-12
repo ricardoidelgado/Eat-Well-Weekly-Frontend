@@ -8,6 +8,7 @@ export function WeeklyMealPlansShowPage(props) {
   const params = useParams();
   const [editWeeklyMealPlanVisibility, setEditWeeklyMealPlanVisibility] =
     useState(false);
+
   const [isSelectSundayPlanVisible, setIsSelectSundayPlanVisible] =
     useState(false);
   const [isSelectMondayPlanVisible, setIsSelectMondayPlanVisible] =
@@ -22,13 +23,15 @@ export function WeeklyMealPlansShowPage(props) {
     useState(false);
   const [isSelectSaturdayPlanVisible, setIsSelectSaturdayPlanVisible] =
     useState(false);
-  const [sundayPlan, setSundayPlan] = useState("");
-  const [mondayPlan, setMondayPlan] = useState("");
-  const [tuesdayPlan, setTuesdayPlan] = useState("");
-  const [wednesdayPlan, setWednesdayPlan] = useState("");
-  const [thursdayPlan, setThursdayPlan] = useState("");
-  const [fridayPlan, setFridayPlan] = useState("");
-  const [saturdayPlan, setSaturdayPlan] = useState("");
+
+  const [name, setName] = useState("");
+  const [sundayPlan, setSundayPlan] = useState({});
+  const [mondayPlan, setMondayPlan] = useState({});
+  const [tuesdayPlan, setTuesdayPlan] = useState({});
+  const [wednesdayPlan, setWednesdayPlan] = useState({});
+  const [thursdayPlan, setThursdayPlan] = useState({});
+  const [fridayPlan, setFridayPlan] = useState({});
+  const [saturdayPlan, setSaturdayPlan] = useState({});
 
   const handleShowWeeklyMealPlan = () => {
     axios
@@ -42,7 +45,16 @@ export function WeeklyMealPlansShowPage(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const params = new FormData(event.target);
+    const params = {
+      name: name,
+      sunday: sundayPlan.id,
+      monday: mondayPlan.id,
+      tuesday: tuesdayPlan.id,
+      wednesday: wednesdayPlan.id,
+      thursday: thursdayPlan.id,
+      friday: fridayPlan.id,
+      saturday: saturdayPlan.id,
+    };
     props.onUpdateWeeklyMealPlan(weeklyMealPlan.id, params);
   };
 
@@ -450,7 +462,17 @@ export function WeeklyMealPlansShowPage(props) {
       {!editWeeklyMealPlanVisibility ? (
         <button
           className="btn btn-warning mt-3"
-          onClick={() => setEditWeeklyMealPlanVisibility(true)}
+          onClick={() => {
+            setEditWeeklyMealPlanVisibility(true);
+            setName(weeklyMealPlan.name);
+            setSundayPlan(weeklyMealPlan.sunday_plan);
+            setMondayPlan(weeklyMealPlan.monday_plan);
+            setTuesdayPlan(weeklyMealPlan.tuesday_plan);
+            setWednesdayPlan(weeklyMealPlan.wednesday_plan);
+            setThursdayPlan(weeklyMealPlan.thursday_plan);
+            setFridayPlan(weeklyMealPlan.friday_plan);
+            setSaturdayPlan(weeklyMealPlan.saturday_plan);
+          }}
         >
           Edit Weekly Meal Plan
         </button>
@@ -471,15 +493,16 @@ export function WeeklyMealPlansShowPage(props) {
             <div className="row">
               <div className="mb-2 col-12">
                 <div className="mb-2 col-12">
-                  <label htmlFor="dmpName" className="form-label">
+                  <label htmlFor="wmpName" className="form-label">
                     Name
                   </label>
                   <input
                     name="name"
                     type="text"
                     className="form-control"
-                    id="dmpName"
-                    defaultValue={weeklyMealPlan.name}
+                    id="wmpName"
+                    defaultValue={name}
+                    onChange={(event) => setName(event.target.value)}
                   />
                 </div>
                 <div className="mb-2">
@@ -488,13 +511,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={sundayPlan.id}
                     hidden
+                    required
                   />
                   Sunday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={sundayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={sundayPlan.name}
                     disabled
                   />
                 </div>
@@ -521,13 +544,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={mondayPlan.id}
                     hidden
+                    required
                   />
                   Monday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={mondayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={mondayPlan.name}
                     disabled
                   />
                 </div>
@@ -554,13 +577,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={tuesdayPlan.id}
                     hidden
+                    required
                   />
                   Tuesday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={tuesdayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={tuesdayPlan.name}
                     disabled
                   />
                 </div>
@@ -587,13 +610,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={wednesdayPlan.id}
                     hidden
+                    required
                   />
                   Wednesday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={wednesdayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={wednesdayPlan.name}
                     disabled
                   />
                 </div>
@@ -620,13 +643,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={thursdayPlan.id}
                     hidden
+                    required
                   />
                   Thursday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={thursdayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={thursdayPlan.name}
                     disabled
                   />
                 </div>
@@ -653,13 +676,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={fridayPlan.id}
                     hidden
+                    required
                   />
                   Friday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={fridayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={fridayPlan.name}
                     disabled
                   />
                 </div>
@@ -686,13 +709,13 @@ export function WeeklyMealPlansShowPage(props) {
                     type="number"
                     defaultValue={saturdayPlan.id}
                     hidden
+                    required
                   />
                   Saturday Meal Plan
                   <input
                     type="text"
                     className="form-control"
-                    defaultValue={saturdayPlan.name}
-                    placeholder="Please select a daily meal plan"
+                    placeholder={saturdayPlan.name}
                     disabled
                   />
                 </div>
@@ -726,75 +749,6 @@ export function WeeklyMealPlansShowPage(props) {
               </div>
             </div>
           </form>
-
-          {/* <form onSubmit={handleSubmit}>
-            <div>
-              Name:{" "}
-              <input
-                name="name"
-                type="text"
-                defaultValue={weeklyMealPlan.name}
-              />
-            </div>
-            <div>
-              Sunday:{" "}
-              <input
-                name="sunday"
-                type="text"
-                defaultValue={weeklyMealPlan.sunday}
-              />
-            </div>
-            <div>
-              Monday:{" "}
-              <input
-                name="monday"
-                type="text"
-                defaultValue={weeklyMealPlan.monday}
-              />
-            </div>
-            <div>
-              Tuesday:{" "}
-              <input
-                name="tuesday"
-                type="text"
-                defaultValue={weeklyMealPlan.tuesday}
-              />
-            </div>
-            <div>
-              Wednesday:{" "}
-              <input
-                name="wednesday"
-                type="text"
-                defaultValue={weeklyMealPlan.wednesday}
-              />
-            </div>
-            <div>
-              Thursday:{" "}
-              <input
-                name="thursday"
-                type="text"
-                defaultValue={weeklyMealPlan.thursday}
-              />
-            </div>
-            <div>
-              Friday:{" "}
-              <input
-                name="friday"
-                type="text"
-                defaultValue={weeklyMealPlan.friday}
-              />
-            </div>
-            <div>
-              Saturday:{" "}
-              <input
-                name="saturday"
-                type="text"
-                defaultValue={weeklyMealPlan.saturday}
-              />
-            </div>
-            <button type="submit">Update Weekly Meal Plan</button>
-            <button onClick={handleClick}>Delete Weekly Meal Plan</button>
-          </form> */}
         </>
       ) : null}
     </div>
