@@ -8,9 +8,12 @@ export function DailyMealPlansShowPage(props) {
   const params = useParams();
   const [editDailyMealPlanVisibility, setEditDailyMealPlanVisibility] =
     useState(false);
-  const [breakfast, setBreakfast] = useState("");
-  const [lunch, setLunch] = useState("");
-  const [dinner, setDinner] = useState("");
+
+  const [name, setName] = useState("");
+  const [breakfast, setBreakfast] = useState({});
+  const [lunch, setLunch] = useState({});
+  const [dinner, setDinner] = useState({});
+
   const [isSelectBreakfastVisibility, setIsSelectBreakfastVisibility] =
     useState(false);
   const [isSelectLunchVisibility, setIsSelectLunchVisibility] = useState(false);
@@ -29,7 +32,12 @@ export function DailyMealPlansShowPage(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const params = new FormData(event.target);
+    const params = {
+      name: name,
+      breakfast: breakfast.id,
+      lunch: lunch.id,
+      dinner: dinner.id,
+    };
     props.onUpdateDailyMealPlan(dailyMealPlan.id, params);
   };
 
@@ -255,6 +263,10 @@ export function DailyMealPlansShowPage(props) {
           className="btn btn-warning mt-3"
           onClick={() => {
             setEditDailyMealPlanVisibility(true);
+            setName(dailyMealPlan.name);
+            setBreakfast(dailyMealPlan.breakfast_meal);
+            setLunch(dailyMealPlan.lunch_meal);
+            setDinner(dailyMealPlan.dinner_meal);
           }}
         >
           Edit Daily Meal Plan
@@ -270,7 +282,6 @@ export function DailyMealPlansShowPage(props) {
             Cancel Edit
           </button>
           <h1>Edit Daily Meal Plan</h1>
-          <h5>Please select an updated Breakfast, Lunch and Dinner</h5>
           <form onSubmit={handleSubmit}>
             <div className="row">
               <div className="mb-2 col-12">
@@ -282,7 +293,8 @@ export function DailyMealPlansShowPage(props) {
                   type="text"
                   className="form-control"
                   id="dmpName"
-                  defaultValue={dailyMealPlan.name}
+                  defaultValue={name}
+                  onChange={(event) => setName(event.target.value)}
                 />
               </div>
 
@@ -298,8 +310,7 @@ export function DailyMealPlansShowPage(props) {
                 <input
                   type="text"
                   className="form-control"
-                  defaultValue={breakfast.name}
-                  placeholder="Please select a meal"
+                  placeholder={breakfast.name}
                   disabled
                 />
               </div>
@@ -332,8 +343,7 @@ export function DailyMealPlansShowPage(props) {
                 <input
                   type="text"
                   className="form-control"
-                  defaultValue={lunch.name}
-                  placeholder="Please select a meal"
+                  placeholder={lunch.name}
                   disabled
                 />
               </div>
@@ -363,8 +373,7 @@ export function DailyMealPlansShowPage(props) {
                 <input
                   type="text"
                   className="form-control"
-                  defaultValue={dinner.name}
-                  placeholder="Please select a meal"
+                  placeholder={dinner.name}
                   disabled
                 />
               </div>
