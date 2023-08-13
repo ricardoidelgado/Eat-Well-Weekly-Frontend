@@ -29,9 +29,11 @@ export function Header() {
   } else {
     authenticationLink = (
       <>
-        <li className="nav-item active">
-          <a className="nav-link active">Hi {user.first_name}!</a>
-        </li>
+        {user.first_name ? (
+          <li className="nav-item active">
+            <a className="nav-link active">Hi {user.first_name}!</a>
+          </li>
+        ) : null}
         <li className="nav-item active">
           <LogoutLink />
         </li>
