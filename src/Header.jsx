@@ -45,7 +45,7 @@ export function Header() {
     <nav id="header" className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Meal Planner
+          Eat Well Weekly
         </a>
         <button
           className="navbar-toggler"
