@@ -1,4 +1,4 @@
-# Meal-Planner-App (Front-End)
+# Eat Well Weekly (Front-End)
 
 A web application for creating and organzing daily or weekly meal plans with nutritional summary and grocery list outputs. You can create an ingredient, assemble those ingredients into a meal and then select meals for daily meal plans which can be organized into a weekly meal plan.
 
@@ -8,7 +8,7 @@ Taking it one step further in meal planning, nutritional information is availabl
 
 Technologies include Ruby on Rails backend and React.js frontend. Bootstrap is used for styling on the front-end and the Pony gem is used to allow you to email yourself the grocery list for your meal plans. (Texting functionality using Twilio gem is included but commented out in the code).
 
-The back-end for this application can be found here: https://github.com/ricardoidelgado/meal-planner-api
+The back-end for this application can be found here: https://github.com/ricardoidelgado/Eat-Well-Weekly-Api
 
 ## Installation
 
