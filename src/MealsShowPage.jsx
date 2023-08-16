@@ -42,13 +42,13 @@ export function MealsShowPage(props) {
           key={mealIngredient.id}
         >
           <li className="list-group-item col-2">
-            {mealIngredient.ingredient.name}{" "}
+            {mealIngredient.ingredient.name}
           </li>
           <li className="list-group-item col-2">
-            Quantity:{" "}
+            Quantity:
             {mealIngredient.ingredient_quantity.toLocaleString("en-US", {
               maximumFractionDigits: 0,
-            })}{" "}
+            })}
           </li>
           <li className="list-group-item col-2">
             <button

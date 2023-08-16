@@ -67,7 +67,7 @@ export function DailyMealPlansSelect(props) {
                         <img src={dailyMealPlan.dinner_meal?.picture} />
                       </div>
                       <div className="col-4 mx-auto mt-3">
-                        <b>Total Calories:</b>{" "}
+                        <b>Total Calories:</b>
                         {dailyMealPlan.nutritional_summary?.calories.toLocaleString(
                           "en-US",
                           { maximumFractionDigits: 0 }

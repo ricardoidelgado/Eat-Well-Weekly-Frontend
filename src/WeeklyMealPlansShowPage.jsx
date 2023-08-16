@@ -131,7 +131,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.sunday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.sunday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
@@ -159,7 +159,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.monday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.monday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
@@ -187,7 +187,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.tuesday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.tuesday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
@@ -217,7 +217,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.wednesday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.wednesday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
@@ -245,7 +245,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.thursday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.thursday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
@@ -273,7 +273,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.friday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.friday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
@@ -301,7 +301,7 @@ export function WeeklyMealPlansShowPage(props) {
               Dinner: {weeklyMealPlan.saturday_meals?.dinner.name}
             </p>
             <p className="card-text">
-              Calories:{" "}
+              Calories:
               {weeklyMealPlan.saturday_nutrition?.calories.toLocaleString(
                 "en-US",
                 { maximumFractionDigits: 0 }
