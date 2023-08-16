@@ -90,7 +90,7 @@ export function DailyMealPlansShowPage(props) {
               <h5 className="card-title">Breakfast</h5>
               <p className="card-text">{dailyMealPlan.breakfast_meal?.name}</p>
               <p className="card-text">
-                Calories:
+                Calories:{" "}
                 {dailyMealPlan.breakfast_nutrition?.calories.toLocaleString(
                   "en-US",
                   { maximumFractionDigits: 0 }
@@ -115,7 +115,7 @@ export function DailyMealPlansShowPage(props) {
               <h5 className="card-title">Lunch</h5>
               <p className="card-text">{dailyMealPlan.lunch_meal?.name}</p>
               <p className="card-text">
-                Calories:
+                Calories:{" "}
                 {dailyMealPlan.lunch_nutrition?.calories.toLocaleString(
                   "en-US",
                   { maximumFractionDigits: 0 }
@@ -140,7 +140,7 @@ export function DailyMealPlansShowPage(props) {
               <h5 className="card-title">Dinner</h5>
               <p className="card-text">{dailyMealPlan.dinner_meal?.name}</p>
               <p className="card-text">
-                Calories:
+                Calories:{" "}
                 {dailyMealPlan.dinner_nutrition?.calories.toLocaleString(
                   "en-US",
                   { maximumFractionDigits: 0 }

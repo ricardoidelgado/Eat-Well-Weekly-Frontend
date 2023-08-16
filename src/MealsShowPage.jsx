@@ -41,11 +41,11 @@ export function MealsShowPage(props) {
           className="list-group list-group-horizontal row"
           key={mealIngredient.id}
         >
-          <li className="list-group-item col-2">
+          <li className="list-group-item col-2 d-flex align-items-center">
             {mealIngredient.ingredient.name}
           </li>
-          <li className="list-group-item col-2">
-            Quantity:
+          <li className="list-group-item col-2 d-flex align-items-center">
+            Quantity:{" "}
             {mealIngredient.ingredient_quantity.toLocaleString("en-US", {
               maximumFractionDigits: 0,
             })}
