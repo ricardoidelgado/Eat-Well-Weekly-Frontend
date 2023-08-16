@@ -37,7 +37,7 @@ export function MealsSelect(props) {
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{meal.name}</h5>
                   <p className="card-text">
-                    Calories:
+                    Calories:{" "}
                     {meal.nutritional_summary?.calories.toLocaleString(
                       "en-US",
                       { maximumFractionDigits: 0 }
