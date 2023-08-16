@@ -45,7 +45,8 @@ export function Header() {
     <nav id="header" className="navbar navbar-expand-lg">
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
-          Eat Well Weekly
+          <img src="./public/icons8-chef-64.png" className="mx-3" id="logo" />
+          <b>Eat Well Weekly</b>
         </a>
         <button
           className="navbar-toggler"

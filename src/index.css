@@ -41,6 +41,10 @@ html {
   background-color: #3AA6B9;
 }
 
+#logo {
+  height: 50px;
+}
+
 #body {
   min-height: 100vh;
   display: flex;
