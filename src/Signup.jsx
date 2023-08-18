@@ -53,7 +53,7 @@ export function Signup() {
               id="lastName"
             />
           </div>
-          <div className="mb-3 col-6">
+          <div className="mb-3 col-12">
             <label htmlFor="email" className="form-label">
               Email
             </label>
@@ -62,17 +62,6 @@ export function Signup() {
               type="email"
               className="form-control"
               id="email"
-            />
-          </div>
-          <div className="mb-3 col-6">
-            <label htmlFor="profilePicture" className="form-label">
-              Profile Picture
-            </label>
-            <input
-              name="profile_picture"
-              type="text"
-              className="form-control"
-              id="profilePicture"
             />
           </div>
           <div className="mb-3 col-6">
