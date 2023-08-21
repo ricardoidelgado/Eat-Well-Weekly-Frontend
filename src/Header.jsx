@@ -60,7 +60,7 @@ export function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav">
+          <ul className="navbar-nav w-100">
             <li className="nav-item">
               <a className="nav-link active" aria-current="page" href="/">
                 Home
@@ -132,7 +132,7 @@ export function Header() {
                 </li>
               </ul>
             </li>
-            {authenticationLink}
+            <span id="login-logout">{authenticationLink}</span>
           </ul>
         </div>
       </div>

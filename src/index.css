@@ -42,6 +42,13 @@ html {
   background-color: #3AA6B9;
 }
 
+@media (min-width: 992.02px) {
+  #login-logout {
+    margin-left: auto;
+    display: flex;
+  }
+}
+
 #logo {
   height: 50px;
 }
