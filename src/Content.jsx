@@ -73,7 +73,6 @@ export function Content() {
     axios
       .post("http://localhost:3000/ingredients_api.json", params)
       .then((response) => {
-        console.log(response.data);
         setNewIngredient(response.data);
       });
   };
