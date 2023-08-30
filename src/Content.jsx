@@ -43,6 +43,7 @@ export function Content() {
     useState(false);
   const [currentIngredient, setCurrentIngredient] = useState({});
   const [isIngredientsNewVisible, setIsIngredientsNewVisible] = useState(false);
+  const [newIngredient, setNewIngredient] = useState({});
 
   const handleIndexIngredients = () => {
     axios.get("http://localhost:3000/ingredients.json").then((response) => {
@@ -65,6 +66,15 @@ export function Content() {
       .then((response) => {
         setIngredients([...ingredients, response.data]);
         successCallback();
+      });
+  };
+
+  const handleFindNewIngredient = (params) => {
+    axios
+      .post("http://localhost:3000/ingredients_api.json", params)
+      .then((response) => {
+        console.log(response.data);
+        setNewIngredient(response.data);
       });
   };
 
@@ -352,7 +362,11 @@ export function Content() {
         <Route
           path="/ingredients/new"
           element={
-            <IngredientsNew onCreateIngredient={handleCreateIngredient} />
+            <IngredientsNew
+              onCreateIngredient={handleCreateIngredient}
+              newIngredient={newIngredient}
+              onFindNewIngredient={handleFindNewIngredient}
+            />
           }
         />
         <Route path="/meals" element={<MealsIndex meals={meals} />} />

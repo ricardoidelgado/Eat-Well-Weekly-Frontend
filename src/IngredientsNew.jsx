@@ -1,4 +1,14 @@
+import { useState } from "react";
+
 export function IngredientsNew(props) {
+  const [queriedIngredient, setQueriedIngredient] = useState("");
+
+  const handleQueryNewIngredient = (event) => {
+    event.preventDefault();
+    const params = { query: queriedIngredient };
+    props.onFindNewIngredient(params);
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
@@ -8,6 +18,24 @@ export function IngredientsNew(props) {
   return (
     <div>
       <h1>New Ingredient</h1>
+
+      <h2>Quick Create</h2>
+      <form onSubmit={handleQueryNewIngredient}>
+        <label htmlFor="newIngredient" className="form-label">
+          New Ingredient
+        </label>
+        <input
+          name="query"
+          type="text"
+          className="form-control"
+          id="newIngredient"
+          onChange={(event) => setQueriedIngredient(event.target.value)}
+        />
+        <button className="btn btn-primary" type="submit">
+          Search Ingredient
+        </button>
+      </form>
+
       <form className="mt-2" onSubmit={handleSubmit}>
         <div className="row">
           <div className="mb-2 col-4">
