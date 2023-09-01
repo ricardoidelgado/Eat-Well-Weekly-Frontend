@@ -49,6 +49,7 @@ export function DailyMealPlansNew(props) {
               type="text"
               className="form-control"
               id="dmpName"
+              required
             />
           </div>
 
@@ -58,6 +59,7 @@ export function DailyMealPlansNew(props) {
               type="number"
               defaultValue={breakfast.id}
               hidden
+              required
             />
             Breakfast
             <input
@@ -83,7 +85,13 @@ export function DailyMealPlansNew(props) {
           ) : null}
 
           <div className="mb-2">
-            <input name="lunch" type="number" defaultValue={lunch.id} hidden />
+            <input
+              name="lunch"
+              type="number"
+              defaultValue={lunch.id}
+              hidden
+              required
+            />
             Lunch
             <input
               type="text"
@@ -113,6 +121,7 @@ export function DailyMealPlansNew(props) {
               type="number"
               defaultValue={dinner.id}
               hidden
+              required
             />
             Dinner
             <input

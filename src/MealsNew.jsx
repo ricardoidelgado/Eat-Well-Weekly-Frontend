@@ -24,6 +24,7 @@ export function MealsNew(props) {
               type="text"
               className="form-control"
               id="mealName"
+              required
             />
           </div>
           <div className="mb-2 col-6">
@@ -35,6 +36,7 @@ export function MealsNew(props) {
               type="text"
               className="form-control"
               id="mealPicture"
+              required
             />
           </div>
           <button className="btn btn-success" type="submit">

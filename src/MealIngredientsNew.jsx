@@ -17,7 +17,12 @@ export function MealIngredientsNew(props) {
       <form onSubmit={handleSubmit}>
         <div className="row">
           <div>
-            <input name="meal_id" type="text" defaultValue={props.meal.id} hidden />
+            <input
+              name="meal_id"
+              type="text"
+              defaultValue={props.meal.id}
+              hidden
+            />
           </div>
           <div className="mb-3">
             <b>Selected Ingredient:</b>
@@ -34,13 +39,20 @@ export function MealIngredientsNew(props) {
               className="form-control"
               defaultValue={selectedIngredient.id}
               hidden
+              required
             />
           </div>
           <div className="mb-3">
             <label htmlFor="quantity" className="form-label">
               <b>Quantity:</b>
             </label>
-            <input name="ingredient_quantity" type="number" className="form-control" id="quantity" />
+            <input
+              name="ingredient_quantity"
+              type="number"
+              className="form-control"
+              id="quantity"
+              required
+            />
           </div>
 
           <button className="btn btn-success" type="submit">
@@ -64,11 +76,19 @@ export function MealIngredientsNew(props) {
         </div>
         <div className="row pt-3">
           {props.ingredients
-            .filter((ingredient) => ingredient.name.toLowerCase().includes(searchFilter.toLowerCase()))
+            .filter((ingredient) =>
+              ingredient.name.toLowerCase().includes(searchFilter.toLowerCase())
+            )
             .map((ingredient) => (
-              <div className="col-3 g-0 d-flex align-items-stretch" key={ingredient.id}>
+              <div
+                className="col-3 g-0 d-flex align-items-stretch"
+                key={ingredient.id}
+              >
                 <div className="card w-100">
-                  <img src={ingredient.picture} className="card-img-top h-50 img-fluid" />
+                  <img
+                    src={ingredient.picture}
+                    className="card-img-top h-50 img-fluid"
+                  />
                   <div className="card-body d-flex flex-column">
                     <h5 className="card-title">{ingredient.name}</h5>
                     <p className="card-text">Calories: {ingredient.calories}</p>

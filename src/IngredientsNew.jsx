@@ -62,12 +62,10 @@ export function IngredientsNew(props) {
               <div className="mb-2 col-4">
                 <label className="form-label">Name</label>
                 <input
-                  name="name"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.name}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
@@ -84,78 +82,64 @@ export function IngredientsNew(props) {
               <div className="mb-2 col-4">
                 <label className="form-label">Calories</label>
                 <input
-                  name="calories"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.calories}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
                 <label className="form-label">Fat</label>
                 <input
-                  name="fat"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.fat}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
                 <label className="form-label">Sodium</label>
                 <input
-                  name="sodium"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.sodium}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
                 <label className="form-label">Carbs</label>
                 <input
-                  name="carbs"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.carbs}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
                 <label className="form-label">Protein</label>
                 <input
-                  name="protein"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.protein}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
                 <label className="form-label">Sugar</label>
                 <input
-                  name="sugar"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.sugar}
                   disabled
-                  required
                 />
               </div>
               <div className="mb-2 col-4">
                 <label className="form-label">Cholesterol</label>
                 <input
-                  name="cholesterol"
                   type="text"
                   className="form-control"
                   placeholder={props.newIngredient?.cholesterol}
                   disabled
-                  required
                 />
               </div>
               <button className="btn btn-success" type="submit">
@@ -178,6 +162,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientName"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -189,6 +174,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientPicture"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -200,6 +186,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientCalories"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -211,6 +198,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientFat"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -222,6 +210,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientSodium"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -233,6 +222,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientCarbs"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -244,6 +234,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientProtein"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -255,6 +246,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientSugar"
+              required
             />
           </div>
           <div className="mb-2 col-4">
@@ -266,6 +258,7 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientCholesterol"
+              required
             />
           </div>
           <button className="btn btn-success" type="submit">

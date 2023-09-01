@@ -92,6 +92,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={sundayPlan.id}
                 hidden
+                required
               />
               Sunday Meal Plan
               <input
@@ -122,6 +123,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={mondayPlan.id}
                 hidden
+                required
               />
               Monday Meal Plan
               <input
@@ -152,6 +154,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={tuesdayPlan.id}
                 hidden
+                required
               />
               Tuesday Meal Plan
               <input
@@ -182,6 +185,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={wednesdayPlan.id}
                 hidden
+                required
               />
               Wednesday Meal Plan
               <input
@@ -215,6 +219,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={thursdayPlan.id}
                 hidden
+                required
               />
               Thursday Meal Plan
               <input
@@ -245,6 +250,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={fridayPlan.id}
                 hidden
+                required
               />
               Friday Meal Plan
               <input
@@ -275,6 +281,7 @@ export function WeeklyMealPlansNew(props) {
                 type="number"
                 defaultValue={saturdayPlan.id}
                 hidden
+                required
               />
               Saturday Meal Plan
               <input
