@@ -104,7 +104,7 @@ export function MealsShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Fat</td>
+            <td>Fat (g)</td>
             <td>
               {meal.nutritional_summary?.fat.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
@@ -112,7 +112,7 @@ export function MealsShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Sodium</td>
+            <td>Sodium (mg)</td>
             <td>
               {meal.nutritional_summary?.sodium.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
@@ -120,7 +120,7 @@ export function MealsShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Carbs</td>
+            <td>Carbs (g)</td>
             <td>
               {meal.nutritional_summary?.carbs.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
@@ -128,7 +128,7 @@ export function MealsShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Protein</td>
+            <td>Protein (g)</td>
             <td>
               {meal.nutritional_summary?.protein.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
@@ -136,7 +136,7 @@ export function MealsShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Sugar</td>
+            <td>Sugar (g)</td>
             <td>
               {meal.nutritional_summary?.sugar.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
@@ -144,7 +144,7 @@ export function MealsShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Cholesterol</td>
+            <td>Cholesterol (mg)</td>
             <td>
               {meal.nutritional_summary?.cholesterol.toLocaleString("en-US", {
                 maximumFractionDigits: 0,

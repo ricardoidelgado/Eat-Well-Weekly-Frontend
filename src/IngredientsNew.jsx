@@ -81,7 +81,9 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Serving Size</label>
+                <label className="form-label">
+                  Serving Size (Defaults to grams)
+                </label>
                 <input
                   type="text"
                   className="form-control"
@@ -99,7 +101,7 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Fat</label>
+                <label className="form-label">Fat (g)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -108,7 +110,7 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Sodium</label>
+                <label className="form-label">Sodium (mg)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -117,7 +119,7 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Carbs</label>
+                <label className="form-label">Carbs (g)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -126,7 +128,7 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Protein</label>
+                <label className="form-label">Protein (g)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -135,7 +137,7 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Sugar</label>
+                <label className="form-label">Sugar (g)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -144,7 +146,7 @@ export function IngredientsNew(props) {
                 />
               </div>
               <div className="mb-2 col-4">
-                <label className="form-label">Cholesterol</label>
+                <label className="form-label">Cholesterol (mg)</label>
                 <input
                   type="text"
                   className="form-control"
@@ -213,7 +215,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-4">
             <label htmlFor="ingredientFat" className="form-label">
-              Fat
+              Fat (g)
             </label>
             <input
               name="fat"
@@ -225,7 +227,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-4">
             <label htmlFor="ingredientSodium" className="form-label">
-              Sodium
+              Sodium (mg)
             </label>
             <input
               name="sodium"
@@ -237,7 +239,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-4">
             <label htmlFor="ingredientCarbs" className="form-label">
-              Carbs
+              Carbs (g)
             </label>
             <input
               name="carbs"
@@ -249,7 +251,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-4">
             <label htmlFor="ingredientProtein" className="form-label">
-              Protein
+              Protein (g)
             </label>
             <input
               name="protein"
@@ -261,7 +263,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-4">
             <label htmlFor="ingredientSugar" className="form-label">
-              Sugar
+              Sugar (g)
             </label>
             <input
               name="sugar"
@@ -273,7 +275,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-4">
             <label htmlFor="ingredientCholesterol" className="form-label">
-              Cholesterol
+              Cholesterol (mg)
             </label>
             <input
               name="cholesterol"

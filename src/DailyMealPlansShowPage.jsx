@@ -203,7 +203,7 @@ export function DailyMealPlansShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Fat</td>
+            <td>Fat (g)</td>
             <td>
               {dailyMealPlan.nutritional_summary?.fat.toLocaleString("en-US", {
                 maximumFractionDigits: 0,
@@ -211,7 +211,7 @@ export function DailyMealPlansShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Sodium</td>
+            <td>Sodium (mg)</td>
             <td>
               {dailyMealPlan.nutritional_summary?.sodium.toLocaleString(
                 "en-US",
@@ -220,7 +220,7 @@ export function DailyMealPlansShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Carbs</td>
+            <td>Carbs (g)</td>
             <td>
               {dailyMealPlan.nutritional_summary?.carbs.toLocaleString(
                 "en-US",
@@ -229,7 +229,7 @@ export function DailyMealPlansShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Protein</td>
+            <td>Protein (g)</td>
             <td>
               {dailyMealPlan.nutritional_summary?.protein.toLocaleString(
                 "en-US",
@@ -238,7 +238,7 @@ export function DailyMealPlansShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Sugar</td>
+            <td>Sugar (g)</td>
             <td>
               {dailyMealPlan.nutritional_summary?.sugar.toLocaleString(
                 "en-US",
@@ -247,7 +247,7 @@ export function DailyMealPlansShowPage(props) {
             </td>
           </tr>
           <tr>
-            <td>Cholesterol</td>
+            <td>Cholesterol (mg)</td>
             <td>
               {dailyMealPlan.nutritional_summary?.cholesterol.toLocaleString(
                 "en-US",

@@ -40,7 +40,7 @@ export function IngredientsShow(props) {
               </td>
             </tr>
             <tr>
-              <td>Fat</td>
+              <td>Fat (g)</td>
               <td>
                 {props.ingredient?.fat.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
@@ -48,7 +48,7 @@ export function IngredientsShow(props) {
               </td>
             </tr>
             <tr>
-              <td>Sodium</td>
+              <td>Sodium (mg)</td>
               <td>
                 {props.ingredient?.sodium.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
@@ -56,7 +56,7 @@ export function IngredientsShow(props) {
               </td>
             </tr>
             <tr>
-              <td>Carbs</td>
+              <td>Carbs (g)</td>
               <td>
                 {props.ingredient?.carbs.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
@@ -64,7 +64,7 @@ export function IngredientsShow(props) {
               </td>
             </tr>
             <tr>
-              <td>Protein</td>
+              <td>Protein (g)</td>
               <td>
                 {props.ingredient?.protein.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
@@ -72,7 +72,7 @@ export function IngredientsShow(props) {
               </td>
             </tr>
             <tr>
-              <td>Sugar</td>
+              <td>Sugar (g)</td>
               <td>
                 {props.ingredient?.sugar.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
@@ -80,7 +80,7 @@ export function IngredientsShow(props) {
               </td>
             </tr>
             <tr>
-              <td>Cholesterol</td>
+              <td>Cholesterol (mg)</td>
               <td>
                 {props.ingredient?.cholesterol.toLocaleString("en-US", {
                   maximumFractionDigits: 0,
@@ -161,7 +161,7 @@ export function IngredientsShow(props) {
               </div>
               <div className="mb-2 col-4">
                 <label htmlFor="ingredientFat" className="form-label">
-                  Fat
+                  Fat (g)
                 </label>
                 <input
                   name="fat"
@@ -173,7 +173,7 @@ export function IngredientsShow(props) {
               </div>
               <div className="mb-2 col-4">
                 <label htmlFor="ingredientSodium" className="form-label">
-                  Sodium
+                  Sodium (mg)
                 </label>
                 <input
                   name="sodium"
@@ -185,7 +185,7 @@ export function IngredientsShow(props) {
               </div>
               <div className="mb-2 col-4">
                 <label htmlFor="ingredientCarbs" className="form-label">
-                  Carbs
+                  Carbs (g)
                 </label>
                 <input
                   name="carbs"
@@ -197,7 +197,7 @@ export function IngredientsShow(props) {
               </div>
               <div className="mb-2 col-4">
                 <label htmlFor="ingredientProtein" className="form-label">
-                  Protein
+                  Protein (g)
                 </label>
                 <input
                   name="protein"
@@ -209,7 +209,7 @@ export function IngredientsShow(props) {
               </div>
               <div className="mb-2 col-4">
                 <label htmlFor="ingredientSugar" className="form-label">
-                  Sugar
+                  Sugar (g)
                 </label>
                 <input
                   name="sugar"
@@ -221,7 +221,7 @@ export function IngredientsShow(props) {
               </div>
               <div className="mb-2 col-4">
                 <label htmlFor="ingredientCholesterol" className="form-label">
-                  Cholesterol
+                  Cholesterol (mg)
                 </label>
                 <input
                   name="cholesterol"
