@@ -42,7 +42,6 @@ export function Content() {
   const [isIngredientsShowVisible, setIsIngredientsShowVisible] =
     useState(false);
   const [currentIngredient, setCurrentIngredient] = useState({});
-  const [isIngredientsNewVisible, setIsIngredientsNewVisible] = useState(false);
   const [newIngredient, setNewIngredient] = useState({});
 
   const handleIndexIngredients = () => {
@@ -54,10 +53,6 @@ export function Content() {
   const handleShowIngredient = (ingredient) => {
     setIsIngredientsShowVisible(true);
     setCurrentIngredient(ingredient);
-  };
-
-  const handleNewIngredient = () => {
-    setIsIngredientsNewVisible(true);
   };
 
   const handleCreateIngredient = (params, successCallback) => {
@@ -309,7 +304,6 @@ export function Content() {
   // Shared
   const handleClose = () => {
     setIsIngredientsShowVisible(false);
-    setIsIngredientsNewVisible(false);
     setIsMealIngredientsModalVisible(false);
   };
 
@@ -317,12 +311,7 @@ export function Content() {
   let modalOutput;
   let visibility;
 
-  if (isIngredientsNewVisible) {
-    modalOutput = (
-      <IngredientsNew onCreateIngredient={handleCreateIngredient} />
-    );
-    visibility = isIngredientsNewVisible;
-  } else if (isIngredientsShowVisible) {
+  if (isIngredientsShowVisible) {
     modalOutput = (
       <IngredientsShow
         ingredient={currentIngredient}
@@ -354,7 +343,6 @@ export function Content() {
             <IngredientsIndex
               ingredients={ingredients}
               onShowIngredient={handleShowIngredient}
-              onNewIngredient={handleNewIngredient}
             />
           }
         />

@@ -54,7 +54,7 @@ export function IngredientsNew(props) {
         </button>
       </form>
 
-      {props.newIngredient.name ? (
+      {props.newIngredient?.name ? (
         <>
           <h3>Here is what we found:</h3>
           <form className="mt-2" onSubmit={handleQuerySubmit}>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export function IngredientsIndex(props) {
   const [searchFilter, setSearchFilter] = useState("");
@@ -21,19 +22,32 @@ export function IngredientsIndex(props) {
           </div>
         </div>
       </div>
-      <button type="button" className="btn btn-success col" onClick={() => props.onNewIngredient()}>
+      <Link className="btn btn-success col" to="/ingredients/new">
         Create Ingredient
-      </button>
+      </Link>
       <div className="row pt-3">
         {props.ingredients
-          .filter((ingredient) => ingredient.name.toLowerCase().includes(searchFilter.toLowerCase()))
+          .filter((ingredient) =>
+            ingredient.name.toLowerCase().includes(searchFilter.toLowerCase())
+          )
           .map((ingredient) => (
-            <div className="col-3 g-0 d-flex align-items-stretch" key={ingredient.id}>
+            <div
+              className="col-3 g-0 d-flex align-items-stretch"
+              key={ingredient.id}
+            >
               <div className="card w-100">
-                <img src={ingredient.picture} className="card-img-top h-50 img-fluid" />
+                <img
+                  src={ingredient.picture}
+                  className="card-img-top h-50 img-fluid"
+                />
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{ingredient.name}</h5>
-                  <p className="card-text">Calories: {ingredient.calories?.toLocaleString("en-US", {maximumFractionDigits: 0})}</p>
+                  <p className="card-text">
+                    Calories:{" "}
+                    {ingredient.calories?.toLocaleString("en-US", {
+                      maximumFractionDigits: 0,
+                    })}
+                  </p>
                   <button
                     type="button"
                     className="btn btn-primary mt-auto"
