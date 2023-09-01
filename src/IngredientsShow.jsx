@@ -21,6 +21,7 @@ export function IngredientsShow(props) {
       <img className="mx-3 col-6" src={props.ingredient.picture} />
       <div className="col-6">
         <h2>{props.ingredient.name}</h2>
+        <p>Serving Size: {props.ingredient.serving_size}</p>
         <h3 className="mt-2">Nutritional Summary</h3>
         <table className="table">
           <thead>
@@ -132,6 +133,18 @@ export function IngredientsShow(props) {
                   className="form-control"
                   id="ingredientPicture"
                   defaultValue={props.ingredient.picture}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label htmlFor="ingredientServingSize" className="form-label">
+                  Serving Size
+                </label>
+                <input
+                  name="picture"
+                  type="text"
+                  className="form-control"
+                  id="ingredientServingSize"
+                  defaultValue={props.ingredient.serving_size}
                 />
               </div>
               <div className="mb-2 col-4">

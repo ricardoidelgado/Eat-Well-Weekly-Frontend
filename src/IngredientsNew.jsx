@@ -15,6 +15,7 @@ export function IngredientsNew(props) {
     const params = {
       name: props.newIngredient.name,
       picture: picture,
+      serving_size: props.newIngredient.serving_size,
       calories: props.newIngredient.calories,
       fat: props.newIngredient.fat,
       sodium: props.newIngredient.sodium,
@@ -77,6 +78,15 @@ export function IngredientsNew(props) {
                   required
                   placeholder={picture}
                   onChange={(event) => setPicture(event.target.value)}
+                />
+              </div>
+              <div className="mb-2 col-4">
+                <label className="form-label">Serving Size</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder={props.newIngredient?.serving_size}
+                  disabled
                 />
               </div>
               <div className="mb-2 col-4">
@@ -174,6 +184,18 @@ export function IngredientsNew(props) {
               type="text"
               className="form-control"
               id="ingredientPicture"
+              required
+            />
+          </div>
+          <div className="mb-2 col-4">
+            <label htmlFor="ingredientServingSize" className="form-label">
+              Serving Size
+            </label>
+            <input
+              name="serving_size"
+              type="text"
+              className="form-control"
+              id="ingredientServingSize"
               required
             />
           </div>

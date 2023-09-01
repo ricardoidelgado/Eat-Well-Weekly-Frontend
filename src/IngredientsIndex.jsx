@@ -43,6 +43,12 @@ export function IngredientsIndex(props) {
                 <div className="card-body d-flex flex-column">
                   <h5 className="card-title">{ingredient.name}</h5>
                   <p className="card-text">
+                    Serving Size:{" "}
+                    {ingredient.serving_size?.toLocaleString("en-US", {
+                      maximumFractionDigits: 0,
+                    })}
+                  </p>
+                  <p className="card-text">
                     Calories:{" "}
                     {ingredient.calories?.toLocaleString("en-US", {
                       maximumFractionDigits: 0,
