@@ -40,6 +40,7 @@ export function Signup() {
               className="form-control"
               id="firstName"
               aria-describedby="emailHelp"
+              required
             />
           </div>
           <div className="mb-3 col-6">
@@ -51,6 +52,7 @@ export function Signup() {
               type="text"
               className="form-control"
               id="lastName"
+              required
             />
           </div>
           <div className="mb-3 col-12">
@@ -62,6 +64,7 @@ export function Signup() {
               type="email"
               className="form-control"
               id="email"
+              required
             />
           </div>
           <div className="mb-3 col-6">
@@ -73,6 +76,7 @@ export function Signup() {
               type="password"
               className="form-control"
               id="password"
+              required
             />
           </div>
           <div className="mb-3 col-6">
@@ -84,6 +88,7 @@ export function Signup() {
               type="password"
               className="form-control"
               id="passwordConfirmation"
+              required
             />
           </div>
           <button className="btn btn-success" type="submit">
