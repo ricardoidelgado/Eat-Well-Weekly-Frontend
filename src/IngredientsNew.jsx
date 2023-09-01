@@ -49,7 +49,7 @@ export function IngredientsNew(props) {
           id="newIngredient"
           onChange={(event) => setQueriedIngredient(event.target.value)}
         />
-        <button className="btn btn-primary" type="submit">
+        <button className="btn btn-primary mt-2" type="submit">
           Search Ingredient
         </button>
       </form>
@@ -65,7 +65,7 @@ export function IngredientsNew(props) {
                   name="name"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.name}
+                  placeholder={props.newIngredient?.name}
                   disabled
                   required
                 />
@@ -77,7 +77,7 @@ export function IngredientsNew(props) {
                   type="text"
                   className="form-control"
                   required
-                  defaultValue={picture}
+                  placeholder={picture}
                   onChange={(event) => setPicture(event.target.value)}
                 />
               </div>
@@ -87,7 +87,7 @@ export function IngredientsNew(props) {
                   name="calories"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.calories}
+                  placeholder={props.newIngredient?.calories}
                   disabled
                   required
                 />
@@ -98,7 +98,7 @@ export function IngredientsNew(props) {
                   name="fat"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.fat}
+                  placeholder={props.newIngredient?.fat}
                   disabled
                   required
                 />
@@ -109,7 +109,7 @@ export function IngredientsNew(props) {
                   name="sodium"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.sodium}
+                  placeholder={props.newIngredient?.sodium}
                   disabled
                   required
                 />
@@ -120,7 +120,7 @@ export function IngredientsNew(props) {
                   name="carbs"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.carbs}
+                  placeholder={props.newIngredient?.carbs}
                   disabled
                   required
                 />
@@ -131,7 +131,7 @@ export function IngredientsNew(props) {
                   name="protein"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.protein}
+                  placeholder={props.newIngredient?.protein}
                   disabled
                   required
                 />
@@ -142,7 +142,7 @@ export function IngredientsNew(props) {
                   name="sugar"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.sugar}
+                  placeholder={props.newIngredient?.sugar}
                   disabled
                   required
                 />
@@ -153,7 +153,7 @@ export function IngredientsNew(props) {
                   name="cholesterol"
                   type="text"
                   className="form-control"
-                  defaultValue={props.newIngredient?.cholesterol}
+                  placeholder={props.newIngredient?.cholesterol}
                   disabled
                   required
                 />
