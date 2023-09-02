@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 
-#home-header {
+.home-headers {
   text-align: center;
 }
 
@@ -12,6 +12,25 @@ html {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
+}
+
+.home-dmp-images {
+  height: 25%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10%;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+.card-body {
+  width: 100%;
+  height: 15vw;
 }
 
 #ingredients-show img {
