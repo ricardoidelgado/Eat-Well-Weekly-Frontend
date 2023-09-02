@@ -8,7 +8,10 @@ export function Home() {
           src="https://images.unsplash.com/photo-1615937722923-67f6deaf2cc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8ZGlubmVyJTIwdGFibGV8ZW58MHx8MHx8fDA%3D&auto=format&fit=crop&w=500&q=60"
         />
       </div>
-      <h4 className="col-12 mt-3 home-headers">Organize your meals!</h4>
+      <h4 className="col-12 mt-3 mb-3 home-headers">
+        Organize your meals, see the nutritional value and get a grocery list
+        straight to your email!
+      </h4>
       <h5 className="col-4 home-headers">Select your Ingredients</h5>
       <h5 className="col-4 home-headers">Assemble your Meal</h5>
       <h5 className="col-4 home-headers">Organize Your Daily Meal Plan</h5>
