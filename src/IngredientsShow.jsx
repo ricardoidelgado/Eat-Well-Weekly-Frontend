@@ -111,7 +111,7 @@ export function IngredientsShow(props) {
 
           <form className="mt-2" onSubmit={handleSubmit}>
             <div className="row">
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-6">
                 <label htmlFor="ingredientName" className="form-label">
                   Name
                 </label>
@@ -123,7 +123,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.name}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-6">
                 <label htmlFor="ingredientPicture" className="form-label">
                   Picture
                 </label>
@@ -135,7 +135,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.picture}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientServingSize" className="form-label">
                   Serving Size
                 </label>
@@ -147,7 +147,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.serving_size}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientCalories" className="form-label">
                   Calories
                 </label>
@@ -159,7 +159,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.calories}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientFat" className="form-label">
                   Fat (g)
                 </label>
@@ -171,7 +171,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.fat}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientSodium" className="form-label">
                   Sodium (mg)
                 </label>
@@ -183,7 +183,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.sodium}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientCarbs" className="form-label">
                   Carbs (g)
                 </label>
@@ -195,7 +195,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.carbs}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientProtein" className="form-label">
                   Protein (g)
                 </label>
@@ -207,7 +207,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.protein}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientSugar" className="form-label">
                   Sugar (g)
                 </label>
@@ -219,7 +219,7 @@ export function IngredientsShow(props) {
                   defaultValue={props.ingredient.sugar}
                 />
               </div>
-              <div className="mb-2 col-4">
+              <div className="mb-2 col-3">
                 <label htmlFor="ingredientCholesterol" className="form-label">
                   Cholesterol (mg)
                 </label>
