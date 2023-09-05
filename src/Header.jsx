@@ -62,17 +62,17 @@ export function Header() {
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
           <ul className="navbar-nav w-100">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
-                Home
-              </a>
-            </li>
-            <li className="nav-item">
               <a
                 className="nav-link active"
                 aria-current="page"
-                href="/weekly_meal_plans"
+                href="/ingredients"
               >
-                Weekly Plans
+                Ingredients
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link active" aria-current="page" href="/meals">
+                Meals
               </a>
             </li>
             <li className="nav-item">
@@ -85,17 +85,12 @@ export function Header() {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/meals">
-                Meals
-              </a>
-            </li>
-            <li className="nav-item">
               <a
                 className="nav-link active"
                 aria-current="page"
-                href="/ingredients"
+                href="/weekly_meal_plans"
               >
-                Ingredients
+                Weekly Plans
               </a>
             </li>
 
@@ -111,13 +106,8 @@ export function Header() {
               </a>
               <ul className="dropdown-menu">
                 <li>
-                  <a className="dropdown-item" href="/weekly_meal_plans/new">
-                    New Weekly Plan
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/daily_meal_plans/new">
-                    New Daily Plan
+                  <a className="dropdown-item" href="/ingredients/new">
+                    New Ingredient
                   </a>
                 </li>
                 <li>
@@ -126,8 +116,13 @@ export function Header() {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/ingredients/new">
-                    New Ingredient
+                  <a className="dropdown-item" href="/daily_meal_plans/new">
+                    New Daily Plan
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/weekly_meal_plans/new">
+                    New Weekly Plan
                   </a>
                 </li>
               </ul>
