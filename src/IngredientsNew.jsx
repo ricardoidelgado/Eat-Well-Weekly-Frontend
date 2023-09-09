@@ -3,6 +3,7 @@ import { useState } from "react";
 export function IngredientsNew(props) {
   const [queriedIngredient, setQueriedIngredient] = useState("");
   const [picture, setPicture] = useState("");
+  const [servingSize, setServingSize] = useState("");
 
   const handleQueryNewIngredient = (event) => {
     event.preventDefault();
@@ -15,7 +16,7 @@ export function IngredientsNew(props) {
     const params = {
       name: props.newIngredient.name,
       picture: picture,
-      serving_size: props.newIngredient.serving_size,
+      serving_size: servingSize || `${props.newIngredient.serving_size} (g)`,
       calories: props.newIngredient.calories,
       fat: props.newIngredient.fat,
       sodium: props.newIngredient.sodium,
@@ -57,7 +58,7 @@ export function IngredientsNew(props) {
 
       {props.newIngredient?.name ? (
         <>
-          <h3>Here is what we found:</h3>
+          <h3 className="mt-3">Here is what we found:</h3>
           <form className="mt-2" onSubmit={handleQuerySubmit}>
             <div className="row">
               <div className="mb-2 col-6">
@@ -87,8 +88,8 @@ export function IngredientsNew(props) {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder={props.newIngredient?.serving_size}
-                  disabled
+                  defaultValue={`${props.newIngredient?.serving_size} (g)`}
+                  onChange={(event) => setServingSize(event.target.value)}
                 />
               </div>
               <div className="mb-2 col-3">
@@ -191,7 +192,7 @@ export function IngredientsNew(props) {
           </div>
           <div className="mb-2 col-3">
             <label htmlFor="ingredientServingSize" className="form-label">
-              Serving Size
+              Serving Size (Please include unit)
             </label>
             <input
               name="serving_size"
