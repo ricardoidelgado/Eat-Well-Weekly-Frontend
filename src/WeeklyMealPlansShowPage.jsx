@@ -34,11 +34,9 @@ export function WeeklyMealPlansShowPage(props) {
   const [saturdayPlan, setSaturdayPlan] = useState({});
 
   const handleShowWeeklyMealPlan = () => {
-    axios
-      .get(`http://localhost:3000/weekly_meal_plans/${params.id}.json`)
-      .then((response) => {
-        setWeeklyMealPlan(response.data);
-      });
+    axios.get(`/weekly_meal_plans/${params.id}.json`).then((response) => {
+      setWeeklyMealPlan(response.data);
+    });
   };
 
   useEffect(handleShowWeeklyMealPlan, []);
@@ -99,18 +97,16 @@ export function WeeklyMealPlansShowPage(props) {
 
   // const handleTextGroceryList = (event) => {
   //   event.preventDefault();
-  //   axios.get(`http://localhost:3000/twilio_weekly_meal_plans/${params.id}.json`).then(() => {
+  //   axios.get(`/twilio_weekly_meal_plans/${params.id}.json`).then(() => {
   //     console.log("Text Message Sent Successfully");
   //   });
   // };
 
   const handleEmailGroceryList = (event) => {
     event.preventDefault();
-    axios
-      .get(`http://localhost:3000/email_weekly_meal_plans/${params.id}.json`)
-      .then(() => {
-        console.log("Email Sent Successfully");
-      });
+    axios.get(`/email_weekly_meal_plans/${params.id}.json`).then(() => {
+      console.log("Email Sent Successfully");
+    });
   };
 
   return (

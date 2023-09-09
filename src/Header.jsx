@@ -9,11 +9,9 @@ export function Header() {
   const params = useParams();
 
   const handleShowUser = () => {
-    axios
-      .get(`http://localhost:3000/users/${params.id}.json`)
-      .then((response) => {
-        setUser(response.data);
-      });
+    axios.get(`/users/${params.id}.json`).then((response) => {
+      setUser(response.data);
+    });
   };
 
   useEffect(handleShowUser, []);

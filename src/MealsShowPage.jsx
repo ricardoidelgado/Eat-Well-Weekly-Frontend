@@ -11,11 +11,9 @@ export function MealsShowPage(props) {
   const [editMealVisibility, setEditMealVisibility] = useState(false);
 
   const handleShowMeal = () => {
-    axios
-      .get(`http://localhost:3000/meals/${params.id}.json`)
-      .then((response) => {
-        setMeal(response.data);
-      });
+    axios.get(`/meals/${params.id}.json`).then((response) => {
+      setMeal(response.data);
+    });
   };
 
   useEffect(handleShowMeal, []);

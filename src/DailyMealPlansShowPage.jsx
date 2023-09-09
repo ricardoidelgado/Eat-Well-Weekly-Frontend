@@ -21,11 +21,9 @@ export function DailyMealPlansShowPage(props) {
     useState(false);
 
   const handleShowDailyMealPlan = () => {
-    axios
-      .get(`http://localhost:3000/daily_meal_plans/${params.id}.json`)
-      .then((response) => {
-        setDailyMealPlan(response.data);
-      });
+    axios.get(`/daily_meal_plans/${params.id}.json`).then((response) => {
+      setDailyMealPlan(response.data);
+    });
   };
 
   useEffect(handleShowDailyMealPlan, []);
@@ -62,7 +60,7 @@ export function DailyMealPlansShowPage(props) {
 
   // const handleTextGroceryList = (event) => {
   //   event.preventDefault();
-  //   axios.get(`http://localhost:3000/twilio_daily_meal_plans/${params.id}.json`).then(() => {
+  //   axios.get(`/twilio_daily_meal_plans/${params.id}.json`).then(() => {
   //     console.log("Text Message Sent Successfully");
   //   });
   // };
@@ -70,7 +68,7 @@ export function DailyMealPlansShowPage(props) {
   const handleEmailGroceryList = (event) => {
     event.preventDefault();
     axios
-      .get(`http://localhost:3000/email_daily_meal_plans/${params.id}.json`)
+      .get(`/email_daily_meal_plans/${params.id}.json`)
       .then(() => {
         console.log("Email Sent Successfully");
       });
