@@ -1,20 +1,8 @@
 import { LogoutLink } from "./LogoutLink";
-import { useParams, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 
-export function Header() {
+export function Header(props) {
   let authenticationLink;
-  const [user, setUser] = useState({});
-  const params = useParams();
-
-  const handleShowUser = () => {
-    axios.get(`/users/${params.id}.json`).then((response) => {
-      setUser(response.data);
-    });
-  };
-
-  useEffect(handleShowUser, []);
 
   if (localStorage.jwt === undefined) {
     authenticationLink = (
@@ -27,9 +15,9 @@ export function Header() {
   } else {
     authenticationLink = (
       <>
-        {user.first_name ? (
+        {props.user?.first_name ? (
           <li className="nav-item active">
-            <a className="nav-link active">Hi {user.first_name}!</a>
+            <a className="nav-link active">Hi {props.user?.first_name}!</a>
           </li>
         ) : null}
         <li className="nav-item active">
