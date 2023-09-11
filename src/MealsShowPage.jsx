@@ -31,44 +31,51 @@ export function MealsShowPage(props) {
   return (
     <div id="meals-show">
       <h2>{meal.name}</h2>
-      <img id="meals-show-image" className="mb-3" src={meal.picture} />
-      <h3 className="mt-3">Ingredients: </h3>
+      <div className="row">
+        <div className="col-6">
+          <h3 className="mt-3">Ingredients: </h3>
 
-      {meal.meal_ingredients?.map((mealIngredient) => (
-        <ul
-          className="list-group list-group-horizontal row"
-          key={mealIngredient.id}
-        >
-          <li className="list-group-item col-2 d-flex align-items-center">
-            {mealIngredient.ingredient.name}
-          </li>
-          <li className="list-group-item col-2 d-flex align-items-center">
-            Quantity:{" "}
-            {mealIngredient.ingredient_quantity.toLocaleString("en-US", {
-              maximumFractionDigits: 0,
-            })}
-          </li>
-          {props.user?.id == meal.user_id ? (
-            <li className="list-group-item col-2">
-              <button
-                className="btn btn-warning"
-                onClick={() => props.onShowMealIngredient(mealIngredient, meal)}
-              >
-                Edit Ingredient
-              </button>
-            </li>
+          {meal.meal_ingredients?.map((mealIngredient) => (
+            <ul
+              className="list-group list-group-horizontal row"
+              key={mealIngredient.id}
+            >
+              <li className="list-group-item col-4 d-flex align-items-center">
+                {mealIngredient.ingredient.name}
+              </li>
+              <li className="list-group-item col-4 d-flex align-items-center">
+                Quantity:{" "}
+                {mealIngredient.ingredient_quantity.toLocaleString("en-US", {
+                  maximumFractionDigits: 0,
+                })}
+              </li>
+              {props.user?.id == meal.user_id ? (
+                <li className="list-group-item col-4">
+                  <button
+                    className="btn btn-warning"
+                    onClick={() =>
+                      props.onShowMealIngredient(mealIngredient, meal)
+                    }
+                  >
+                    Edit Ingredient
+                  </button>
+                </li>
+              ) : null}
+            </ul>
+          ))}
+
+          {!newMealIngredientVisibility && props.user?.id == meal.user_id ? (
+            <button
+              className="btn btn-success mt-3 col-12"
+              onClick={() => setNewMealIngredientVisibility(true)}
+            >
+              Add New Ingredient
+            </button>
           ) : null}
-        </ul>
-      ))}
+        </div>
 
-      {!newMealIngredientVisibility && props.user?.id == meal.user_id ? (
-        <button
-          className="btn btn-success mt-3"
-          onClick={() => setNewMealIngredientVisibility(true)}
-        >
-          Add New Ingredient
-        </button>
-      ) : null}
+        <img id="meals-show-image" className="mb-3 col-6" src={meal.picture} />
+      </div>
 
       {newMealIngredientVisibility ? (
         <>
