@@ -34,7 +34,7 @@ import { WeeklyMealPlansNew } from "./WeeklyMealPlansNew";
 // Login/Signup
 import LoginSignup from "./LoginSignup";
 
-export function Content() {
+export function Content(props) {
   const navigate = useNavigate();
 
   // Ingredients
@@ -281,6 +281,7 @@ export function Content() {
         ingredient={currentIngredient}
         onUpdateIngredient={handleUpdateIngredient}
         onDestroyIngredient={handleDestroyIngredient}
+        user={props.user}
       />
     );
     visibility = isIngredientsShowVisible;
@@ -330,6 +331,7 @@ export function Content() {
               onShowMealIngredient={handleShowMealIngredient}
               onCreateMealIngredient={handleCreateMealIngredient}
               ingredients={ingredients}
+              user={props.user}
             />
           }
         />

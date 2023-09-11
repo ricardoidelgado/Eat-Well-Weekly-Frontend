@@ -48,18 +48,20 @@ export function MealsShowPage(props) {
               maximumFractionDigits: 0,
             })}
           </li>
-          <li className="list-group-item col-2">
-            <button
-              className="btn btn-warning"
-              onClick={() => props.onShowMealIngredient(mealIngredient, meal)}
-            >
-              Edit Ingredient
-            </button>
-          </li>
+          {props.user?.id == meal.user_id ? (
+            <li className="list-group-item col-2">
+              <button
+                className="btn btn-warning"
+                onClick={() => props.onShowMealIngredient(mealIngredient, meal)}
+              >
+                Edit Ingredient
+              </button>
+            </li>
+          ) : null}
         </ul>
       ))}
 
-      {!newMealIngredientVisibility ? (
+      {!newMealIngredientVisibility && props.user?.id == meal.user_id ? (
         <button
           className="btn btn-success mt-3"
           onClick={() => setNewMealIngredientVisibility(true)}
@@ -152,7 +154,7 @@ export function MealsShowPage(props) {
         </tbody>
       </table>
 
-      {!editMealVisibility ? (
+      {!editMealVisibility && props.user?.id == meal.user_id ? (
         <button
           className="btn btn-warning mt-3"
           onClick={() => setEditMealVisibility(true)}

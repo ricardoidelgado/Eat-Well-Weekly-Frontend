@@ -91,7 +91,8 @@ export function IngredientsShow(props) {
         </table>
       </div>
 
-      {!editIngredientVisibility ? (
+      {!editIngredientVisibility &&
+      props.user?.id == props.ingredient?.user_id ? (
         <button
           className="btn btn-warning mt-2"
           onClick={() => setEditIngredientVisibility(true)}
