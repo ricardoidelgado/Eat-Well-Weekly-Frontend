@@ -79,40 +79,41 @@ export function Header(props) {
                 Weekly Plans
               </a>
             </li>
-
-            <li className="nav-item dropdown">
-              <a
-                className="nav-link active dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Create
-              </a>
-              <ul className="dropdown-menu">
-                <li>
-                  <a className="dropdown-item" href="/ingredients/new">
-                    New Ingredient
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/meals/new">
-                    New Meal
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/daily_meal_plans/new">
-                    New Daily Plan
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/weekly_meal_plans/new">
-                    New Weekly Plan
-                  </a>
-                </li>
-              </ul>
-            </li>
+            {props.user?.id ? (
+              <li className="nav-item dropdown">
+                <a
+                  className="nav-link active dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Create
+                </a>
+                <ul className="dropdown-menu">
+                  <li>
+                    <a className="dropdown-item" href="/ingredients/new">
+                      New Ingredient
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/meals/new">
+                      New Meal
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/daily_meal_plans/new">
+                      New Daily Plan
+                    </a>
+                  </li>
+                  <li>
+                    <a className="dropdown-item" href="/weekly_meal_plans/new">
+                      New Weekly Plan
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            ) : null}
             <span id="login-logout">{authenticationLink}</span>
           </ul>
         </div>
