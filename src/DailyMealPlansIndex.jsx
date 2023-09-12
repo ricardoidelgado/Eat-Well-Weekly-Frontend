@@ -22,9 +22,11 @@ export function DailyMealPlansIndex(props) {
           </div>
         </div>
       </div>
-      <Link className="btn btn-success mb-3" to="/daily_meal_plans/new">
-        Create Daily Meal Plan
-      </Link>
+      {props.user?.id ? (
+        <Link className="btn btn-success mb-3" to="/daily_meal_plans/new">
+          Create Daily Meal Plan
+        </Link>
+      ) : null}
       <div className="accordion" id="accordionExample">
         {props.dailyMealPlans
           ?.filter((dailyMealPlan) =>

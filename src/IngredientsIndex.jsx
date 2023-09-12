@@ -22,9 +22,11 @@ export function IngredientsIndex(props) {
           </div>
         </div>
       </div>
-      <Link className="btn btn-success col" to="/ingredients/new">
-        Create Ingredient
-      </Link>
+      {props.user?.id ? (
+        <Link className="btn btn-success col" to="/ingredients/new">
+          Create Ingredient
+        </Link>
+      ) : null}
       <div className="row pt-3">
         {props.ingredients
           .filter((ingredient) =>

@@ -308,6 +308,7 @@ export function Content(props) {
             <IngredientsIndex
               ingredients={ingredients}
               onShowIngredient={handleShowIngredient}
+              user={props.user}
             />
           }
         />
@@ -321,7 +322,10 @@ export function Content(props) {
             />
           }
         />
-        <Route path="/meals" element={<MealsIndex meals={meals} />} />
+        <Route
+          path="/meals"
+          element={<MealsIndex meals={meals} user={props.user} />}
+        />
         <Route
           path="/meals/:id"
           element={
@@ -341,7 +345,12 @@ export function Content(props) {
         />
         <Route
           path="/daily_meal_plans"
-          element={<DailyMealPlansIndex dailyMealPlans={dailyMealPlans} />}
+          element={
+            <DailyMealPlansIndex
+              dailyMealPlans={dailyMealPlans}
+              user={props.user}
+            />
+          }
         />
         <Route
           path="/daily_meal_plans/:id"
@@ -364,7 +373,12 @@ export function Content(props) {
         />
         <Route
           path="/weekly_meal_plans"
-          element={<WeeklyMealPlansIndex weeklyMealPlans={weeklyMealPlans} />}
+          element={
+            <WeeklyMealPlansIndex
+              weeklyMealPlans={weeklyMealPlans}
+              user={props.user}
+            />
+          }
         />
         <Route
           path="/weekly_meal_plans/:id"
