@@ -141,7 +141,7 @@ export function IngredientsShow(props) {
                   Serving Size
                 </label>
                 <input
-                  name="picture"
+                  name="serving_size"
                   type="text"
                   className="form-control"
                   id="ingredientServingSize"
